@@ -1,5 +1,5 @@
 const tasks = require('../../data/tasks');
-// const User = require('./user.model');
+const Task = require('./task.model');
 
 const getAll = async () => {
   try {
@@ -9,51 +9,54 @@ const getAll = async () => {
   }
 };
 
-// const getUserById = async (id) => {
-//   try {
-//     const user = users.find((object) => object.id === id);
-//     if (!user) {
-//       throw new Error("Can't find such user");
-//     }
-//     return user;
-//   } catch (e) {
-//     throw new Error(e);
-//   }
-// };
+const getTaskById = async (id) => {
+  try {
+    const task = tasks.find((object) => object.id === id);
+    if (!task) {
+      throw new Error("Can't find such task");
+    }
+    return task;
+  } catch (e) {
+    throw new Error(e);
+  }
+};
 
-// const createUser = async (user) => {
-//   try {
-//     const newUser = await new User(user);
+const createTask = async (task) => {
+  try {
+    const newTask = await new Task(task);
 
-//     users.push(newUser);
-//     return newUser;
-//   } catch (e) {
-//     throw new Error(e);
-//   }
-// };
+    tasks.push(newTask);
+    return newTask;
+  } catch (e) {
+    throw new Error(e);
+  }
+};
 
-// const editUser = async (id, user) => {
-//   try {
-//     const userToEdit = users.find((object) => object.id === id);
+const editTask = async (id, task) => {
+  try {
+    const taskToEdit = tasks.find((object) => object.id === id);
 
-//     userToEdit.name = user.name;
-//     userToEdit.login = user.login;
-//     userToEdit.password = user.password;
+    taskToEdit.title = task.title;
+    taskToEdit.order = task.order;
+    taskToEdit.description = task.description;
+    taskToEdit.userId = task.userId;
+    taskToEdit.boardId = task.boardId;
+    taskToEdit.columnId = task.columnId;
 
-//     return userToEdit;
-//   } catch (e) {
-//     throw new Error(e);
-//   }
-// };
+    return taskToEdit;
+  } catch (e) {
+    throw new Error(e);
+  }
+};
 
-// const deleteUser = async (id) => {
-//   try {
-//     const index = users.indexOf((item) => item.id === id);
-//     users.splice(index, 1);
-//     return users;
-//   } catch (e) {
-//     throw new Error(e);
-//   }
-// };
+const deleteTask = async (id) => {
+  try {
+    const index = tasks.indexOf((item) => item.id === id);
+    tasks.splice(index, 1);
+    return tasks;
+  } catch (e) {
+    throw new Error(e);
+  }
+};
 
-module.exports = { getAll };
+module.exports = { getAll, getTaskById, createTask, editTask, deleteTask };

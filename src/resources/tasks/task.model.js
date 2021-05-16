@@ -1,11 +1,22 @@
 const uuid = require('uuid');
 
-class Board {
-  constructor({ title = 'Title', columns = {} } = {}) {
+class Task {
+  constructor({
+    order = 0,
+    title = 'Best task',
+    description = 'deadline passed yesterday',
+    userId = null,
+    boardId = null,
+    columnId = null,
+  } = {}) {
     this.id = uuid.v4();
     this.title = title;
-    this.columns = columns;
+    this.order = order;
+    this.description = description;
+    this.userId = userId;
+    this.boardId = boardId;
+    this.columnId = columnId;
   }
 }
 
-module.exports = Board;
+module.exports = Task;

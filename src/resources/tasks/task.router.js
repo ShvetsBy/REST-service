@@ -2,31 +2,30 @@ const router = require('express').Router();
 // const User = require('./user.model');
 const taskService = require('./task.service');
 
-router.route('/').get(async (req, res) => {
+router.route('/:boardId/tasks').get(async (req, res) => {
   const tasks = await taskService.getAll();
-
   res.status(200).json(tasks);
 });
 
-// router.route('/:id').get(async (req, res) => {
-//   const user = await usersService.getUserById(req.params.id);
-//   res.status(200).json(user);
-// });
+router.route('/:boardId/tasks/:id').get(async (req, res) => {
+  const task = await taskService.getTaskById(req.params.id);
+  res.status(200).json(task);
+});
 
-// router.route('/').post(async (req, res) => {
-//   const newUser = await usersService.createUser(req.body);
-//   res.status(201).json(User.toResponse(newUser));
-// });
+router.route('/:boardId/tasks').post(async (req, res) => {
+  const newTask = await taskService.createTask(req.body);
+  res.status(201).json(newTask);
+});
 
-// router.route('/:id').put(async (req, res) => {
-//   const editUser = await usersService.editUser(req.params.id, req.body);
+router.route('/:boardId/tasks/:id').put(async (req, res) => {
+  const editTask = await taskService.editTask(req.params.id, req.body);
 
-//   res.status(200).json(editUser);
-// });
+  res.status(200).json(editTask);
+});
 
-// router.route('/:id').delete(async (req, res) => {
-//   await usersService.deleteUser(req.params.id);
-//   res.status(204).send();
-// });
+router.route('/:boardId/tasks/:id').delete(async (req, res) => {
+  await taskService.deleteTask(req.params.id);
+  res.status(204).send();
+});
 
 module.exports = router;
