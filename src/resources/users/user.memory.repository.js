@@ -1,4 +1,5 @@
 const users = require('../../data/users');
+const tasks = require('../../data/tasks');
 const User = require('./user.model');
 
 const getAll = async () => {
@@ -50,9 +51,21 @@ const deleteUser = async (id) => {
   try {
     const index = users.indexOf((item) => item.id === id);
     users.splice(index, 1);
+    tasks.forEach((item) => {
+      if (item.userId === id) {
+        // eslint-disable-next-line no-param-reassign
+        item.userId = null;
+      }
+    });
   } catch (e) {
     throw new Error(e);
   }
 };
 
-module.exports = { getAll, getUserById, createUser, editUser, deleteUser };
+module.exports = {
+  getAll,
+  getUserById,
+  createUser,
+  editUser,
+  deleteUser,
+};
