@@ -25,7 +25,9 @@ router.route('/:id').put(async (req, res) => {
 });
 
 router.route('/:id').delete(async (req, res) => {
+  // const isCleared = await usersService.clearTaskAssignee(req.params.id);
   await usersService.deleteUser(req.params.id);
+
   res.status(204).send();
 });
 

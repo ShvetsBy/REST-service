@@ -1,5 +1,5 @@
 const users = require('../../data/users');
-let tasks = require('../../data/tasks');
+// const tasks = require('../../data/tasks');
 const User = require('./user.model');
 
 const getAll = async () => {
@@ -51,18 +51,28 @@ const deleteUser = async (id) => {
   try {
     const index = users.indexOf((item) => item.id === id);
     users.splice(index, 1);
-    const nullTasks = tasks.map((item) => {
-      const result = item;
-      if (result.userId === id) {
-        result.userId = null;
-      }
-      return result;
-    });
-    tasks = nullTasks;
+    // const nullTasks = tasks.forEach((item) => {
+    //   const result = item;
+    //   if (result.userId === id) {
+    //     result.userId = null;
+    //   }
+    //   return result;
+    // });
+    // tasks = nullTasks;
   } catch (e) {
     throw new Error(e);
   }
 };
+
+// const clearTaskAssignee = async (id) => {
+//   tasks = tasks.forEach((item) => {
+//     const task = item;
+//     if (task.userId === id) {
+//       task.userId = null;
+//     }
+//     return task;
+//   });
+// };
 
 module.exports = {
   getAll,
