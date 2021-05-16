@@ -6,7 +6,7 @@ class Task {
     title = 'Best task',
     description = 'deadline passed yesterday',
     userId = null,
-    boardId = null,
+    // boardId = null,
     columnId = null,
   } = {}) {
     this.id = uuid.v4();
@@ -14,7 +14,7 @@ class Task {
     this.order = order;
     this.description = description;
     this.userId = userId;
-    this.boardId = boardId;
+    // this.boardId = boardId;
     this.columnId = columnId;
   }
 }

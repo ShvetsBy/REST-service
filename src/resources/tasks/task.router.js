@@ -13,7 +13,8 @@ router.route('/:boardId/tasks/:id').get(async (req, res) => {
 });
 
 router.route('/:boardId/tasks').post(async (req, res) => {
-  const newTask = await taskService.createTask(req.body);
+  const { boardId } = req.params;
+  const newTask = await taskService.createTask(req.body, boardId);
   res.status(201).json(newTask);
 });
 

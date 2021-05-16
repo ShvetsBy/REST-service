@@ -12,7 +12,7 @@ const getAll = async () => {
 const getBoardById = async (id) => {
   try {
     const board = boards.find((object) => object.id === id);
-    console.log(Array.isArray(board));
+
     if (!board) {
       throw new Error("Can't find such board");
     }

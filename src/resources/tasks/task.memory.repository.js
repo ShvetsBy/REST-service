@@ -21,10 +21,10 @@ const getTaskById = async (id) => {
   }
 };
 
-const createTask = async (task) => {
+const createTask = async (task, boardId) => {
   try {
     const newTask = await new Task(task);
-
+    newTask.boardId = boardId;
     tasks.push(newTask);
     return newTask;
   } catch (e) {
