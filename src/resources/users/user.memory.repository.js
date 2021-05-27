@@ -48,9 +48,9 @@ const editUser = async (id, user) => {
 };
 
 const deleteUser = async (id) => {
+  // TODO delete try-catch
   try {
     const index = users.indexOf((item) => item.id === id);
-    console.log(index);
     users.splice(index, 1);
     tasks.forEach((item) => {
       const task = item;

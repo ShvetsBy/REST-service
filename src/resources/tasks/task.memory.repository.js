@@ -1,4 +1,4 @@
-const tasks = require('../../data/tasks');
+let tasks = require('../../data/tasks');
 const Task = require('./task.model');
 
 const getAll = async () => {
@@ -57,4 +57,15 @@ const deleteTask = async (id) => {
   }
 };
 
-module.exports = { getAll, getTaskById, createTask, editTask, deleteTask };
+const deleteBoardTasks = async (boardId) => {
+  tasks = tasks.filter((task) => task.boardId !== boardId);
+};
+
+module.exports = {
+  getAll,
+  getTaskById,
+  createTask,
+  editTask,
+  deleteTask,
+  deleteBoardTasks,
+};
