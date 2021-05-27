@@ -8,8 +8,14 @@ router.route('/:boardId/tasks').get(async (req, res) => {
 });
 
 router.route('/:boardId/tasks/:id').get(async (req, res) => {
-  const task = await taskService.getTaskById(req.params.id);
-  res.status(200).json(task);
+  try {
+    const task = await taskService.getTaskById(req.params.id);
+    if (task) {
+      res.status(200).json(task);
+    }
+  } catch (e) {
+    res.status(404).json('No task found');
+  }
 });
 
 router.route('/:boardId/tasks').post(async (req, res) => {

@@ -50,12 +50,10 @@ const editTask = async (id, task) => {
 };
 
 const deleteTask = async (id) => {
-  try {
-    const index = tasks.indexOf((item) => item.id === id);
+  const TaskoDelete = tasks.find((object) => object.id === id);
+  if (TaskoDelete) {
+    const index = tasks.findIndex((item) => item.id === id);
     tasks.splice(index, 1);
-    return tasks;
-  } catch (e) {
-    throw new Error(e);
   }
 };
 
