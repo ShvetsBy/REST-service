@@ -47,12 +47,10 @@ const editBoard = async (id, board) => {
 };
 
 const deleteBoard = async (id) => {
-  try {
-    const index = boards.indexOf((item) => item.id === id);
-
+  const BoardToDelete = boards.find((object) => object.id === id);
+  if (BoardToDelete) {
+    const index = boards.findIndex((item) => item.id === id);
     boards.splice(index, 1);
-  } catch (e) {
-    throw new Error(e);
   }
 };
 

@@ -50,6 +50,7 @@ const editUser = async (id, user) => {
 const deleteUser = async (id) => {
   try {
     const index = users.indexOf((item) => item.id === id);
+    console.log(index);
     users.splice(index, 1);
     tasks.forEach((item) => {
       const task = item;
@@ -61,16 +62,6 @@ const deleteUser = async (id) => {
     throw new Error(e);
   }
 };
-
-// const clearTaskAssignee = async (id) => {
-//   tasks = tasks.forEach((item) => {
-//     const task = item;
-//     if (task.userId === id) {
-//       task.userId = null;
-//     }
-//     return task;
-//   });
-// };
 
 module.exports = {
   getAll,
