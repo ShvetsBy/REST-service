@@ -65,11 +65,9 @@ const createUser = async (user) => {
 const editUser = async (id, user) => {
   try {
     const userToEdit = users.find((object) => object.id === id);
-
     userToEdit.name = user.name;
     userToEdit.login = user.login;
     userToEdit.password = user.password;
-
     return userToEdit;
   } catch (e) {
     throw new Error(e);
