@@ -6,6 +6,7 @@ const User = require('./user.model');
  * Returns the list of app users.
  * no params required
  * @async
+ * @throws {string} error message
  * @returns {Promise<Array>} List of users. Every user is an object, which contains 3 strings: id, name and login
  */
 const getAll = async () => {
@@ -19,6 +20,7 @@ const getAll = async () => {
 /**
  * Returns one user according his uniq id.
  * @async
+ * @throws {string} error message
  * @param {string} id – user uniq id.
  * @returns {Promise<Object>} List of user's properties: id, name and login.
  */
@@ -37,6 +39,7 @@ const getUserById = async (id) => {
 /**
  * Creates new user.
  * @async
+ * @throws {string} error message
  * @param {Object} user – object consists of 3 items: id, name, login and password.
  * @returns {Promise<Object>} new user with id, name, login and password.
  */
@@ -56,6 +59,7 @@ const createUser = async (user) => {
  * @async
  * @param {string} id – user uniq id.
  * @param {Object} user – object consists of 3 items: id, name, login and password.
+ * @throws {string} error message
  * @returns {Promise<Object>} update user's id, name or login.
  */
 const editUser = async (id, user) => {
@@ -73,13 +77,12 @@ const editUser = async (id, user) => {
 };
 
 /**
- * Edit existing user.
+ * delete existing user and removes his id from tasks.
  * @async
  * @param {string} id – user uniq id.
  * @return {undefined}
  */
 const deleteUser = async (id) => {
-  // TODO delete try-catch
   try {
     const index = users.indexOf((item) => item.id === id);
     users.splice(index, 1);

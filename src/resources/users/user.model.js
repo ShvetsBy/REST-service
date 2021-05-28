@@ -1,5 +1,14 @@
 const uuid = require('uuid');
 
+/**
+ * A class to represent a user.
+@class
+@constructor
+* @param {String} userId – auto-generated user id
+* @param {String} name –  user name
+* @param {String} login –  user login
+* @param {String} password – user password
+*/
 class User {
   constructor({ name = 'USER', login = 'user', password = 'P@55w0rd' } = {}) {
     this.id = uuid.v4();
