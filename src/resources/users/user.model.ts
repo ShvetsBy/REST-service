@@ -1,4 +1,19 @@
-const uuid = require('uuid');
+
+import * as uuid from 'uuid';
+
+// interface UserToResponce {
+//   id: string;
+//   name: number;
+//   login: string;
+// }
+
+// interface User extends UserToResponce {
+//   id: string;
+//   name: number;
+//   login: string;
+//   password: string;
+//   toResponse(): UserToResponce;
+// }
 
 /**
  * A class to represent a user.
@@ -10,6 +25,7 @@ const uuid = require('uuid');
 * @param {String} password – user password
 */
 class User {
+  // constructor( id: string, name: string, login: string, password: string
   constructor({ name = 'USER', login = 'user', password = 'P@55w0rd' } = {}) {
     this.id = uuid.v4();
     this.name = name;
@@ -17,10 +33,11 @@ class User {
     this.password = password;
   }
 
+  // public static toResponse(user): UserToResponce {
   static toResponse(user) {
     const { id, name, login } = user;
     return { id, name, login };
   }
 }
 
-module.exports = User;
+export { User };

@@ -1,4 +1,5 @@
-const uuid = require('uuid');
+
+import * as uuid from 'uuid';
 
 /**
  * A class to represent a task.
@@ -28,4 +29,4 @@ class Task {
   }
 }
 
-module.exports = Task;
+export { Task };

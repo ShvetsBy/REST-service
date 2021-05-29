@@ -1,5 +1,14 @@
-const boards = require('../../data/boards');
-const Board = require('./board.model');
+
+import {Board} from './board.model.js';
+
+interface IBoards {
+  id?: string;
+  title?: string;
+  columns?: object;
+
+};
+
+const boards: IBoards[] = [];
 
 /**
  * Returns the list of boards.
@@ -23,7 +32,7 @@ const getAll = async () => {
  * @throws {string} error message
  * @returns {Promise<Object>} Object with board content: id, title and columns with content.
  */
-const getBoardById = async (id) => {
+const getBoardById = async (id: string) => {
   try {
     const board = boards.find((object) => object.id === id);
 
@@ -43,10 +52,9 @@ const getBoardById = async (id) => {
  * @throws {string} error message
  * @returns {Promise<Object>} new board with id, title and content.
  */
-const createBoard = async (board) => {
+const createBoard = async (board: IBoards) => {
   try {
-    const newBoard = await new Board(board);
-
+    const newBoard: IBoards = await new Board(board);
     boards.push(newBoard);
     return newBoard;
   } catch (e) {
@@ -62,10 +70,9 @@ const createBoard = async (board) => {
  * @throws {string} error message
  * @returns {Promise<Object>} updated board with id, title and content.
  */
-const editBoard = async (id, board) => {
+const editBoard = async (id: string, board: IBoards) => {
   try {
     const BoardToEdit = boards.find((object) => object.id === id);
-
     BoardToEdit.title = board.title;
     BoardToEdit.columns = board.columns;
 
@@ -81,12 +88,11 @@ const editBoard = async (id, board) => {
  * @param {string} id – task uniq id.
  * @return {undefined}
  */
-const deleteBoard = async (id) => {
+const deleteBoard = async (id: string) => {
   const BoardToDelete = boards.find((object) => object.id === id);
   if (BoardToDelete) {
     const index = boards.findIndex((item) => item.id === id);
     boards.splice(index, 1);
   }
 };
-
-module.exports = { getAll, getBoardById, createBoard, editBoard, deleteBoard };
+export { getAll, getBoardById, createBoard, editBoard, deleteBoard };

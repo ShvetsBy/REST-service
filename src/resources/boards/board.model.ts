@@ -1,4 +1,5 @@
-const uuid = require('uuid');
+
+import * as uuid from 'uuid';
 
 /**
  * A class to represent a board.
@@ -16,4 +17,4 @@ class Board {
   }
 }
 
-module.exports = Board;
+export { Board };

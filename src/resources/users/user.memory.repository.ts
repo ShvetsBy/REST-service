@@ -1,6 +1,8 @@
-const users = require('../../data/users');
-const tasks = require('../../data/tasks');
-const User = require('./user.model');
+
+import { User } from './user.model.js';
+
+const users = [];
+const tasks = [];
 
 /**
  * Returns the list of app users.
@@ -95,7 +97,7 @@ const deleteUser = async (id) => {
   }
 };
 
-module.exports = {
+export {
   getAll,
   getUserById,
   createUser,

@@ -1,6 +1,11 @@
-const router = require('express').Router();
+// const router = require('express').Router();
 // const User = require('./user.model');
-const taskService = require('./task.service');
+// const taskService = require('./task.service');
+
+import express from 'express';
+import * as taskService from './task.service.js';
+
+const router = express.Router();
 
 router.route('/:boardId/tasks').get(async (req, res) => {
   const tasks = await taskService.getAll();
@@ -35,4 +40,4 @@ router.route('/:boardId/tasks/:id').delete(async (req, res) => {
   res.status(204).send();
 });
 
-module.exports = router;
+export { router };
