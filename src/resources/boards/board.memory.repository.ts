@@ -1,12 +1,6 @@
 
-import {Board} from './board.model.js';
+import { Board, IBoards } from './board.model.js';
 
-interface IBoards {
-  id?: string;
-  title?: string;
-  columns?: object;
-
-};
 
 const boards: IBoards[] = [];
 

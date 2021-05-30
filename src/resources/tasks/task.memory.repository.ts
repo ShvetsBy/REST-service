@@ -2,8 +2,10 @@
 // const Task = require('./task.model');
 
 import { Task } from './task.model.js';
+import { ITask } from './task.interface' 
 
-let tasks = [];
+
+let tasks: ITask[] = [];
 
 /**
  * Returns the list of tasks.
@@ -27,7 +29,7 @@ const getAll = async () => {
  * @throws {string} error message
  * @returns {Promise<Object>} Object with task content: id, title, order, description and userid.
  */
-const getTaskById = async (id) => {
+const getTaskById = async (id: string) => {
   try {
     const task = tasks.find((object) => object.id === id);
     if (!task) {
@@ -46,7 +48,7 @@ const getTaskById = async (id) => {
  * @throws {string} error message
  * @returns {Promise<Object>} new task.
  */
-const createTask = async (task, boardId) => {
+const createTask = async (task: ITask, boardId: string) => {
   try {
     const newTask = await new Task(task);
     newTask.boardId = boardId;
@@ -65,18 +67,19 @@ const createTask = async (task, boardId) => {
  * @throws {string} error message
  * @returns {Promise<Object>} updated task.
  */
-const editTask = async (id, task) => {
+const editTask = async (task: ITask, id: string) => {
   try {
     const taskToEdit = tasks.find((object) => object.id === id);
-
-    taskToEdit.title = task.title;
-    taskToEdit.order = task.order;
-    taskToEdit.description = task.description;
-    taskToEdit.userId = task.userId;
-    taskToEdit.boardId = task.boardId;
-    taskToEdit.columnId = task.columnId;
-
-    return taskToEdit;
+    if (taskToEdit) {
+      taskToEdit.title = task.title;
+      taskToEdit.order = task.order;
+      taskToEdit.description = task.description;
+      taskToEdit.userId = task.userId;
+      taskToEdit.boardId = task.boardId;
+      taskToEdit.columnId = task.columnId;
+      return taskToEdit;
+    } return new Error('No task to edit');
+   
   } catch (e) {
     throw new Error(e);
   }
@@ -88,7 +91,7 @@ const editTask = async (id, task) => {
  * @param {string} id – task uniq id.
  * @return {undefined}
  */
-const deleteTask = async (id) => {
+const deleteTask = async (id: string) => {
   const TaskoDelete = tasks.find((object) => object.id === id);
   if (TaskoDelete) {
     const index = tasks.findIndex((item) => item.id === id);
@@ -102,7 +105,7 @@ const deleteTask = async (id) => {
  * @param {string} boardId – board uniq id.
  * @return {undefined}
  */
-const deleteBoardTasks = async (boardId) => {
+const deleteBoardTasks = async (boardId: string) => {
   tasks = tasks.filter((task) => task.boardId !== boardId);
 };
 

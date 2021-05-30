@@ -1,6 +1,6 @@
 
 import * as uuid from 'uuid';
-
+import { ITask } from './task.interface'
 /**
  * A class to represent a task.
 @class
@@ -12,20 +12,25 @@ import * as uuid from 'uuid';
 * @param {String} userID – id of user, who created task
 * @param {String} columnId — id of task place on the board
 */
-class Task {
-  constructor({
-    title = 'Best task',
-    order = 0,
-    description = 'deadline passed yesterday',
-    userId = null,
-    columnId = null,
-  } = {}) {
+class Task implements ITask{
+  id: string;
+  title: string;
+  order: number;
+  description: string;
+  userId: string;
+  columnId: string;
+  boardId: string;
+
+  constructor ( { title, order, description, userId, columnId, boardId}: ITask)
+
+  {
     this.id = uuid.v4();
     this.title = title;
     this.order = order;
     this.description = description;
     this.userId = userId;
     this.columnId = columnId;
+    this.boardId = boardId;
   }
 }
 

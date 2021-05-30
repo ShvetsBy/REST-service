@@ -1,8 +1,10 @@
 
 import { User } from './user.model.js';
+import { IUser } from './user.interface';
+import { ITask } from './../tasks/task.interface'
 
-const users = [];
-const tasks = [];
+const users: IUser[] = [];
+const tasks: ITask[] = [];
 
 /**
  * Returns the list of app users.
@@ -26,7 +28,7 @@ const getAll = async () => {
  * @param {string} id – user uniq id.
  * @returns {Promise<Object>} List of user's properties: id, name and login.
  */
-const getUserById = async (id) => {
+const getUserById = async (id: string) => {
   try {
     const user = users.find((object) => object.id === id);
     if (!user) {
@@ -45,7 +47,7 @@ const getUserById = async (id) => {
  * @param {Object} user – object consists of 3 items: id, name, login and password.
  * @returns {Promise<Object>} new user with id, name, login and password.
  */
-const createUser = async (user) => {
+const createUser = async (user: IUser) => {
   try {
     const newUser = await new User(user);
 
@@ -64,13 +66,16 @@ const createUser = async (user) => {
  * @throws {string} error message
  * @returns {Promise<Object>} update user's id, name or login.
  */
-const editUser = async (id, user) => {
+const editUser = async (user: IUser, id: string) => {
   try {
     const userToEdit = users.find((object) => object.id === id);
-    userToEdit.name = user.name;
-    userToEdit.login = user.login;
-    userToEdit.password = user.password;
-    return userToEdit;
+    if (userToEdit) {
+      userToEdit.name = user.name;
+      userToEdit.login = user.login;
+      userToEdit.password = user.password;
+      return userToEdit;
+    } return new Error('Failed to edit this user.')
+   
   } catch (e) {
     throw new Error(e);
   }
@@ -82,11 +87,11 @@ const editUser = async (id, user) => {
  * @param {string} id – user uniq id.
  * @return {undefined}
  */
-const deleteUser = async (id) => {
+const deleteUser = async (id: string) => {
   try {
-    const index = users.indexOf((item) => item.id === id);
+    const index = users.indexOf((item: IUser): number => item.id === id);
     users.splice(index, 1);
-    tasks.forEach((item) => {
+    tasks.forEach((item: IUser) => {
       const task = item;
       if (task.userId === id) {
         task.userId = null;

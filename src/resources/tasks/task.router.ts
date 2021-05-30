@@ -30,7 +30,7 @@ router.route('/:boardId/tasks').post(async (req, res) => {
 });
 
 router.route('/:boardId/tasks/:id').put(async (req, res) => {
-  const editTask = await taskService.editTask(req.params.id, req.body);
+  const editTask = await taskService.editTask(req.body, req.params.id, );
 
   res.status(200).json(editTask);
 });

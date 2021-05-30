@@ -1,19 +1,6 @@
 
 import * as uuid from 'uuid';
-
-// interface UserToResponce {
-//   id: string;
-//   name: number;
-//   login: string;
-// }
-
-// interface User extends UserToResponce {
-//   id: string;
-//   name: number;
-//   login: string;
-//   password: string;
-//   toResponse(): UserToResponce;
-// }
+import { IUser } from './user.interface'
 
 /**
  * A class to represent a user.
@@ -24,9 +11,13 @@ import * as uuid from 'uuid';
 * @param {String} login –  user login
 * @param {String} password – user password
 */
-class User {
-  // constructor( id: string, name: string, login: string, password: string
-  constructor({ name = 'USER', login = 'user', password = 'P@55w0rd' } = {}) {
+class User implements IUser {
+  id: string;
+  name: string;
+  login: string;
+  password: string;
+  
+  constructor( { name, login, password}: IUser) {
     this.id = uuid.v4();
     this.name = name;
     this.login = login;
@@ -34,7 +25,7 @@ class User {
   }
 
   // public static toResponse(user): UserToResponce {
-  static toResponse(user) {
+  static toResponse(user: IUser) {
     const { id, name, login } = user;
     return { id, name, login };
   }

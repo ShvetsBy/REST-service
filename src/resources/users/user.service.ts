@@ -1,10 +1,11 @@
 import * as usersRepo from './user.memory.repository.js';
+import { IUser } from './user.interface'
 
 const getAll = () => usersRepo.getAll();
-const getUserById = (id) => usersRepo.getUserById(id);
-const createUser = (user) => usersRepo.createUser(user);
-const editUser = (id, user) => usersRepo.editUser(id, user);
-const deleteUser = (id) => usersRepo.deleteUser(id);
+const getUserById = (id: string) => usersRepo.getUserById(id);
+const createUser = (user: IUser) => usersRepo.createUser(user);
+const editUser = (user: IUser, id: string, ) => usersRepo.editUser(user, id);
+const deleteUser = (id: string) => usersRepo.deleteUser(id);
 
 export {
   getAll,

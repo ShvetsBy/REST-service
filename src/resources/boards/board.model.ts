@@ -1,6 +1,13 @@
 
 import * as uuid from 'uuid';
 
+interface IBoards {
+  id?: string;
+  title?: string;
+  columns?: object;
+
+};
+
 /**
  * A class to represent a board.
 @class
@@ -10,11 +17,17 @@ import * as uuid from 'uuid';
 * @param {Array<Object>} columns – task list
 */
 class Board {
-  constructor({ title = 'Title', columns = {} } = {}) {
+  
+
+  constructor({ 
+    
+    title = 'Title', 
+    columns = {} }
+     = {}) {
     this.id = uuid.v4();
     this.title = title;
     this.columns = columns;
   }
 }
 
-export { Board };
+export { Board, IBoards };
