@@ -1,12 +1,6 @@
 
 import * as uuid from 'uuid';
-
-interface IBoards {
-  id?: string;
-  title?: string;
-  columns?: object;
-
-};
+import { IBoard } from './board.interface'
 
 /**
  * A class to represent a board.
@@ -16,18 +10,17 @@ interface IBoards {
 * @param {String} title – board name
 * @param {Array<Object>} columns – task list
 */
-class Board {
+class Board implements IBoard{
+  id: string;
+  title: string;
+  columns: object;
   
-
-  constructor({ 
-    
-    title = 'Title', 
-    columns = {} }
-     = {}) {
+  constructor({title, columns}: IBoard) 
+  {
     this.id = uuid.v4();
     this.title = title;
     this.columns = columns;
   }
 }
 
-export { Board, IBoards };
+export { Board };

@@ -13,12 +13,12 @@ import YAML from 'yamljs';
 import { router as userRouter } from './resources/users/user.router.js';
 import { router as boardRouter } from './resources/boards/board.router.js';
 import { router as taskRouter } from './resources/tasks/task.router.js';
-
-
+import commonjsVariables from 'commonjs-variables-for-esmodules';
+const { __dirname } = commonjsVariables(import.meta);
 const app = express();
-// const swaggerDocument = YAML.load(path.join(__dirname, '../doc/api.yaml'));
+const swaggerDocument = YAML.load(path.join(__dirname, '../doc/api.yaml'));
 app.use(express.json());
-// app.use('/doc', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
+app.use('/doc', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 app.use('/', (req, res, next) => {
   if (req.originalUrl === '/') {

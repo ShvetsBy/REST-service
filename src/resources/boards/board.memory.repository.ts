@@ -1,8 +1,9 @@
 
-import { Board, IBoards } from './board.model.js';
+import { Board } from './board.model.js';
+import { IBoard} from './board.interface'
 
 
-const boards: IBoards[] = [];
+const boards: IBoard[] = [];
 
 /**
  * Returns the list of boards.
@@ -46,9 +47,9 @@ const getBoardById = async (id: string) => {
  * @throws {string} error message
  * @returns {Promise<Object>} new board with id, title and content.
  */
-const createBoard = async (board: IBoards) => {
+const createBoard = async (board: IBoard) => {
   try {
-    const newBoard: IBoards = await new Board(board);
+    const newBoard = await new Board(board);
     boards.push(newBoard);
     return newBoard;
   } catch (e) {
@@ -64,13 +65,15 @@ const createBoard = async (board: IBoards) => {
  * @throws {string} error message
  * @returns {Promise<Object>} updated board with id, title and content.
  */
-const editBoard = async (id: string, board: IBoards) => {
+const editBoard = async (id: string, board: IBoard) => {
   try {
     const BoardToEdit = boards.find((object) => object.id === id);
-    BoardToEdit.title = board.title;
-    BoardToEdit.columns = board.columns;
-
-    return BoardToEdit;
+    if (BoardToEdit) {
+      BoardToEdit.title = board.title;
+      BoardToEdit.columns = board.columns;
+      return BoardToEdit;
+    } return
+   
   } catch (e) {
     throw new Error(e);
   }

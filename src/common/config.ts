@@ -1,10 +1,11 @@
-
 import dotenv from 'dotenv';
 import path from 'path';
+import commonjsVariables from 'commonjs-variables-for-esmodules';
+ 
+const { __dirname } = commonjsVariables(import.meta);
 
 dotenv.config({
-  // path: path.join(__dirname, '../../.env'),
-  path: '/Users/ivanshvets/Education/REST-service/.env',
+  path: path.join(__dirname, '../../.env'),
 });
 
 export const { PORT, NODE_ENV, MONGO_CONNECTION_STRING, JWT_SECRET_KEY, AUTH_MODE } = process.env;
