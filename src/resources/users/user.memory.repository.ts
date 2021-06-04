@@ -1,11 +1,11 @@
 
 import { User } from './user.model.js';
 import { IUser } from './user.interface';
-// import { ITask } from './../tasks/task.interface'
+import { ITask } from './../tasks/task.interface'
 
 
 const users: IUser[] = [];
-// let tasks: ITask[] = [];
+let tasks: ITask[] = [];
 
 /**
  * Returns the list of app users.
@@ -93,17 +93,17 @@ const deleteUser = async (id: string) => {
     users.splice(index, 1);
 };
 
-// const clearTasks = async (id: string) => {
-//   console.log(id);
-//   console.log(tasks);
-//   tasks.forEach((item) => {
-//     console.log(item);
-//     if (item.userId === id) {
-//       item.userId = null;
+const clearTasks = async (id: string) => {
+  // console.log(id);
+  // console.log(tasks);
+  tasks.forEach((item) => {
+    console.log(item);
+    if (item.userId === id) {
+      item.userId = null;
     
-//     }
-// }
-//   )}
+    }
+}
+  )}
 
 export {
   getAll,
@@ -111,5 +111,5 @@ export {
   createUser,
   editUser,
   deleteUser,
-  
+  clearTasks
 };
