@@ -1,35 +1,52 @@
 import express from 'express';
 import { User }  from './user.model.js';
 import * as usersService from './user.service.js';
+import { StatusCodes } from 'http-status-codes';
 
 const router = express.Router();
 
 router.route('/').get(async (req, res) => {
   const users = await usersService.getAll();
-  res.json(users.map(User.toResponse));
+  if (users) {
+    res.status(StatusCodes.OK).json(users.map(User.toResponse));
+  } else {
+    res.status(StatusCodes.NOT_FOUND)
+  }
+  
 });
 
 router.route('/:id').get(async (req, res) => {
   const user = await usersService.getUserById(req.params.id);
-  res.status(200).json(user);
+  if (user) {
+    res.status(StatusCodes.OK).json(user);
+  } else {
+    res.status(StatusCodes.NOT_FOUND)
+  }
 });
 
 router.route('/').post(async (req, res) => {
   const newUser = await usersService.createUser(req.body);
-  res.status(201).json(User.toResponse(newUser));
+  if (newUser) {
+    res.status(StatusCodes.CREATED).json(User.toResponse(newUser));
+  } else {
+    res.status(StatusCodes.NOT_FOUND)
+  }
 });
 
 router.route('/:id').put(async (req, res) => {
   const editUser = await usersService.editUser(req.body, req.params.id);
-
-  res.status(200).json(editUser);
+  if (editUser) {
+    res.status(StatusCodes.OK).json(editUser);
+  } else {
+    res.status(StatusCodes.NOT_FOUND)
+  }
 });
 
 router.route('/:id').delete(async (req, res) => {
   await usersService.clearTasks(req.params.id);
   await usersService.deleteUser(req.params.id);
 
-  res.status(204).send();
+  res.status(StatusCodes.NO_CONTENT).send();
 });
 
 export { router} ;

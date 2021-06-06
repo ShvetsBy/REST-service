@@ -1,8 +1,9 @@
 
 import { User } from './user.model.js';
 import { IUser } from './user.interface';
-import { ITask } from './../tasks/task.interface'
-
+import { ITask } from '../resources/tasks/task.interface'
+import { ReasonPhrases, StatusCodes } from 'http-status-codes';
+import express, {Request, Response, NextFunction } from 'express';
 
 const users: IUser[] = [];
 let tasks: ITask[] = [];
@@ -14,7 +15,7 @@ let tasks: ITask[] = [];
  * @throws {string} error message
  * @returns {Promise<Array>} List of users. Every user is an object, which contains 3 strings: id, name and login
  */
-const getAll = async () => {
+ const getAll = async () => {
   try {
     return users;
   } catch (e) {
