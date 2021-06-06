@@ -2,7 +2,7 @@ import express from 'express';
 import swaggerUI from 'swagger-ui-express';
 import path from 'path';
 import YAML from 'yamljs';
-import { router as userRouter } from './users/user.router.js';
+import { router as userRouter } from './resources/users/user.router';
 import { router as boardRouter } from './resources/boards/board.router.js';
 import { router as taskRouter } from './resources/tasks/task.router.js';
 import commonjsVariables from 'commonjs-variables-for-esmodules';
