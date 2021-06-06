@@ -5,7 +5,7 @@ import { StatusCodes } from 'http-status-codes';
 
 const router = express.Router();
 
-router.route('/').get(async (req, res) => {
+router.route('/').get(async (_req, res) => {
   const boards = await boardService.getAll();
   if (boards) {
     res.status(StatusCodes.OK).json(boards);
@@ -37,7 +37,7 @@ router.route('/').post(async (req, res) => {
 
 router.route('/:id').put(async (req, res) => {
   const editBoard = await boardService.editBoard(req.params.id, req.body);
-  if (eeditBoard) {
+  if (editBoard) {
     res.status(StatusCodes.OK).json(editBoard);
   } else {
     res.status(StatusCodes.NOT_FOUND)

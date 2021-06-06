@@ -6,7 +6,7 @@ const getUserById = (id: string) => usersRepo.getUserById(id);
 const createUser = (user: IUser) => usersRepo.createUser(user);
 const editUser = (user: IUser, id: string, ) => usersRepo.editUser(user, id);
 const deleteUser = (id: string) => usersRepo.deleteUser(id);
-const clearTasks = (id: string) => usersRepo.clearTasks(id);
+// const clearTasks = (id: string) => usersRepo.clearTasks(id);
 
 export {
   getAll,
@@ -14,7 +14,7 @@ export {
   createUser,
   editUser,
   deleteUser,
-  clearTasks,
+  // clearTasks,
 };
 
 

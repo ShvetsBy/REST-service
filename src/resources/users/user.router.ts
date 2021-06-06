@@ -5,7 +5,7 @@ import { StatusCodes } from 'http-status-codes';
 
 const router = express.Router();
 
-router.route('/').get(async (req, res) => {
+router.route('/').get(async (_req, res) => {
   const users = await usersService.getAll();
   if (users) {
     res.status(StatusCodes.OK).json(users.map(User.toResponse));
@@ -43,7 +43,7 @@ router.route('/:id').put(async (req, res) => {
 });
 
 router.route('/:id').delete(async (req, res) => {
-  await usersService.clearTasks(req.params.id);
+  // await usersService.clearTasks(req.params.id);
   await usersService.deleteUser(req.params.id);
 
   res.status(StatusCodes.NO_CONTENT).send();

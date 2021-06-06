@@ -1,12 +1,11 @@
 
 import { User } from './user.model.js';
 import { IUser } from './user.interface';
-import { ITask } from '../resources/tasks/task.interface'
-import { ReasonPhrases, StatusCodes } from 'http-status-codes';
-import express, {Request, Response, NextFunction } from 'express';
+// import { ITask } from '../tasks/task.interface'
+
 
 const users: IUser[] = [];
-let tasks: ITask[] = [];
+// let tasks: ITask[] = [];
 
 /**
  * Returns the list of app users.
@@ -100,22 +99,22 @@ const deleteUser = async (id: string) => {
   
 };
 
-const clearTasks = async (id: string) => {
-  try {
-    tasks.forEach((item) => {
-      console.log(item);
-      if (item.userId === id) {
-        item.userId = null;
+// const clearTasks = async (id: string) => {
+//   try {
+//     tasks.forEach((item) => {
+//       console.log(item);
+//       if (item.userId === id) {
+//         item.userId = null;
       
-      }
-  }
-  )  
-}
+//       }
+//   }
+//   )  
+// }
   
-catch(e) {
-  throw new Error(e);
-}
- }
+// catch(e) {
+//   throw new Error(e);
+// }
+//  }
 
 export {
   getAll,
@@ -123,5 +122,5 @@ export {
   createUser,
   editUser,
   deleteUser,
-  clearTasks
+  
 };

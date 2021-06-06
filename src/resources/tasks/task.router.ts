@@ -8,7 +8,7 @@ import { StatusCodes } from 'http-status-codes';
 
 const router = express.Router();
 
-router.route('/:boardId/tasks').get(async (req, res) => {
+router.route('/:boardId/tasks').get(async (_req, res) => {
   const tasks = await taskService.getAll();
   if (tasks) {
     res.status(StatusCodes.OK).json(tasks);
@@ -47,7 +47,6 @@ router.route('/:boardId/tasks/:id').put(async (req, res) => {
   } else {
     res.status(StatusCodes.NOT_FOUND)
   }
-  r
 });
 
 router.route('/:boardId/tasks/:id').delete(async (req, res) => {

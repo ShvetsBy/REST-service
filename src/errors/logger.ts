@@ -1,5 +1,4 @@
 import winston from 'winston'
-// import { ERROR_OUTPUT, LOG_OUTPUT } from '../../common/'
 
 const logger = winston.createLogger ({
     level: 'info',
