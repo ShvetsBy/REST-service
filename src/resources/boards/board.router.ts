@@ -1,15 +1,24 @@
-const router = require('express').Router();
-const boardService = require('./board.service');
+import express from 'express';
+import * as boardService from './board.service.js';
+import * as tasksService from '../tasks/task.service.js';
+
+const router = express.Router();
 
 router.route('/').get(async (req, res) => {
   const boards = await boardService.getAll();
-
   res.status(200).json(boards);
 });
 
 router.route('/:id').get(async (req, res) => {
-  const board = await boardService.getBoardById(req.params.id);
-  res.status(200).json(board);
+  // TODO delete try-catch
+  try {
+    const board = await boardService.getBoardById(req.params.id);
+    if (board) {
+      res.status(200).json(board);
+    }
+  } catch (e) {
+    res.status(404).json('No board found');
+  }
 });
 
 router.route('/').post(async (req, res) => {
@@ -23,9 +32,10 @@ router.route('/:id').put(async (req, res) => {
   res.status(200).json(editBoard);
 });
 
-router.route('/:id').delete(async (req, res) => {
+router.delete('/:id', async (req, res) => {
   await boardService.deleteBoard(req.params.id);
+  await tasksService.deleteBoardTasks(req.params.id);
   res.status(204).send();
 });
 
-module.exports = router;
+export { router };

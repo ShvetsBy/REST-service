@@ -1,6 +1,11 @@
-const router = require('express').Router();
+// const router = require('express').Router();
 // const User = require('./user.model');
-const taskService = require('./task.service');
+// const taskService = require('./task.service');
+
+import express from 'express';
+import * as taskService from './task.service.js';
+
+const router = express.Router();
 
 router.route('/:boardId/tasks').get(async (req, res) => {
   const tasks = await taskService.getAll();
@@ -8,8 +13,14 @@ router.route('/:boardId/tasks').get(async (req, res) => {
 });
 
 router.route('/:boardId/tasks/:id').get(async (req, res) => {
-  const task = await taskService.getTaskById(req.params.id);
-  res.status(200).json(task);
+  try {
+    const task = await taskService.getTaskById(req.params.id);
+    if (task) {
+      res.status(200).json(task);
+    }
+  } catch (e) {
+    res.status(404).json('No task found');
+  }
 });
 
 router.route('/:boardId/tasks').post(async (req, res) => {
@@ -19,7 +30,7 @@ router.route('/:boardId/tasks').post(async (req, res) => {
 });
 
 router.route('/:boardId/tasks/:id').put(async (req, res) => {
-  const editTask = await taskService.editTask(req.params.id, req.body);
+  const editTask = await taskService.editTask(req.body, req.params.id, );
 
   res.status(200).json(editTask);
 });
@@ -29,4 +40,4 @@ router.route('/:boardId/tasks/:id').delete(async (req, res) => {
   res.status(204).send();
 });
 
-module.exports = router;
+export { router };

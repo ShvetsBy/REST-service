@@ -1,10 +1,11 @@
-const router = require('express').Router();
-const User = require('./user.model');
-const usersService = require('./user.service');
+import express from 'express';
+import { User }  from './user.model.js';
+import * as usersService from './user.service.js';
+
+const router = express.Router();
 
 router.route('/').get(async (req, res) => {
   const users = await usersService.getAll();
-  // map user fields to exclude secret fields like "password"
   res.json(users.map(User.toResponse));
 });
 
@@ -19,16 +20,16 @@ router.route('/').post(async (req, res) => {
 });
 
 router.route('/:id').put(async (req, res) => {
-  const editUser = await usersService.editUser(req.params.id, req.body);
+  const editUser = await usersService.editUser(req.body, req.params.id);
 
   res.status(200).json(editUser);
 });
 
 router.route('/:id').delete(async (req, res) => {
-  // const isCleared = await usersService.clearTaskAssignee(req.params.id);
+  // await usersService.clearTasks(req.params.id);
   await usersService.deleteUser(req.params.id);
 
   res.status(204).send();
 });
 
-module.exports = router;
+export { router} ;
