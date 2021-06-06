@@ -92,11 +92,16 @@ const editTask = async (task: ITask, id: string) => {
  * @return {undefined}
  */
 const deleteTask = async (id: string) => {
-  const TaskoDelete = tasks.find((object) => object.id === id);
+  try {
+    const TaskoDelete = tasks.find((object) => object.id === id);
   if (TaskoDelete) {
     const index = tasks.findIndex((item) => item.id === id);
     tasks.splice(index, 1);
   }
+  } catch (e) {
+    throw new Error(e);
+  }
+  
 };
 
 /**
@@ -106,7 +111,13 @@ const deleteTask = async (id: string) => {
  * @return {undefined}
  */
 const deleteBoardTasks = async (boardId: string) => {
-  tasks = tasks.filter((task) => task.boardId !== boardId);
+  try {
+    tasks = tasks.filter((task) => task.boardId !== boardId);
+  } catch(e) 
+  {
+    throw new Error(e);
+  }
+  
 };
 
 export {

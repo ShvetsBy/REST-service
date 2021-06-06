@@ -90,21 +90,32 @@ const editUser = async (user: IUser, id: string) => {
  * @return {undefined}
  */
 const deleteUser = async (id: string) => {
+  try {
     const index = users.findIndex((item) => item.id === id);
     users.splice(index, 1);
+  }
+  catch (e) {
+    throw new Error(e);
+  }  
+  
 };
 
 const clearTasks = async (id: string) => {
-  // console.log(id);
-  // console.log(tasks);
-  tasks.forEach((item) => {
-    console.log(item);
-    if (item.userId === id) {
-      item.userId = null;
-    
-    }
+  try {
+    tasks.forEach((item) => {
+      console.log(item);
+      if (item.userId === id) {
+        item.userId = null;
+      
+      }
+  }
+  )  
 }
-  )}
+  
+catch(e) {
+  throw new Error(e);
+}
+ }
 
 export {
   getAll,
