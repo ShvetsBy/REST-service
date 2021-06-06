@@ -1,11 +1,3 @@
-// const express = require('express');
-// const swaggerUI = require('swagger-ui-express');
-// const path = require('path');
-// const YAML = require('yamljs');
-// const userRouter = require('./resources/users/user.router');
-// const boardRouter = require('./resources/boards/board.router');
-// const taskRouter = require('./resources/tasks/task.router');
-
 import express from 'express';
 import swaggerUI from 'swagger-ui-express';
 import path from 'path';
@@ -15,6 +7,10 @@ import { router as boardRouter } from './resources/boards/board.router.js';
 import { router as taskRouter } from './resources/tasks/task.router.js';
 import commonjsVariables from 'commonjs-variables-for-esmodules';
 const { __dirname } = commonjsVariables(import.meta);
+
+import { uncaughtExceptionHandler } from '../src/resources/middlewares/exception.handler'
+import { unhandledRejectionHandler } from '../src/resources/middlewares/rejection.handler'
+
 const app = express();
 const swaggerDocument = YAML.load(path.join(__dirname, '../doc/api.yaml'));
 app.use(express.json());
@@ -30,5 +26,8 @@ app.use('/', (req, res, next) => {
 
 app.use('/users', userRouter);
 app.use('/boards', [boardRouter, taskRouter]);
+
+process.on('uncaughtException', uncaughtExceptionHandler);
+process.on('unhandledRejection', unhandledRejectionHandler);
 
 export default app;
