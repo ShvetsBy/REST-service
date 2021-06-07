@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { StatusCodes, ReasonPhrases } from 'http-status-codes';
-import { logger } from '../utils/logger';
+import { logger } from '../utils/logger.js';
 
 function errorHandler (err: Error, _req: Request, res: Response) {
     logger.error(err.message);

@@ -1,7 +1,7 @@
-import { logger } from '../utils/logger';
+import { logger } from '../utils/logger.js';
 
 const unhandledRejectionHandler = (err: Error): void => {
-  logger('error', 'Unhandled Rejection:', err.message);
+  logger.log('error', 'Unhandled Rejection:', err.message);
   setTimeout(() => process.exit(1), 1000);
 };
 

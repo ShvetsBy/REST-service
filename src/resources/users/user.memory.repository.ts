@@ -1,11 +1,10 @@
 
 import { User } from './user.model.js';
 import { IUser } from './user.interface';
-// import { ITask } from '../tasks/task.interface'
-
+import { ITask } from '../tasks/task.interface'
+import * as taskRepo from '../tasks/task.service.js';
 
 const users: IUser[] = [];
-// let tasks: ITask[] = [];
 
 /**
  * Returns the list of app users.
@@ -99,22 +98,24 @@ const deleteUser = async (id: string) => {
   
 };
 
-// const clearTasks = async (id: string) => {
-//   try {
-//     tasks.forEach((item) => {
-//       console.log(item);
-//       if (item.userId === id) {
-//         item.userId = null;
+const clearTasks = async (id: string | null) => {
+  try {
+    let tasks: ITask[] = await taskRepo.getAll();
+    tasks.forEach((item) => {
       
-//       }
-//   }
-//   )  
-// }
+      if (item.userId === id) {
+        item.userId = null;
+    
+      }
+    
+  }
+  )  
+}
   
-// catch(e) {
-//   throw new Error(e);
-// }
-//  }
+catch(e) {
+  throw new Error(e);
+}
+ }
 
 export {
   getAll,
@@ -122,5 +123,5 @@ export {
   createUser,
   editUser,
   deleteUser,
-  
+  clearTasks
 };

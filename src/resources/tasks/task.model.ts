@@ -9,7 +9,7 @@ import { ITask } from './task.interface'
 * @param {String} title – task name
 * @param {number} order – a place of item in list
 * @param {String} description – the task content
-* @param {String} userID – id of user, who created task
+* @param {String} userId – id of user, who created task
 * @param {String} columnId — id of task place on the board
 */
 class Task implements ITask{
@@ -17,7 +17,7 @@ class Task implements ITask{
   title: string;
   order: number;
   description: string;
-  userId: string;
+  userId: string | null;
   columnId: string;
   boardId: string;
 

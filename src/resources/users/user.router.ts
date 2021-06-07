@@ -43,7 +43,7 @@ router.route('/:id').put(async (req, res) => {
 });
 
 router.route('/:id').delete(async (req, res) => {
-  // await usersService.clearTasks(req.params.id);
+  await usersService.clearTasks(req.params.id);
   await usersService.deleteUser(req.params.id);
 
   res.status(StatusCodes.NO_CONTENT).send();

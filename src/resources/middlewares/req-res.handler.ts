@@ -1,5 +1,5 @@
 import { Request, Response, NextFunction } from 'express';
-import { logger } from '../utils/logger';
+import { logger } from '../utils/logger.js';
 import { finished } from 'stream';
 
 const requestResponceHandler = (req: Request, res: Response, next: NextFunction): void => {
@@ -19,7 +19,7 @@ const requestResponceHandler = (req: Request, res: Response, next: NextFunction)
         headers,
       }
   
-      logger('info', 'Incoming request:', info);
+      logger.log('info', 'Incoming request:', info);
     })
   }
 
