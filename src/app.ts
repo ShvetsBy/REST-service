@@ -18,6 +18,8 @@ const swaggerDocument = YAML.load(path.join(__dirname, '../doc/api.yaml'));
 app.use(express.json());
 app.use('/doc', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
+app.use(requestResponceHandler); 
+
 app.use('/', (req, res, next) => {
   if (req.originalUrl === '/') {
     res.send('Service is running!');
@@ -26,13 +28,19 @@ app.use('/', (req, res, next) => {
   next();
 });
 
+
+
 app.use('/users', userRouter);
 app.use('/boards', [boardRouter, taskRouter]);
 
 app.use(errorHandler); 
-app.use(requestResponceHandler); 
 
 process.on('uncaughtException', uncaughtExceptionHandler);
 process.on('unhandledRejection', unhandledRejectionHandler);
+
+// eslint-disable-next-line
+// app.use('/error', (_req: Request, _res: Response) => {
+//   throw new Error('Error test');
+//  });
 
 export default app;

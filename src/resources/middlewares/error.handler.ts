@@ -4,8 +4,7 @@ import { logger } from '../utils/logger.js';
 
 function errorHandler (err: Error, _req: Request, res: Response) {
     logger.error(err.message);
-    res.status(StatusCodes.INTERNAL_SERVER_ERROR);
-    res.json({
+    res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({
         message: err.message,
         status: ReasonPhrases.INTERNAL_SERVER_ERROR
     });

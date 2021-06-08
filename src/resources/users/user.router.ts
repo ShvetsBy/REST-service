@@ -6,6 +6,7 @@ import { StatusCodes } from 'http-status-codes';
 const router = express.Router();
 
 router.route('/').get(async (_req, res) => {
+  // throw new Error ('test');
   const users = await usersService.getAll();
   if (users) {
     res.status(StatusCodes.OK).json(users.map(User.toResponse));
