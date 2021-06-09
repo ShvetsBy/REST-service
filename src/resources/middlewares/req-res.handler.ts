@@ -19,7 +19,7 @@ const requestResponceHandler = (req: Request, res: Response, next: NextFunction)
         headers,
       }
   
-      logger.log('info', 'Incoming request:', info);
+      logger.log('info', 'Data:', info);
     })
   }
 

@@ -5,50 +5,56 @@ import { StatusCodes } from 'http-status-codes';
 
 const router = express.Router();
 
-router.route('/').get(async (_req, res) => {
-  const boards = await boardService.getAll();
-  if (boards) {
+router.route('/').get(async (_req, res, next) => {
+  try {
+    const boards = await boardService.getAll();
     res.status(StatusCodes.OK).json(boards);
-  } else {
-    res.status(StatusCodes.NOT_FOUND)
+  }
+  catch (e) {
+    next(e);
   }
 });
 
-router.route('/:id').get(async (req, res) => {
-  // TODO delete try-catch
+router.route('/:id').get(async (req, res, next) => {
   try {
     const board = await boardService.getBoardById(req.params.id);
-    if (board) {
-      res.status(StatusCodes.OK).json(board);
+    res.status(StatusCodes.OK).json(board);
     }
-  } catch (e) {
+   catch (e) {
     res.status(StatusCodes.NOT_FOUND).json('No board found');
+    next(e);
   }
 });
 
-router.route('/').post(async (req, res) => {
-  const newBoard = await boardService.createBoard(req.body);
-  if (newBoard) {
+router.route('/').post(async (req, res, next) => {
+  try {
+    const newBoard = await boardService.createBoard(req.body);
     res.status(StatusCodes.CREATED).json(newBoard);
-  } else {
-    res.status(StatusCodes.NOT_FOUND)
+  }
+  catch (e) {
+    next(e);
   }
 });
 
-router.route('/:id').put(async (req, res) => {
-  const editBoard = await boardService.editBoard(req.params.id, req.body);
-  if (editBoard) {
+router.route('/:id').put(async (req, res, next) => {
+  try {
+    const editBoard = await boardService.editBoard(req.params.id, req.body);
     res.status(StatusCodes.OK).json(editBoard);
-  } else {
-    res.status(StatusCodes.NOT_FOUND)
   }
-  
+  catch (e) {
+    next(e);
+  }
 });
 
-router.delete('/:id', async (req, res) => {
-  await boardService.deleteBoard(req.params.id);
-  await tasksService.deleteBoardTasks(req.params.id);
-  res.status(StatusCodes.NO_CONTENT).send();
+router.delete('/:id', async (req, res, next) => {
+  try {
+    await boardService.deleteBoard(req.params.id);
+    await tasksService.deleteBoardTasks(req.params.id);
+    res.status(StatusCodes.NO_CONTENT).send();
+  }
+  catch (e) {
+    next(e)
+  }
 });
 
 export { router };

@@ -3,6 +3,7 @@ import { User } from './user.model.js';
 import { IUser } from './user.interface';
 import { ITask } from '../tasks/task.interface'
 import * as taskRepo from '../tasks/task.service.js';
+import { CustomError } from '../utils/customError.js';
 
 const users: IUser[] = [];
 
@@ -17,7 +18,7 @@ const users: IUser[] = [];
   try {
     return users;
   } catch (e) {
-    throw new Error(e);
+    throw new CustomError(e.statusCode, e.message);
   }
 };
 
@@ -50,7 +51,6 @@ const getUserById = async (id: string) => {
 const createUser = async (user: IUser) => {
   try {
     const newUser = await new User(user);
-
     users.push(newUser);
     return newUser;
   } catch (e) {
@@ -74,7 +74,7 @@ const editUser = async (user: IUser, id: string) => {
       userToEdit.login = user.login;
       userToEdit.password = user.password;
       return userToEdit;
-    } return new Error('Failed to edit this user.')
+    } throw new Error('Failed to edit this user.')
    
   } catch (e) {
     throw new Error(e);

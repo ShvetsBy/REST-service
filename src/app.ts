@@ -10,11 +10,15 @@ const { __dirname } = commonjsVariables(import.meta);
 
 import { errorHandler } from './resources/middlewares/error.handler.js';
 import { requestResponceHandler } from './resources/middlewares/req-res.handler.js';
-import { uncaughtExceptionHandler } from './resources/middlewares/exception.handler.js';
-import { unhandledRejectionHandler } from './resources/middlewares/rejection.handler.js';
+
+import { CustomError } from './resources/utils/customError.js';
+
 
 const app = express();
 const swaggerDocument = YAML.load(path.join(__dirname, '../doc/api.yaml'));
+
+
+
 app.use(express.json());
 app.use('/doc', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
@@ -28,19 +32,21 @@ app.use('/', (req, res, next) => {
   next();
 });
 
-
-
 app.use('/users', userRouter);
 app.use('/boards', [boardRouter, taskRouter]);
+app.use('*', () => {
+  throw new CustomError(404, 'Page not found')
+})
 
 app.use(errorHandler); 
 
-process.on('uncaughtException', uncaughtExceptionHandler);
-process.on('unhandledRejection', unhandledRejectionHandler);
 
-// eslint-disable-next-line
+//eslint-disable-next-line
 // app.use('/error', (_req: Request, _res: Response) => {
-//   throw new Error('Error test');
+//   // throw new Error('Error test new');
+//  Promise.reject(Error('Reject error'));
 //  });
+
+
 
 export default app;
