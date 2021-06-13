@@ -35,18 +35,9 @@ app.use('/', (req, res, next) => {
 app.use('/users', userRouter);
 app.use('/boards', [boardRouter, taskRouter]);
 app.use('*', () => {
-  throw new CustomError(404, 'Page not found')
+  throw new CustomError(404, 'Page not found!')
 })
 
 app.use(errorHandler); 
-
-
-//eslint-disable-next-line
-// app.use('/error', (_req: Request, _res: Response) => {
-//   // throw new Error('Error test new');
-//  Promise.reject(Error('Reject error'));
-//  });
-
-
 
 export default app;

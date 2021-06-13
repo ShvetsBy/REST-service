@@ -5,20 +5,37 @@ services:
       - .env
     build: .
     container_name: 'node'
+    image: 'shvetsby/rest-service_node'
+    restart: always
     ports:
       - ${PORT}:${PORT}
     depends_on:
       - postgres
     environment:
       - PORT=4000
+    volumes:
+      - .:/user/app
+      - ./log:/user/app/log
+    networks:
+      - skynet
+
   postgres:
     env_file:
       - .env
     build: ./database
     container_name: 'postgres'
+    image: 'shvetsby/rest-service_postgres'
     ports:
       - ${POSTGRES_PORT}:${POSTGRES_PORT}
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
       POSTGRES_DB: ${POSTGRES_DB}
+    networks:
+      - skynet
+    volumes:
+      - ./database:/user/app/database
+
+networks:
+  skynet:
+    driver: bridge
