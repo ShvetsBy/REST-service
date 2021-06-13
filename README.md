@@ -3,7 +3,8 @@ How to start
 1. Clone repo
 2. Switch branch to docker
 3. Install dependencies: npm i
-4. Use command: docker compose up
+4. Use npm run build
+6. Use command: docker compose up
 
 # RS School REST service
 
