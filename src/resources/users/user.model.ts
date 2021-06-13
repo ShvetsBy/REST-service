@@ -12,7 +12,7 @@ import { IUser } from './user.interface'
 * @param {String} password – user password
 */
 class User implements IUser {
-  id: string;
+  id: string | null;
   name: string;
   login: string;
   password: string;

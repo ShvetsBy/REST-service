@@ -1,11 +1,11 @@
 
 import { User } from './user.model.js';
 import { IUser } from './user.interface';
-// import { ITask } from './../tasks/task.interface'
-
+import { ITask } from '../tasks/task.interface'
+import * as taskRepo from '../tasks/task.service.js';
+import { CustomError } from '../utils/customError.js';
 
 const users: IUser[] = [];
-// let tasks: ITask[] = [];
 
 /**
  * Returns the list of app users.
@@ -14,11 +14,11 @@ const users: IUser[] = [];
  * @throws {string} error message
  * @returns {Promise<Array>} List of users. Every user is an object, which contains 3 strings: id, name and login
  */
-const getAll = async () => {
+ const getAll = async () => {
   try {
     return users;
   } catch (e) {
-    throw new Error(e);
+    throw new CustomError(e.statusCode, e.message);
   }
 };
 
@@ -51,7 +51,6 @@ const getUserById = async (id: string) => {
 const createUser = async (user: IUser) => {
   try {
     const newUser = await new User(user);
-
     users.push(newUser);
     return newUser;
   } catch (e) {
@@ -75,7 +74,7 @@ const editUser = async (user: IUser, id: string) => {
       userToEdit.login = user.login;
       userToEdit.password = user.password;
       return userToEdit;
-    } return new Error('Failed to edit this user.')
+    } throw new Error('Failed to edit this user.')
    
   } catch (e) {
     throw new Error(e);
@@ -89,21 +88,34 @@ const editUser = async (user: IUser, id: string) => {
  * @return {undefined}
  */
 const deleteUser = async (id: string) => {
+  try {
     const index = users.findIndex((item) => item.id === id);
     users.splice(index, 1);
+  }
+  catch (e) {
+    throw new Error(e);
+  }  
+  
 };
 
-// const clearTasks = async (id: string) => {
-//   console.log(id);
-//   console.log(tasks);
-//   tasks.forEach((item) => {
-//     console.log(item);
-//     if (item.userId === id) {
-//       item.userId = null;
+const clearTasks = async (id: string | null) => {
+  try {
+    let tasks: ITask[] = await taskRepo.getAll();
+    tasks.forEach((item) => {
+      
+      if (item.userId === id) {
+        item.userId = null;
     
-//     }
-// }
-//   )}
+      }
+    
+  }
+  )  
+}
+  
+catch(e) {
+  throw new Error(e);
+}
+ }
 
 export {
   getAll,
@@ -111,5 +123,5 @@ export {
   createUser,
   editUser,
   deleteUser,
-  
+  clearTasks
 };

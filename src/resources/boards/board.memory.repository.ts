@@ -86,10 +86,14 @@ const editBoard = async (id: string, board: IBoard) => {
  * @return {undefined}
  */
 const deleteBoard = async (id: string) => {
+  try {
   const BoardToDelete = boards.find((object) => object.id === id);
   if (BoardToDelete) {
     const index = boards.findIndex((item) => item.id === id);
     boards.splice(index, 1);
   }
+} catch (e) {
+  throw new Error(e);
+}
 };
 export { getAll, getBoardById, createBoard, editBoard, deleteBoard };

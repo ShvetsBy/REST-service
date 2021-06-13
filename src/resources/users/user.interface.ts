@@ -5,7 +5,7 @@
 // }
 
 export interface IUser {
-    id?: string;
+    id: string | null;
     name: string;
     login: string;
     password: string; 
