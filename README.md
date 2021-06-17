@@ -1,10 +1,10 @@
 How to start
 
-Clone repo
-Switch branch to docker
-Install dependencies: npm i
-Use command to start docker: docker compose up
-Use command to  finish docker: docker compose down
+*Clone repo
+*Switch branch to docker
+*Install dependencies: npm i
+*Use command to start docker: docker compose up
+*Use command to finish docker: docker compose down
 
 
 
