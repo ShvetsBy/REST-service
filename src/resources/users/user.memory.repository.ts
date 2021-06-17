@@ -1,9 +1,8 @@
-
-import { User } from './user.model.js';
+import { User } from './user.model';
 import { IUser } from './user.interface';
-import { ITask } from '../tasks/task.interface'
-import * as taskRepo from '../tasks/task.service.js';
-import { CustomError } from '../utils/customError.js';
+import { ITask } from '../tasks/task.interface';
+import * as taskRepo from '../tasks/task.service';
+import { CustomError } from '../utils/customError';
 
 const users: IUser[] = [];
 
@@ -12,9 +11,10 @@ const users: IUser[] = [];
  * no params required
  * @async
  * @throws {string} error message
- * @returns {Promise<Array>} List of users. Every user is an object, which contains 3 strings: id, name and login
+ * @returns {Promise<Array>} List of users.
+ * Every user is an object, which contains 3 strings: id, name and login
  */
- const getAll = async () => {
+const getAll = async () => {
   try {
     return users;
   } catch (e) {
@@ -74,8 +74,7 @@ const editUser = async (user: IUser, id: string) => {
       userToEdit.login = user.login;
       userToEdit.password = user.password;
       return userToEdit;
-    } throw new Error('Failed to edit this user.')
-   
+    } throw new Error('Failed to edit this user.');
   } catch (e) {
     throw new Error(e);
   }
@@ -91,31 +90,24 @@ const deleteUser = async (id: string) => {
   try {
     const index = users.findIndex((item) => item.id === id);
     users.splice(index, 1);
-  }
-  catch (e) {
+  } catch (e) {
     throw new Error(e);
-  }  
-  
+  }
 };
 
 const clearTasks = async (id: string | null) => {
   try {
-    let tasks: ITask[] = await taskRepo.getAll();
+    const tasks: ITask[] = await taskRepo.getAll();
     tasks.forEach((item) => {
-      
-      if (item.userId === id) {
-        item.userId = null;
-    
+      const task = item;
+      if (task.userId === id) {
+        task.userId = null;
       }
-    
+    });
+  } catch (e) {
+    throw new Error(e);
   }
-  )  
-}
-  
-catch(e) {
-  throw new Error(e);
-}
- }
+};
 
 export {
   getAll,
@@ -123,5 +115,5 @@ export {
   createUser,
   editUser,
   deleteUser,
-  clearTasks
+  clearTasks,
 };

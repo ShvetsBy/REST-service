@@ -1,7 +1,5 @@
-
-import { Board } from './board.model.js';
-import { IBoard} from './board.interface'
-
+import { Board } from './board.model';
+import { IBoard } from './board.interface';
 
 const boards: IBoard[] = [];
 
@@ -10,7 +8,9 @@ const boards: IBoard[] = [];
  * no params required
  * @async
  * @throws {string} error message
- * @returns {Promise<Array>} List of boards. Every board is an object, which contains 2 strings: id and title and object with columns.
+ // eslint-disable-next-line max-len
+ * @returns {Promise<Array>} List of boards.
+ Every board is an object, which contains 2 strings: id and title and object with columns.
  */
 const getAll = async () => {
   try {
@@ -72,8 +72,8 @@ const editBoard = async (id: string, board: IBoard) => {
       BoardToEdit.title = board.title;
       BoardToEdit.columns = board.columns;
       return BoardToEdit;
-    } return
-   
+    // eslint-disable-next-line consistent-return
+    } return;
   } catch (e) {
     throw new Error(e);
   }
@@ -87,13 +87,15 @@ const editBoard = async (id: string, board: IBoard) => {
  */
 const deleteBoard = async (id: string) => {
   try {
-  const BoardToDelete = boards.find((object) => object.id === id);
-  if (BoardToDelete) {
-    const index = boards.findIndex((item) => item.id === id);
-    boards.splice(index, 1);
+    const BoardToDelete = boards.find((object) => object.id === id);
+    if (BoardToDelete) {
+      const index = boards.findIndex((item) => item.id === id);
+      boards.splice(index, 1);
+    }
+  } catch (e) {
+    throw new Error(e);
   }
-} catch (e) {
-  throw new Error(e);
-}
 };
-export { getAll, getBoardById, createBoard, editBoard, deleteBoard };
+export {
+  getAll, getBoardById, createBoard, editBoard, deleteBoard,
+};

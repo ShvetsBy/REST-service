@@ -1,9 +1,8 @@
 // let tasks = require('../../data/tasks');
 // const Task = require('./task.model');
 
-import { Task } from './task.model.js';
-import { ITask } from './task.interface' 
-
+import { Task } from './task.model';
+import { ITask } from './task.interface';
 
 let tasks: ITask[] = [];
 
@@ -12,12 +11,14 @@ let tasks: ITask[] = [];
  * no params required
  * @async
  * @throws {string} error message
- * @returns {Promise<Array>} List of tasks. Every task is an object, which contains 5 items: "id": "string", "title": string, "order": number, "description": "string", "userId": "string"
+ * @returns {Promise<Array>} List of tasks.
+ * Every task is an object, which contains 5 items: "id": "string", "title": string,
+ * "order": number, "description": "string", "userId": "string"
  */
 const getAll = async () => {
   try {
     return tasks;
-  } catch (e) {
+  } catch (e: any) {
     throw new Error(e);
   }
 };
@@ -44,7 +45,8 @@ const getTaskById = async (id: string) => {
 /**
  * Creates new task.
  * @async
- * @param {Object} task – object consists of 6 items: "title, "order", "description", "userId", "boardId","columnId"
+ * @param {Object} task – object consists of 6 items:
+ * "title, "order", "description", "userId", "boardId","columnId"
  * @throws {string} error message
  * @returns {Promise<Object>} new task.
  */
@@ -63,7 +65,8 @@ const createTask = async (task: ITask, boardId: string) => {
  * update task's items.
  * @async
  * @param {string} id – task uniq id.
- * @param {Object} task – object consists of 6 items: "title, "order", "description", "userId", "boardId","columnId"
+ * @param {Object} task – object consists of 6 items:
+ * "title, "order", "description", "userId", "boardId","columnId"
  * @throws {string} error message
  * @returns {Promise<Object>} updated task.
  */
@@ -79,7 +82,6 @@ const editTask = async (task: ITask, id: string) => {
       taskToEdit.columnId = task.columnId;
       return taskToEdit;
     } return new Error('No task to edit');
-   
   } catch (e) {
     throw new Error(e);
   }
@@ -94,14 +96,13 @@ const editTask = async (task: ITask, id: string) => {
 const deleteTask = async (id: string) => {
   try {
     const TaskoDelete = tasks.find((object) => object.id === id);
-  if (TaskoDelete) {
-    const index = tasks.findIndex((item) => item.id === id);
-    tasks.splice(index, 1);
-  }
+    if (TaskoDelete) {
+      const index = tasks.findIndex((item) => item.id === id);
+      tasks.splice(index, 1);
+    }
   } catch (e) {
     throw new Error(e);
   }
-  
 };
 
 /**
@@ -113,11 +114,9 @@ const deleteTask = async (id: string) => {
 const deleteBoardTasks = async (boardId: string) => {
   try {
     tasks = tasks.filter((task) => task.boardId !== boardId);
-  } catch(e) 
-  {
+  } catch (e) {
     throw new Error(e);
   }
-  
 };
 
 export {
