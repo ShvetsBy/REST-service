@@ -1351,3 +1351,63 @@
 {"message":"Error: Can't find such task","level":"error"}
 {"method":"GET","path":"/boards/3b154cda-b1b5-48a9-9dfd-3115bfb3d420/tasks/fb54b53b-9151-4a79-a7d7-628b14b45448","statusCode":500,"body":{},"query":{},"params":{},"headers":{"host":"localhost:4000","accept-encoding":"gzip, deflate","connection":"close"},"level":"info","message":"Data:"}
 {"method":"DELETE","path":"/boards/3b154cda-b1b5-48a9-9dfd-3115bfb3d420","statusCode":204,"body":{},"query":{},"params":{},"headers":{"host":"localhost:4000","accept-encoding":"gzip, deflate","connection":"close"},"level":"info","message":"Data:"}
+{"level":"error","message":"Unhandled Rejection:"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Try to connect point Connection \"default\" was not found.","level":"info","stack":"ConnectionNotFoundError: Connection \"default\" was not found.\n    at new ConnectionNotFoundError (/Users/ivanshvets/Education/REST-service/src/error/ConnectionNotFoundError.ts:8:9)\n    at ConnectionManager.get (/Users/ivanshvets/Education/REST-service/src/connection/ConnectionManager.ts:40:19)\n    at Object.getConnection (/Users/ivanshvets/Education/REST-service/src/index.ts:252:35)\n    at connectToDB (/Users/ivanshvets/Education/REST-service/src/resources/utils/db.ts:8:20)\n    at Object.TryToConnect (/Users/ivanshvets/Education/REST-service/src/resources/utils/db.ts:37:11)\n    at Object.<anonymous> (/Users/ivanshvets/Education/REST-service/src/server.ts:10:1)\n    at Module._compile (internal/modules/cjs/loader.js:1068:30)\n    at Module.m._compile (/Users/ivanshvets/Education/REST-service/node_modules/ts-node/src/index.ts:1295:23)\n    at Module._extensions..js (internal/modules/cjs/loader.js:1097:10)\n    at Object.require.extensions.<computed> [as .ts] (/Users/ivanshvets/Education/REST-service/node_modules/ts-node/src/index.ts:1298:12)"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"length":97,"name":"error","severity":"FATAL","code":"3D000","file":"postinit.c","line":"877","routine":"InitPostgres","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"length":97,"name":"error","severity":"FATAL","code":"3D000","file":"postinit.c","line":"877","routine":"InitPostgres","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"length":97,"name":"error","severity":"FATAL","code":"3D000","file":"postinit.c","line":"877","routine":"InitPostgres","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}

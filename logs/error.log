@@ -131,3 +131,4 @@
 {"message":"Error: Can't find such task","level":"error"}
 {"message":"Error: Can't find such task","level":"error"}
 {"message":"Error: Can't find such task","level":"error"}
+{"level":"error","message":"Unhandled Rejection:"}
