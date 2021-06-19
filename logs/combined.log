@@ -1411,3 +1411,110 @@
 {"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
 {"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
 {"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"message":"Page not found!","level":"error"}
+{"method":"GET","path":"/user","statusCode":500,"body":{},"query":{},"params":{},"headers":{"postman-token":"1aab8570-fc60-4ec5-8db0-4f825123bd61"},"level":"info","message":"Data:"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":5432,"level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":5432,"level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":5432,"level":"info"}
+{"message":"Page not found!","level":"error"}
+{"method":"POST","path":"/user","statusCode":500,"body":{"id":"1","name":"trump","login":"don","password":"make"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"9c4ab31e-0d28-4738-aa7f-1f2ccfedb3de","content-length":"78"},"level":"info","message":"Data:"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":5432,"level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":5432,"level":"info"}
+{"message":"Page not found!","level":"error"}
+{"method":"POST","path":"/user","statusCode":500,"body":{"id":"1","name":"trump","login":"don","password":"make"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"6b2b1d88-e755-45f5-851c-6eb79c32487c","content-length":"78"},"level":"info","message":"Data:"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":5432,"level":"info"}
+{"message":"Page not found!","level":"error"}
+{"method":"POST","path":"/users","statusCode":500,"body":{"id":"1","name":"trump","login":"don","password":"make"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"acd1b7f2-a487-4dcc-b31b-a588c3ed881a","content-length":"78"},"level":"info","message":"Data:"}
+{"message":"Page not found!","level":"error"}
+{"method":"POST","path":"/users","statusCode":500,"body":{"id":"1","name":"trump","login":"don","password":"make"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"a255c352-607f-429c-811c-cc30872186cd","content-length":"78"},"level":"info","message":"Data:"}
+{"message":"No repository for \"User\" was found. Looks like this entity is not registered in current \"default\" connection?","level":"error"}
+{"method":"GET","path":"/users","statusCode":500,"body":{"id":"1","name":"trump","login":"don","password":"make"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"a5dcc1cc-12cf-490d-acad-2b5e0d43764a","content-length":"78"},"level":"info","message":"Data:"}
+{"message":"No repository for \"User\" was found. Looks like this entity is not registered in current \"default\" connection?","level":"error"}
+{"method":"GET","path":"/users","statusCode":500,"body":{},"query":{},"params":{},"headers":{"postman-token":"6306b7a4-cd32-482a-ad08-ae5dbd3b8cf1"},"level":"info","message":"Data:"}
+{"message":"No repository for \"User\" was found. Looks like this entity is not registered in current \"default\" connection?","level":"error"}
+{"method":"GET","path":"/users","statusCode":500,"body":{},"query":{},"params":{},"headers":{"postman-token":"f5f8becc-1f6b-4a7d-b11a-1b23c7cd89bb"},"level":"info","message":"Data:"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":5432,"level":"info"}
+{"message":"No repository for \"User\" was found. Looks like this entity is not registered in current \"default\" connection?","level":"error"}
+{"method":"GET","path":"/users","statusCode":500,"body":{"id":"1","name":"trump","login":"don","password":"make"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"90bc7fe2-b65c-40d0-a3c0-6e5aecc6b533","content-length":"78"},"level":"info","message":"Data:"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":5432,"level":"info"}
+{"message":"No repository for \"User\" was found. Looks like this entity is not registered in current \"default\" connection?","level":"error"}
+{"method":"GET","path":"/users","statusCode":500,"body":{"id":"1","name":"trump","login":"don","password":"make"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"c85354c7-6bb1-431b-9bbb-96b73c6bdcc2","content-length":"78"},"level":"info","message":"Data:"}
+{"message":"No repository for \"User\" was found. Looks like this entity is not registered in current \"default\" connection?","level":"error"}
+{"method":"GET","path":"/users","statusCode":500,"body":{"id":"1","name":"trump","login":"don","password":"make"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"044d565c-5ee4-4cb1-a983-9d9e4739b451","content-length":"78"},"level":"info","message":"Data:"}
+{"message":"Page not found!","level":"error"}
+{"method":"POST","path":"/users","statusCode":500,"body":{"id":"1","name":"trump","login":"don","password":"make"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"e502ad78-6c1c-4cb7-8969-4c7fc3030ed4","content-length":"78"},"level":"info","message":"Data:"}
+{"message":"Page not found!","level":"error"}
+{"method":"POST","path":"/users","statusCode":500,"body":{"id":"1","name":"trump","login":"don","password":"make"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"297224db-6b3c-43b5-8df5-1e4880f37f8f","content-length":"78"},"level":"info","message":"Data:"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":5432,"level":"info"}
+{"message":"Page not found!","level":"error"}
+{"method":"POST","path":"/users","statusCode":500,"body":{"name":"trump","login":"don","password":"make"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"d6805cc7-bb32-4fc1-9e7d-f540e8f43916","content-length":"69"},"level":"info","message":"Data:"}
+{"message":"Page not found!","level":"error"}
+{"method":"POST","path":"/users","statusCode":500,"body":{"name":"trump","login":"don","password":"make"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"92e2c005-9481-4d1b-a6c6-82b65cd47090","content-length":"69"},"level":"info","message":"Data:"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":5432,"level":"info"}
+{"message":"Page not found!","level":"error"}
+{"method":"POST","path":"/users","statusCode":500,"body":{"name":"trump","login":"don","password":"make"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"696ce5fc-d236-4637-b793-4bd9b56d56b6","content-length":"69"},"level":"info","message":"Data:"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":5432,"level":"info"}
+{"method":"POST","path":"/users","statusCode":201,"body":{"name":"trump","login":"don","password":"make"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"e1c9ee18-eac6-45bc-a432-c10ae16488d7","content-length":"69"},"level":"info","message":"Data:"}
+{"method":"POST","path":"/users","statusCode":201,"body":{"name":"trump","login":"don","password":"make"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"293ebaa9-d3d8-47a8-9eff-e85af0981ea3","content-length":"69"},"level":"info","message":"Data:"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":5432,"level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":5432,"level":"info"}
+{"method":"POST","path":"/users","statusCode":201,"body":{"name":"trump","login":"don","password":"make"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"68acac04-9709-4fef-87f4-901e7cc182fa","content-length":"69"},"level":"info","message":"Data:"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":5432,"level":"info"}
+{"message":"No repository for \"User\" was found. Looks like this entity is not registered in current \"default\" connection?","level":"error"}
+{"method":"GET","path":"/users","statusCode":500,"body":{"name":"trump","login":"don","password":"make"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"486a0968-1a98-447b-ba01-fe387b61592c","content-length":"69"},"level":"info","message":"Data:"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":5432,"level":"info"}
+{"message":"No repository for \"User\" was found. Looks like this entity is not registered in current \"default\" connection?","level":"error"}
+{"method":"GET","path":"/users","statusCode":500,"body":{"name":"trump","login":"don","password":"make"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"2c505526-d367-4fd1-b0ae-f9232f480827","content-length":"69"},"level":"info","message":"Data:"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":5432,"level":"info"}
+{"message":"No repository for \"User\" was found. Looks like this entity is not registered in current \"default\" connection?","level":"error"}
+{"method":"GET","path":"/users","statusCode":500,"body":{"name":"trump","login":"don","password":"make"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"176778cf-c931-4f61-b125-ba4bd880fb59","content-length":"69"},"level":"info","message":"Data:"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":5432,"level":"info"}
+{"message":"No repository for \"User\" was found. Looks like this entity is not registered in current \"default\" connection?","level":"error"}
+{"method":"GET","path":"/users","statusCode":500,"body":{"name":"trump","login":"don","password":"make"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"aea2572e-ed94-48b8-a33e-3e2ab2c2acdf","content-length":"69"},"level":"info","message":"Data:"}
+{"method":"POST","path":"/users","statusCode":201,"body":{"name":"trump","login":"don","password":"make"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"3105c300-6073-456f-bb6b-fbf5c87b042a","content-length":"69"},"level":"info","message":"Data:"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":5432,"level":"info"}
+{"method":"POST","path":"/users","statusCode":201,"body":{"name":"trump","login":"don","password":"make"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"c399ebf4-2801-473a-9faa-b57996c5b03c","content-length":"69"},"level":"info","message":"Data:"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":5432,"level":"info"}
+{"method":"POST","path":"/users","statusCode":201,"body":{"name":"trump","login":"don","password":"make"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"d06a7df5-1f72-4f47-8012-9c0c370f56a0","content-length":"69"},"level":"info","message":"Data:"}
+{"message":"No repository for \"User\" was found. Looks like this entity is not registered in current \"default\" connection?","level":"error"}
+{"method":"GET","path":"/users","statusCode":500,"body":{"name":"trump","login":"don","password":"make"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"0984f7cf-d0ab-4c2d-a51d-4a1f9ce84916","content-length":"69"},"level":"info","message":"Data:"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":5432,"level":"info"}
+{"message":"No repository for \"User\" was found. Looks like this entity is not registered in current \"default\" connection?","level":"error"}
+{"method":"GET","path":"/users","statusCode":500,"body":{"name":"trump","login":"don","password":"make"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"7508d9d0-88f8-45bb-9a16-ff9c9b558496","content-length":"69"},"level":"info","message":"Data:"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"message":"No repository for \"User\" was found. Looks like this entity is not registered in current \"default\" connection?","level":"error"}
+{"method":"GET","path":"/users","statusCode":500,"body":{"name":"trump","login":"don","password":"make"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"6acf9921-8883-49d2-aa2d-d94e3253db16","content-length":"69"},"level":"info","message":"Data:"}
+{"method":"POST","path":"/users","statusCode":201,"body":{"name":"trump","login":"don","password":"make"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"99e877f6-f057-4029-acd2-677170dad918","content-length":"69"},"level":"info","message":"Data:"}
+{"method":"POST","path":"/users","statusCode":201,"body":{"name":"trump","login":"don","password":"make"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"31a77e0d-3536-4ac7-ab83-8b8dbacee795","content-length":"69"},"level":"info","message":"Data:"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"method":"POST","path":"/users","statusCode":201,"body":{"name":"trump","login":"don","password":"make"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"ea6929dd-a1d2-458d-97a3-384293ed1bf8","content-length":"69"},"level":"info","message":"Data:"}
+{"method":"GET","path":"/users","statusCode":200,"body":{"name":"trump","login":"don","password":"make"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"cf09812c-a8da-44a7-a410-a6cd44bc8dc9","content-length":"69"},"level":"info","message":"Data:"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}

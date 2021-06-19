@@ -10,7 +10,7 @@ import { IUser } from './user.interface';
 * @param {String} login –  user login
 * @param {String} password – user password
 */
-class User implements IUser {
+class OldUser implements IUser {
   id: string | null;
 
   name: string;
@@ -33,4 +33,4 @@ class User implements IUser {
   }
 }
 
-export { User };
+export { OldUser };

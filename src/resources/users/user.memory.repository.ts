@@ -1,10 +1,38 @@
-import { User } from './user.model';
+import { User } from '../entities/user.intity';
+import { getRepository } from 'typeorm'
 import { IUser } from './user.interface';
-import { ITask } from '../tasks/task.interface';
-import * as taskRepo from '../tasks/task.service';
-import { CustomError } from '../utils/customError';
+// import { ITask } from '../tasks/task.interface';
+// import * as taskRepo from '../tasks/task.service';
+// import { CustomError } from '../utils/customError';
 
-const users: IUser[] = [];
+const getAll = async (): Promise<User[]> => {
+  const userRepo = getRepository(User);
+  return userRepo.find({where: {} });
+};
+
+const createUser = async (dto: IUser) => {
+  try {
+    const userRepo = getRepository(User);
+  const newUser = userRepo.create(dto);
+  const savedUser = userRepo.save(newUser);
+  return savedUser;
+  } catch (e) {
+    return console.log('1', e);
+  }
+  
+  
+  // try {
+    //   // const newUser = await new User(user);
+    //   // users.push(newUser);
+  
+    //   return newUser;
+    // } catch (e) {
+    //   throw new Error(e);
+    // }
+    console.log(User);
+  };
+
+// const users: IUser[] = [];
 
 /**
  * Returns the list of app users.
@@ -14,13 +42,13 @@ const users: IUser[] = [];
  * @returns {Promise<Array>} List of users.
  * Every user is an object, which contains 3 strings: id, name and login
  */
-const getAll = async () => {
-  try {
-    return users;
-  } catch (e) {
-    throw new CustomError(e.statusCode, e.message);
-  }
-};
+// const getAll = async () => {
+//   try {
+//     return users;
+//   } catch (e) {
+//     throw new CustomError(e.statusCode, e.message);
+//   }
+// };
 
 /**
  * Returns one user according his uniq id.
@@ -29,17 +57,17 @@ const getAll = async () => {
  * @param {string} id – user uniq id.
  * @returns {Promise<Object>} List of user's properties: id, name and login.
  */
-const getUserById = async (id: string) => {
-  try {
-    const user = users.find((object) => object.id === id);
-    if (!user) {
-      throw new Error("Can't find such user");
-    }
-    return user;
-  } catch (e) {
-    throw new Error(e);
-  }
-};
+// const getUserById = async (id: string) => {
+//   try {
+//     const user = users.find((object) => object.id === id);
+//     if (!user) {
+//       throw new Error("Can't find such user");
+//     }
+//     return user;
+//   } catch (e) {
+//     throw new Error(e);
+//   }
+// };
 
 /**
  * Creates new user.
@@ -48,15 +76,17 @@ const getUserById = async (id: string) => {
  * @param {Object} user – object consists of 3 items: id, name, login and password.
  * @returns {Promise<Object>} new user with id, name, login and password.
  */
-const createUser = async (user: IUser) => {
-  try {
-    const newUser = await new User(user);
-    users.push(newUser);
-    return newUser;
-  } catch (e) {
-    throw new Error(e);
-  }
-};
+// const createUser = async (User) => {
+//   // try {
+//   //   // const newUser = await new User(user);
+//   //   // users.push(newUser);
+
+//   //   return newUser;
+//   // } catch (e) {
+//   //   throw new Error(e);
+//   // }
+//   console.log(User);
+// };
 
 /**
  * Edit existing user.
@@ -66,19 +96,20 @@ const createUser = async (user: IUser) => {
  * @throws {string} error message
  * @returns {Promise<Object>} update user's id, name or login.
  */
-const editUser = async (user: IUser, id: string) => {
-  try {
-    const userToEdit = users.find((object) => object.id === id);
-    if (userToEdit) {
-      userToEdit.name = user.name;
-      userToEdit.login = user.login;
-      userToEdit.password = user.password;
-      return userToEdit;
-    } throw new Error('Failed to edit this user.');
-  } catch (e) {
-    throw new Error(e);
-  }
-};
+// const editUser = async (user, id) => {
+//   // try {
+//   //   const userToEdit = users.find((object) => object.id === id);
+//   //   if (userToEdit) {
+//   //     userToEdit.name = user.name;
+//   //     userToEdit.login = user.login;
+//   //     userToEdit.password = user.password;
+//   //     return userToEdit;
+//   //   } throw new Error('Failed to edit this user.');
+//   // } catch (e) {
+//   //   throw new Error(e);
+//   // }
+//   console.log(user, id)
+// };
 
 /**
  * delete existing user and removes his id from tasks.
@@ -86,34 +117,35 @@ const editUser = async (user: IUser, id: string) => {
  * @param {string} id – user uniq id.
  * @return {undefined}
  */
-const deleteUser = async (id: string) => {
-  try {
-    const index = users.findIndex((item) => item.id === id);
-    users.splice(index, 1);
-  } catch (e) {
-    throw new Error(e);
-  }
-};
+// const deleteUser = async (id: string) => {
+//   // try {
+//   //   const index = users.findIndex((item) => item.id === id);
+//   //   users.splice(index, 1);
+//   // } catch (e) {
+//   //   throw new Error(e);
+//   // }
+//   console.log(id);
+// };
 
-const clearTasks = async (id: string | null) => {
-  try {
-    const tasks: ITask[] = await taskRepo.getAll();
-    tasks.forEach((item) => {
-      const task = item;
-      if (task.userId === id) {
-        task.userId = null;
-      }
-    });
-  } catch (e) {
-    throw new Error(e);
-  }
-};
+// const clearTasks = async (id: string | null) => {
+//   try {
+//     const tasks: ITask[] = await taskRepo.getAll();
+//     tasks.forEach((item) => {
+//       const task = item;
+//       if (task.userId === id) {
+//         task.userId = null;
+//       }
+//     });
+//   } catch (e) {
+//     throw new Error(e);
+//   }
+// };
 
 export {
   getAll,
-  getUserById,
+  // getUserById,
   createUser,
-  editUser,
-  deleteUser,
-  clearTasks,
+  // editUser,
+  // deleteUser,
+  // clearTasks,
 };
