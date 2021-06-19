@@ -15,14 +15,14 @@ router.route('/').get(async (_req, res, next) => {
   }
 });
 
-// router.route('/:id').get(async (req, res, next) => {
-//   try {
-//     const user = await usersService.getUserById(req.params.id);
-//     res.status(StatusCodes.OK).json(user);
-//   } catch (e) {
-//     next(e);
-//   }
-// });
+router.route('/:id').get(async (req, res, next) => {
+  try {
+    const user = await usersService.getUserById(req.params.id);
+    res.status(StatusCodes.OK).json(user);
+  } catch (e) {
+    next(e);
+  }
+});
 
 router.route('/').post(async (req, res, next) => {
   try {
@@ -33,23 +33,23 @@ router.route('/').post(async (req, res, next) => {
   }
 });
 
-// router.route('/:id').put(async (req, res, next) => {
-//   try {
-//     const editUser = await usersService.editUser(req.body, req.params.id);
-//     res.status(StatusCodes.OK).json(editUser);
-//   } catch (e) {
-//     next(e);
-//   }
-// });
+router.route('/:id').put(async (req, res, next) => {
+  try {
+    const editUser = await usersService.editUser(req.body, req.params.id);
+    res.status(StatusCodes.OK).json(editUser);
+  } catch (e) {
+    next(e);
+  }
+});
 
-// router.route('/:id').delete(async (_req, res, next) => {
-//   try {
-//     // await usersService.clearTasks(req.params.id);
-//     // await usersService.deleteUser(req.params.id);
-//     res.status(StatusCodes.NO_CONTENT).send();
-//   } catch (e) {
-//     next(e);
-//   }
-// });
+router.route('/:id').delete(async (req, res, next) => {
+  try {
+    // await usersService.clearTasks(req.params.id);
+   await usersService.deleteUser(req.params.id);
+    res.status(StatusCodes.NO_CONTENT).send();
+  } catch (e) {
+    next(e);
+  }
+});
 
 export { router };

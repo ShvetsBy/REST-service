@@ -13,119 +13,41 @@ const getAll = async (): Promise<User[]> => {
 const createUser = async (dto: IUser) => {
   try {
     const userRepo = getRepository(User);
-  const newUser = userRepo.create(dto);
-  const savedUser = userRepo.save(newUser);
+    const newUser = userRepo.create(dto);
+    const savedUser = userRepo.save(newUser);
   return savedUser;
   } catch (e) {
-    return console.log('1', e);
+    throw new Error(e);
   }
-  
-  
-  // try {
-    //   // const newUser = await new User(user);
-    //   // users.push(newUser);
-  
-    //   return newUser;
-    // } catch (e) {
-    //   throw new Error(e);
-    // }
-    console.log(User);
-  };
+}
+ 
+const getUserById = async (id: string) => {
+  try {
+    const userRepo = getRepository(User);
+    const user = userRepo.findOne(id);
+    if (!user) {
+      throw new Error("Can't find such user");
+    }
+    return user;
+  } catch (e) {
+    throw new Error(e);
+  }
+};
 
-// const users: IUser[] = [];
+const editUser = async (dto:Omit<IUser,'id'>, id: string): Promise<User | 'NOT_FOUND'> => {
+    const userRepo = getRepository(User);
+    const user = await userRepo.findOne(id);
+    if (user === undefined) return 'NOT_FOUND';
+    const updatedUser = await userRepo.update(id, dto);
+    return updatedUser.raw;  
+};
 
-/**
- * Returns the list of app users.
- * no params required
- * @async
- * @throws {string} error message
- * @returns {Promise<Array>} List of users.
- * Every user is an object, which contains 3 strings: id, name and login
- */
-// const getAll = async () => {
-//   try {
-//     return users;
-//   } catch (e) {
-//     throw new CustomError(e.statusCode, e.message);
-//   }
-// };
-
-/**
- * Returns one user according his uniq id.
- * @async
- * @throws {string} error message
- * @param {string} id – user uniq id.
- * @returns {Promise<Object>} List of user's properties: id, name and login.
- */
-// const getUserById = async (id: string) => {
-//   try {
-//     const user = users.find((object) => object.id === id);
-//     if (!user) {
-//       throw new Error("Can't find such user");
-//     }
-//     return user;
-//   } catch (e) {
-//     throw new Error(e);
-//   }
-// };
-
-/**
- * Creates new user.
- * @async
- * @throws {string} error message
- * @param {Object} user – object consists of 3 items: id, name, login and password.
- * @returns {Promise<Object>} new user with id, name, login and password.
- */
-// const createUser = async (User) => {
-//   // try {
-//   //   // const newUser = await new User(user);
-//   //   // users.push(newUser);
-
-//   //   return newUser;
-//   // } catch (e) {
-//   //   throw new Error(e);
-//   // }
-//   console.log(User);
-// };
-
-/**
- * Edit existing user.
- * @async
- * @param {string} id – user uniq id.
- * @param {Object} user – object consists of 3 items: id, name, login and password.
- * @throws {string} error message
- * @returns {Promise<Object>} update user's id, name or login.
- */
-// const editUser = async (user, id) => {
-//   // try {
-//   //   const userToEdit = users.find((object) => object.id === id);
-//   //   if (userToEdit) {
-//   //     userToEdit.name = user.name;
-//   //     userToEdit.login = user.login;
-//   //     userToEdit.password = user.password;
-//   //     return userToEdit;
-//   //   } throw new Error('Failed to edit this user.');
-//   // } catch (e) {
-//   //   throw new Error(e);
-//   // }
-//   console.log(user, id)
-// };
-
-/**
- * delete existing user and removes his id from tasks.
- * @async
- * @param {string} id – user uniq id.
- * @return {undefined}
- */
-// const deleteUser = async (id: string) => {
-//   // try {
-//   //   const index = users.findIndex((item) => item.id === id);
-//   //   users.splice(index, 1);
-//   // } catch (e) {
-//   //   throw new Error(e);
-//   // }
-//   console.log(id);
-// };
+const deleteUser = async (id: string):Promise<'DELETED' | 'NOT_FOUND'> => {
+  const userRepo = getRepository(User);
+  const userDeleted = await userRepo.delete(id);
+  if (userDeleted.affected) return 'DELETED';
+  return 'NOT_FOUND';
+};
 
 // const clearTasks = async (id: string | null) => {
 //   try {
@@ -143,9 +65,9 @@ const createUser = async (dto: IUser) => {
 
 export {
   getAll,
-  // getUserById,
+  getUserById,
   createUser,
-  // editUser,
-  // deleteUser,
+  editUser,
+  deleteUser,
   // clearTasks,
 };
