@@ -13,15 +13,13 @@ export class BoardColumns {
     title: string;
 
     constructor({
-        id = uuid.v4(),
-        order = 0,
-        title = ' ',
-        
-      }) {
-        
-        this.id = id;
-        this.order = order;
-        this.title = title;
-        
-      };    
+      id = uuid.v4(),
+      order = 0,
+      title = ' ',
+
+    }) {
+      this.id = id;
+      this.order = order;
+      this.title = title;
+    }
 }

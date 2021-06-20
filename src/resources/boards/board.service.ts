@@ -1,5 +1,5 @@
 import * as boardsRepo from './board.memory.repository';
-import { BoardDto } from '../boards/boards.dto'
+import { BoardDto } from './boards.dto';
 
 const getAll = () => boardsRepo.getAll();
 const getBoardById = (id: string) => boardsRepo.getBoardById(id);

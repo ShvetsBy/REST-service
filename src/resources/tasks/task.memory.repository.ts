@@ -1,23 +1,21 @@
+import { getRepository } from 'typeorm';
 import { Task } from '../entities/task.entity';
-import { Board } from '../entities/board.entity'
+import { Board } from '../entities/board.entity';
 import { ITaskDTO } from './task.dto';
-import { getRepository } from 'typeorm'
 
 const getAll = async (boardId: string): Promise<Task[]> => {
   try {
     const taskRepo = getRepository(Task);
-  return taskRepo.find({where: {boardId} });
+    return taskRepo.find({ where: { boardId } });
   } catch (e) {
     throw new Error(e);
   }
-  
 };
-
 
 const getTaskById = async (id: string, boardId: string): Promise<Task | undefined> => {
   try {
     const taskRepo = getRepository(Task);
-    const task = taskRepo.findOne(id, { where: {boardId}});
+    const task = taskRepo.findOne(id, { where: { boardId } });
     if (!task) throw new Error("Can't find such task");
     return task;
   } catch (e) {
@@ -25,10 +23,9 @@ const getTaskById = async (id: string, boardId: string): Promise<Task | undefine
   }
 };
 
-
 const createTask = async (boardId: string, dto: ITaskDTO) => {
   try {
-    if(! await getRepository(Board).findOne(boardId)){
+    if (!await getRepository(Board).findOne(boardId)) {
       throw new Error(`Board with ID:${boardId} doesn't exist.`);
     }
     const taskRepo = getRepository(Task);
@@ -42,34 +39,44 @@ const createTask = async (boardId: string, dto: ITaskDTO) => {
   }
 };
 
-
-const editTask = async (dto: Omit<ITaskDTO,'id'>, id: string, boardId: string): Promise<Task | 'NOT_FOUND'> => {
+const editTask = async (dto: Omit<ITaskDTO, 'id'>, id: string, boardId: string): Promise<Task | 'NOT_FOUND'> => {
   try {
     const taskRepo = getRepository(Task);
-    const taskToEdit = taskRepo.findOne(id, { where: {boardId}});
-    if (taskToEdit  === undefined) return 'NOT_FOUND';
+    const taskToEdit = taskRepo.findOne(id, { where: { boardId } });
+    if (taskToEdit === undefined) return 'NOT_FOUND';
     const updatedTask = await taskRepo.update(id, dto);
-    return updatedTask.raw;  
-    } 
-   catch (e) {
+    return updatedTask.raw;
+  } catch (e) {
     throw new Error(e);
   }
 };
 
-const deleteTask = async (id: string, boardId: string): Promise<void> => {
+const deleteTask = async (id: string) => {
   try {
-    await getRepository(Task).delete({id, boardId});
+    const taskRepo = getRepository(Task);
+    await taskRepo.delete(id);
+    
   } catch (e) {
     throw new Error(e);
   }
-  
-    
 };
 
 
 // const deleteBoardTasks = async (boardId: string) => {
 //   try {
-//     tasks = tasks.filter((task) => task.boardId !== boardId);
+//     // const tasks = await getAll(boardId);
+//     // if (tasks) {
+//     //   tasks.map((task: Task) => {
+//     //       if (task.boardId === boardId) {
+//     //         deleteTask(task.id);
+//     //           return true;
+//     //       }
+//     //       return false;
+//   //});
+//   const boardsRepo = getRepository(Board);
+//   const 
+//   await boardsRepo.clear();
+  
 //   } catch (e) {
 //     throw new Error(e);
 //   }
@@ -81,5 +88,7 @@ export {
   createTask,
   editTask,
   deleteTask,
-  // deleteBoardTasks,
+  // deleteBoardTasks
 };
+
+

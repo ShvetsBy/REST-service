@@ -1,13 +1,11 @@
+import { getRepository } from 'typeorm';
 import { Board } from '../entities/board.entity';
-import { getRepository } from 'typeorm'
 import { BoardDto } from './boards.dto';
-
-
 
 const getAll = async () => {
   try {
     const boardRepo = getRepository(Board);
-    return boardRepo.find({where: {} });
+    return boardRepo.find({ where: {} });
   } catch (e) {
     throw new Error(e);
   }
@@ -26,7 +24,6 @@ const getBoardById = async (id: string) => {
   }
 };
 
-
 const createBoard = async (dto: BoardDto) => {
   try {
     const boardRepo = getRepository(Board);
@@ -43,9 +40,8 @@ const editBoard = async (dto: BoardDto, id: string): Promise<Board | 'NOT_FOUND'
   const board = await boardRepo.findOne(id);
   if (board === undefined) return 'NOT_FOUND';
   const updatedBoard = await boardRepo.update(id, dto);
-  return updatedBoard.raw;  
+  return updatedBoard.raw;
 };
-
 
 const deleteBoard = async (id: string):Promise<'DELETED' | 'NOT_FOUND'> => {
   const boardRepo = getRepository(Board);

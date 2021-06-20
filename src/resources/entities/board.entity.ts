@@ -9,19 +9,17 @@ export class Board {
     @Column('varchar')
     title: string;
 
-    @Column('jsonb', {nullable: true})
+    @Column('jsonb', { nullable: true })
     columns: [];
 
     constructor({
-        id = uuid.v4(),
-        title = ' ',
-        columns = [],
-        
-      }: Partial<Board> = {}) {
-        this.id = id;
-        this.title = title;
-        this.columns = columns;
-      };
+      id = uuid.v4(),
+      title = ' ',
+      columns = [],
 
-    
+    }: Partial<Board> = {}) {
+      this.id = id;
+      this.title = title;
+      this.columns = columns;
+    }
 }
