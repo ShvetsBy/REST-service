@@ -1,7 +1,7 @@
 import express from 'express';
 import { StatusCodes } from 'http-status-codes';
 import * as boardService from './board.service';
-import * as tasksService from '../tasks/task.service';
+// import * as tasksService from '../tasks/task.service';
 
 const router = express.Router();
 
@@ -45,7 +45,7 @@ router.route('/:id').put(async (req, res, next) => {
 router.delete('/:id', async (req, res, next) => {
   try {
     await boardService.deleteBoard(req.params.id);
-    await tasksService.deleteBoardTasks(req.params.id);
+    // await tasksService.deleteBoardTasks(req.params.id);
     res.status(StatusCodes.NO_CONTENT).send();
   } catch (e) {
     next(e);

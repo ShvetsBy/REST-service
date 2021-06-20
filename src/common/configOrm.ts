@@ -1,7 +1,8 @@
 import { ConnectionOptions } from 'typeorm';
 import dotenv from 'dotenv';
 import path from 'path';
-import { User } from '../resources/entities/user.intity'
+import { User } from '../resources/entities/user.intity';
+import { Board } from '../resources/entities/board.entity'
 
 dotenv.config({
   path: path.join(__dirname, '../../.env'),
@@ -15,5 +16,5 @@ export const config = {
   password: process.env['POSTGRES_PASS'],
   database: process.env['POSTGRES_NAME'],
   synchronize: true,
-  entities: [User]
+  entities: [User, Board],
 } as ConnectionOptions;

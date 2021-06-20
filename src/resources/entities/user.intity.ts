@@ -1,6 +1,5 @@
 import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
 import * as uuid from 'uuid';
-// import { IUser } from '../users/user.interface';
 @Entity('<User>')
 export class User {
     @PrimaryGeneratedColumn('uuid')
@@ -32,23 +31,5 @@ export class User {
         const { id, name, login } = user;
         return { id, name, login };
       };
-
-    // constructor({ 
-    //     name = 'John',
-    //     login = 'Connor',
-    //     password = 't1' }: Partial<IUser> = {}) 
-        
-    //     {
-    //     this.id = uuid.v4();
-    //     this.name = name;
-    //     this.login = login;
-    //     this.password = password;
-    //   }
-    
-    //   // public static toResponse(user): UserToResponce {
-    //   static toResponse(user: IUser) {
-    //     const { id, name, login } = user;
-    //     return { id, name, login };
-    //   }
     
 }
