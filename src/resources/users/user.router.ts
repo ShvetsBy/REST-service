@@ -1,12 +1,11 @@
 import express from 'express';
 import { StatusCodes } from 'http-status-codes';
-// import { User } from './user.model';
+import { User } from '../entities/user.intity';
 import * as usersService from './user.service';
 
 const router = express.Router();
 
 router.route('/').get(async (_req, res, next) => {
-  // throw new Error ('test');
   try {
     const users = await usersService.getAll();
     res.status(StatusCodes.OK).json(users);
@@ -27,7 +26,8 @@ router.route('/:id').get(async (req, res, next) => {
 router.route('/').post(async (req, res, next) => {
   try {
     const newUser = await usersService.createUser(req.body);
-    res.status(StatusCodes.CREATED).json(newUser);
+    res.status(StatusCodes.CREATED).json(User.toResponce(newUser));
+    //res.status(StatusCodes.CREATED).send();
   } catch (e) {
     next(e);
   }

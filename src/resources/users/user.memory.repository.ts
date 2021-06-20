@@ -1,6 +1,7 @@
 import { User } from '../entities/user.intity';
 import { getRepository } from 'typeorm'
 import { IUser } from './user.interface';
+import { IUserDTO } from './user.dto'
 // import { ITask } from '../tasks/task.interface';
 // import * as taskRepo from '../tasks/task.service';
 // import { CustomError } from '../utils/customError';
@@ -10,7 +11,7 @@ const getAll = async (): Promise<User[]> => {
   return userRepo.find({where: {} });
 };
 
-const createUser = async (dto: IUser) => {
+const createUser = async (dto: IUserDTO) => {
   try {
     const userRepo = getRepository(User);
     const newUser = userRepo.create(dto);

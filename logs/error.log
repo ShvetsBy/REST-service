@@ -190,3 +190,127 @@
 {"message":"Error: Can't find such task","level":"error"}
 {"message":"Error: Can't find such task","level":"error"}
 {"message":"Error: Can't find such task","level":"error"}
+{"level":"error","message":"Uncaught Exception"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"Error: Can't find such board","level":"error"}
+{"message":"Error: Can't find such task","level":"error"}
+{"message":"Error: Can't find such task","level":"error"}
+{"message":"Error: Can't find such task","level":"error"}
+{"message":"Error: Can't find such task","level":"error"}
+{"message":"Error: Can't find such task","level":"error"}
+{"message":"Error: Can't find such task","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"Error: Can't find such board","level":"error"}
+{"message":"Error: Can't find such task","level":"error"}
+{"message":"Error: Can't find such task","level":"error"}
+{"message":"Error: Can't find such task","level":"error"}
+{"message":"Error: Can't find such task","level":"error"}
+{"message":"Error: Can't find such task","level":"error"}
+{"message":"Error: Can't find such task","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"Error: Can't find such board","level":"error"}
+{"message":"Error: Can't find such task","level":"error"}
+{"message":"Error: Can't find such task","level":"error"}
+{"message":"Error: Can't find such task","level":"error"}
+{"message":"Error: Can't find such task","level":"error"}
+{"message":"Error: Can't find such task","level":"error"}
+{"message":"Error: Can't find such task","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"ccce8bf4-0a17-4ba3-85e0-764dfb333027\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"51bfaeac-5a83-4031-a8b3-13be90153254\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"39d8ba10-5a7e-4057-a429-cd2938efb97c\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"b55e3b7a-9ae1-467c-a5fa-a5d90c1188ea\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"11ff8254-6675-41ba-a252-fb3201b719a6\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"35517a6e-40fb-4bde-9bee-d895f084adaa\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"d187d133-dd57-425b-9944-34c85588ee6b\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"0b2b6eea-4135-4d3c-ae68-b9d73dcfb939\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"b66b4632-9927-4fb4-8883-43a5b0ca2fd2\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"d760bdaa-2b9d-4ddb-b708-066347dc3f4a\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"9fd35174-594e-402e-aa31-61c37d3d2452\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"aec2fb0f-5def-48f6-bae6-87dfcb1af56f\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"74a6820c-7343-429d-878f-e03a7d774e55\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"c01490a8-b35f-4c7a-b045-d85356d630e9\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"2fe3a3d3-019b-417c-bf53-c0f9f41f4c23\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"6e3a63f0-c570-499c-91ad-98f50bcb0a64\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"3280e202-d19c-43d0-8f59-227529fde3cb\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"021b2fbe-cfab-41f3-848d-5e274d8ef771\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"462a7f71-30d4-458f-aa0f-582f49eef157\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"38cf5655-0a23-4625-b7d9-d213986cbb01\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"51e6021e-1c64-4534-8750-158475246f3c\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"abacf83c-ff31-434d-b1cf-c45a592715ae\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"4514453c-1c9b-4fa5-afec-3594b6f031da\"","level":"error"}
+{"message":"Cannot read property 'connect' of undefined","level":"error"}
+{"message":"TypeError: Cannot destructure property 'name' of 'undefined' as it is undefined.","level":"error"}
+{"message":"TypeError: Cannot destructure property 'name' of 'undefined' as it is undefined.","level":"error"}
+{"message":"TypeError: Cannot destructure property 'name' of 'undefined' as it is undefined.","level":"error"}
+{"message":"Cannot read property 'connect' of undefined","level":"error"}
+{"message":"TypeError: Cannot destructure property 'name' of 'undefined' as it is undefined.","level":"error"}
+{"message":"Cannot read property 'connect' of undefined","level":"error"}
+{"message":"TypeError: Cannot destructure property 'name' of 'undefined' as it is undefined.","level":"error"}
+{"message":"TypeError: Cannot destructure property 'name' of 'undefined' as it is undefined.","level":"error"}
+{"message":"invalid input syntax for type integer: \"532df161-5d23-4a1e-9f0c-47737d54164f\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"8233b362-9766-43b5-a1a3-bb087f7254fd\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"fc517a51-ab4b-45af-9cea-e6da3977b126\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"dc94d80f-472c-409b-a271-d27b4cb18062\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"1f1b7f97-2694-4f3b-a0ea-7f22270636e2\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"0a2f6760-9e84-4c77-b50f-c16f11a53822\"","level":"error"}
+{"message":"Cannot read property 'connect' of undefined","level":"error"}
+{"message":"TypeError: Cannot read property 'name' of undefined","level":"error"}
+{"message":"TypeError: Cannot read property 'name' of undefined","level":"error"}
+{"message":"TypeError: Cannot read property 'name' of undefined","level":"error"}
+{"message":"Cannot read property 'connect' of undefined","level":"error"}
+{"message":"TypeError: Cannot read property 'name' of undefined","level":"error"}
+{"message":"Cannot read property 'connect' of undefined","level":"error"}
+{"message":"TypeError: Cannot read property 'name' of undefined","level":"error"}
+{"message":"invalid input syntax for type integer: \"0ebca76b-4111-4ea7-b5bc-c9625090c0b5\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"450e0633-7a13-401d-ae08-e204540cdb30\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"f5e18964-e378-4309-975c-d0271cc94846\"","level":"error"}
+{"message":"invalid input syntax for type integer: \"3f8a02d8-8ccc-4cbf-9f30-7ba7e71245c6\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"undefined\"","level":"error"}
