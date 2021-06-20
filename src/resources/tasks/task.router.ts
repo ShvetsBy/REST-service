@@ -8,9 +8,10 @@ import * as taskService from './task.service';
 
 const router = express.Router();
 
-router.route('/:boardId/tasks').get(async (_req, res, next) => {
+router.route('/:boardId/tasks').get(async (req, res, next) => {
   try {
-    const tasks = await taskService.getAll();
+    const { boardId } = req.params;
+    const tasks = await taskService.getAll(boardId);
     if (tasks) {
       res.status(StatusCodes.OK).json(tasks);
     } else {
@@ -23,7 +24,8 @@ router.route('/:boardId/tasks').get(async (_req, res, next) => {
 
 router.route('/:boardId/tasks/:id').get(async (req, res, next) => {
   try {
-    const task = await taskService.getTaskById(req.params.id);
+    const { boardId } = req.params;
+    const task = await taskService.getTaskById(req.params.id, boardId);
     res.status(StatusCodes.OK).json(task);
   } catch (e) {
     res.status(StatusCodes.NOT_FOUND).json('No task found');
@@ -34,7 +36,7 @@ router.route('/:boardId/tasks/:id').get(async (req, res, next) => {
 router.route('/:boardId/tasks').post(async (req, res, next) => {
   try {
     const { boardId } = req.params;
-    const newTask = await taskService.createTask(req.body, boardId);
+    const newTask = await taskService.createTask(boardId, req.body);
     res.status(StatusCodes.CREATED).json(newTask);
   } catch (e) {
     next(e);
@@ -43,7 +45,8 @@ router.route('/:boardId/tasks').post(async (req, res, next) => {
 
 router.route('/:boardId/tasks/:id').put(async (req, res, next) => {
   try {
-    const editTask = await taskService.editTask(req.body, req.params.id);
+    const { boardId } = req.params;
+    const editTask = await taskService.editTask(req.body, req.params.id, boardId);
     res.status(StatusCodes.OK).json(editTask);
   } catch (e) {
     next(e);
@@ -52,7 +55,8 @@ router.route('/:boardId/tasks/:id').put(async (req, res, next) => {
 
 router.route('/:boardId/tasks/:id').delete(async (req, res, next) => {
   try {
-    await taskService.deleteTask(req.params.id);
+    const { boardId } = req.params;
+    await taskService.deleteTask(req.params.id, boardId);
     res.status(StatusCodes.NO_CONTENT).send();
   } catch (e) {
     next(e);
