@@ -10,12 +10,12 @@ const editTask = (
   boardId:string,
 ) => tasksRepo.editTask(task, id, boardId);
 const deleteTask = (id: string) => tasksRepo.deleteTask(id);
-// const deleteBoardTasks = (boardId: string) => tasksRepo.deleteBoardTasks(boardId);
+const deleteBoardTasks = (boardId: string) => tasksRepo.deleteBoardTasks(boardId);
 export {
   getAll,
   getTaskById,
   createTask,
   editTask,
   deleteTask,
-  // deleteBoardTasks
+  deleteBoardTasks,
 };

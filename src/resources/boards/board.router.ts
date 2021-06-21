@@ -1,7 +1,7 @@
 import express from 'express';
 import { StatusCodes } from 'http-status-codes';
 import * as boardService from './board.service';
-// import * as tasksService from '../tasks/task.service';
+import * as tasksService from '../tasks/task.service';
 
 const router = express.Router();
 
@@ -17,9 +17,10 @@ router.route('/').get(async (_req, res, next) => {
 router.route('/:id').get(async (req, res, next) => {
   try {
     const board = await boardService.getBoardById(req.params.id);
-    res.status(StatusCodes.OK).json(board);
+    if (board) {
+      res.status(StatusCodes.OK).json(board);
+    } else res.status(StatusCodes.NOT_FOUND).json('No board found');
   } catch (e) {
-    res.status(StatusCodes.NOT_FOUND).json('No board found');
     next(e);
   }
 });
@@ -44,7 +45,7 @@ router.route('/:id').put(async (req, res, next) => {
 
 router.delete('/:id', async (req, res, next) => {
   try {
-    // await tasksService.deleteBoardTasks(req.params.id);
+    await tasksService.deleteBoardTasks(req.params.id);
     await boardService.deleteBoard(req.params.id);
     res.status(StatusCodes.NO_CONTENT).send();
   } catch (e) {

@@ -26,9 +26,14 @@ router.route('/:boardId/tasks/:id').get(async (req, res, next) => {
   try {
     const { boardId } = req.params;
     const task = await taskService.getTaskById(req.params.id, boardId);
-    res.status(StatusCodes.OK).json(task);
+    console.log('current task id', req.params.id);
+    if (task) {
+      res.status(StatusCodes.OK).json(task);
+    } else {
+      res.status(StatusCodes.NOT_FOUND).json('No task found');
+    }
   } catch (e) {
-    res.status(StatusCodes.NOT_FOUND).json('No task found');
+    // res.status(StatusCodes.NOT_FOUND).json('No task found');
     next(e);
   }
 });

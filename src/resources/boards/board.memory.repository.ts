@@ -43,11 +43,9 @@ const editBoard = async (dto: BoardDto, id: string): Promise<Board | 'NOT_FOUND'
   return updatedBoard.raw;
 };
 
-const deleteBoard = async (id: string):Promise<'DELETED' | 'NOT_FOUND'> => {
-  const boardRepo = getRepository(Board);
-  const boardDeleted = await boardRepo.delete(id);
-  if (boardDeleted.affected) return 'DELETED';
-  return 'NOT_FOUND';
+const deleteBoard = async (id: string) => {
+  const boardRepo = await getRepository(Board);
+  await boardRepo.delete(id);
 };
 export {
   getAll, getBoardById, createBoard, editBoard, deleteBoard,

@@ -388,3 +388,16 @@
 {"message":"Page not found!","level":"error"}
 {"message":"Page not found!","level":"error"}
 {"message":"Page not found!","level":"error"}
+{"message":"invalid input syntax for type uuid: \"1082adde-8b03-4a2c-b712-0e8d23d4a\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"c757588e-b9dd-4df8-850a-0656e2c720bc1\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"c757588e-b9dd-4df8-850a-0656e2c720bcee\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"77dd5607-34ee-4f0d-9066-6c006e15fe3\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"77dd5607-34ee-4f0d-9066-6c006e15fe3\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"8d1995cd-249b-49bd-9fe7-85482a2b2\"","level":"error"}
+{"message":"invalid input syntax for type uuid: \"e73181d1-dfaa-496e-9f1c-99a6b4a4cd123\"","level":"error"}
+{"message":"Page not found!","level":"error"}
+{"message":"Page not found!","level":"error"}
+{"message":"Page not found!","level":"error"}
+{"message":"Page not found!","level":"error"}
+{"message":"Page not found!","level":"error"}
+{"message":"Page not found!","level":"error"}

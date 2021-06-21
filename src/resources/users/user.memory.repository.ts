@@ -2,6 +2,7 @@ import { getRepository } from 'typeorm';
 import { User } from '../entities/user.intity';
 import { IUser } from './user.interface';
 import { IUserDTO } from './user.dto';
+import { Task } from '../entities/task.entity';
 
 const getAll = async (): Promise<User[]> => {
   const userRepo = getRepository(User);
@@ -47,19 +48,19 @@ const deleteUser = async (id: string) => {
   // return 'NOT_FOUND';
 };
 
-// const clearTasks = async (id: string | null) => {
-//   try {
-//     const tasks: ITask[] = await taskRepo.getAll();
-//     tasks.forEach((item) => {
-//       const task = item;
-//       if (task.userId === id) {
-//         task.userId = null;
-//       }
-//     });
-//   } catch (e) {
-//     throw new Error(e);
-//   }
-// };
+const clearTasks = async (id: string | null) => {
+  try {
+    const taskRepository = getRepository(Task);
+    await taskRepository.createQueryBuilder()
+      .update(Task)
+      .set({ userId: null })
+      .where('userId = :id', { id })
+      .execute()
+      .catch(() => {});
+  } catch (e) {
+    throw new Error(e);
+  }
+};
 
 export {
   getAll,
@@ -67,5 +68,5 @@ export {
   createUser,
   editUser,
   deleteUser,
-  // clearTasks,
+  clearTasks,
 };

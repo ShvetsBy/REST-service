@@ -44,7 +44,7 @@ router.route('/:id').put(async (req, res, next) => {
 
 router.route('/:id').delete(async (req, res, next) => {
   try {
-    // await usersService.clearTasks(req.params.id);
+    await usersService.clearTasks(req.params.id);
     await usersService.deleteUser(req.params.id);
     res.status(StatusCodes.NO_CONTENT).send();
   } catch (e) {
