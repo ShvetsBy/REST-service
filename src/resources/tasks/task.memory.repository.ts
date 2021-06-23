@@ -3,7 +3,6 @@ import { Task } from '../entities/task.entity';
 import { Board } from '../entities/board.entity';
 import { ITaskDTO } from './task.dto';
 
-
 const getAll = async (boardId: string): Promise<Task[]> => {
   try {
     const taskRepo = getRepository(Task);
@@ -27,13 +26,13 @@ const getTaskById = async (id: string, boardId: string): Promise<Task | undefine
 const createTask = async (boardId: string, dto: ITaskDTO) => {
   try {
     if (!await getRepository(Board).findOne(boardId)) {
-      throw new Error(`Board with ID:${boardId} doesn't exist.`)
+      throw new Error(`Board with ID:${boardId} doesn't exist.`);
     }
     const taskRepo = getRepository(Task);
     const newTask = taskRepo.create(dto);
-    
+
     newTask.boardId = boardId;
-    
+
     return taskRepo.save(newTask);
   } catch (e) {
     throw new Error(e);

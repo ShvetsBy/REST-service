@@ -21,7 +21,7 @@ export class Task {
     @Column('varchar', { nullable: true })
     columnId: string;
 
-    @Column('varchar', { nullable: true })
+    @Column('varchar', { nullable: false })
     boardId: string;
 
     constructor({

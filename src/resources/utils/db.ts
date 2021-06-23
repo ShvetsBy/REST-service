@@ -1,6 +1,6 @@
 import { getConnection, createConnection } from 'typeorm';
 import { logger } from './logger';
-import { config } from '../../common/configOrm';
+import config from '../../common/configOrm';
 
 const connectToDB = async () => {
   let connection;

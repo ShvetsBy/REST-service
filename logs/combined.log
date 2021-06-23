@@ -4759,3 +4759,39 @@
 {"method":"DELETE","path":"/boards/153cf7d7-c723-43db-ae8c-495af1890465/tasks/adacb30d-a7e7-4242-b710-c5b948287a6e","statusCode":204,"body":{},"query":{},"params":{},"headers":{"host":"localhost:4000","accept-encoding":"gzip, deflate","connection":"close"},"level":"info","message":"Data:"}
 {"method":"GET","path":"/boards/153cf7d7-c723-43db-ae8c-495af1890465/tasks/adacb30d-a7e7-4242-b710-c5b948287a6e","statusCode":404,"body":{},"query":{},"params":{},"headers":{"host":"localhost:4000","accept-encoding":"gzip, deflate","connection":"close"},"level":"info","message":"Data:"}
 {"method":"DELETE","path":"/boards/153cf7d7-c723-43db-ae8c-495af1890465","statusCode":204,"body":{},"query":{},"params":{},"headers":{"host":"localhost:4000","accept-encoding":"gzip, deflate","connection":"close"},"level":"info","message":"Data:"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":5432,"level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":5432,"level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":5432,"level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":5432,"level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}

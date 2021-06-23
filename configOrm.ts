@@ -1,9 +1,9 @@
 import { ConnectionOptions } from 'typeorm';
 import dotenv from 'dotenv';
 import path from 'path';
-import { User } from '../resources/entities/user.intity';
-import { Board } from '../resources/entities/board.entity';
-import { Task } from '../resources/entities/task.entity';
+import { User } from './src/resources/entities/user.intity';
+import { Board } from './src/resources/entities/board.entity';
+import { Task } from './src/resources/entities/task.entity';
 
 dotenv.config({
   path: path.join(__dirname, '../../.env'),
