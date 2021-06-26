@@ -4795,3 +4795,6 @@
 {"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
 {"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
 {"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"errno":-61,"code":"ECONNREFUSED","syscall":"connect","address":"127.0.0.1","port":5432,"level":"info"}
