@@ -13,18 +13,7 @@ const connectToDB = async () => {
     if (connection) {
       if (!connection.isConnected) await connection.connect();
     } else {
-      await createConnection(
-      //   {
-      //   type: 'postgres',
-      //   host: 'localhost',
-      //   port: 5432,
-      //   username: 'postgres',
-      //   password: 'postgres',
-      //   database: 'postgres',
-      //   synchronize: true,
-      // }
-        config,
-      );
+      await createConnection(config);
     }
     console.log('connection ok');
   } catch (e) {
