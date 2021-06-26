@@ -12,6 +12,8 @@ import { requestResponceHandler } from './resources/middlewares/req-res.handler'
 
 import { CustomError } from './resources/utils/customError';
 
+import { checkToken } from './resources/middlewares/check.token';
+
 const app = express();
 const swaggerDocument = YAML.load(path.join(__dirname, '../doc/api.yaml'));
 
@@ -19,6 +21,7 @@ app.use(express.json());
 app.use('/doc', swaggerUI.serve, swaggerUI.setup(swaggerDocument));
 
 app.use(requestResponceHandler);
+// app.use(checkToken);
 
 app.use('/', (req, res, next) => {
   if (req.originalUrl === '/') {
@@ -29,7 +32,7 @@ app.use('/', (req, res, next) => {
 });
 app.use('/login', loginRouter);
 app.use('/users', userRouter);
-app.use('/boards', [boardRouter, taskRouter]);
+app.use('/boards', checkToken, [boardRouter, taskRouter]);
 app.use('*', () => {
   throw new CustomError(404, 'Page not found!');
 });

@@ -405,3 +405,7 @@
 {"message":"Error: Expected \"payload\" to be a plain object.","level":"error"}
 {"message":"Error: Expected \"payload\" to be a plain object.","level":"error"}
 {"message":"Error: Expected \"payload\" to be a plain object.","level":"error"}
+{"message":"Cannot set headers after they are sent to the client","level":"error"}
+{"message":"Unexpected string in JSON at position 30","level":"error"}
+{"message":"Unexpected string in JSON at position 30","level":"error"}
+{"message":"Cannot set headers after they are sent to the client","level":"error"}
