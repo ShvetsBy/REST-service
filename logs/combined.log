@@ -4904,3 +4904,8 @@
 {"method":"POST","path":"/login","statusCode":200,"body":{"login":"onelogin","password":"onepassword"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"f39b2523-ae22-4342-9ad3-d9c9002136e8","content-length":"57"},"level":"info","message":"Data:"}
 {"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
 {"method":"POST","path":"/login","statusCode":200,"body":{"login":"onelogin","password":"onepassword"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"64e9be4a-2e91-4ae0-98f6-8f3e22323c95","content-length":"57"},"level":"info","message":"Data:"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"method":"POST","path":"/login","statusCode":200,"body":{"login":"onelogin","password":"onepassword"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"1a3b201c-cdef-41a6-af8e-7bd0e1bcd423","content-length":"57"},"level":"info","message":"Data:"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
+{"method":"POST","path":"/login","statusCode":200,"body":{"login":"onelogin","password":"onepassword"},"query":{},"params":{},"headers":{"content-type":"application/json","postman-token":"98853b68-ade6-44f5-8a14-bfdc01feb4f2","content-length":"57"},"level":"info","message":"Data:"}
+{"name":"ConnectionNotFoundError","message":"Connection \"default\" was not found.","level":"info"}
