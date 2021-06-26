@@ -7,7 +7,6 @@ const generateToken = async (login: string, password: string) => {
   try {
     const userRepo = getRepository(User);
     const user = await userRepo.findOne({ login, password });
-    console.log(user);
     if (!user) {
       return false;
     }

@@ -409,3 +409,31 @@
 {"message":"Unexpected string in JSON at position 30","level":"error"}
 {"message":"Unexpected string in JSON at position 30","level":"error"}
 {"message":"Cannot set headers after they are sent to the client","level":"error"}
+{"message":"invalid signature","level":"error"}
+{"message":"Unexpected token � in JSON at position 36","level":"error"}
+{"message":"invalid token","level":"error"}
+{"message":"invalid token","level":"error"}
+{"message":"invalid token","level":"error"}
+{"message":"invalid token","level":"error"}
+{"message":"invalid token","level":"error"}
+{"message":"invalid token","level":"error"}
+{"message":"invalid token","level":"error"}
+{"message":"invalid token","level":"error"}
+{"message":"invalid token","level":"error"}
+{"message":"invalid token","level":"error"}
+{"message":"invalid token","level":"error"}
+{"message":"invalid token","level":"error"}
+{"message":"invalid token","level":"error"}
+{"message":"invalid token","level":"error"}
+{"message":"invalid token","level":"error"}
+{"message":"invalid token","level":"error"}
+{"message":"invalid token","level":"error"}
+{"message":"invalid signature","level":"error"}
+{"message":"invalid signature","level":"error"}
+{"message":"invalid signature","level":"error"}
+{"message":"invalid signature","level":"error"}
+{"message":"invalid signature","level":"error"}
+{"message":"invalid token","level":"error"}
+{"message":"Cannot set headers after they are sent to the client","level":"error"}
+{"message":"Cannot set headers after they are sent to the client","level":"error"}
+{"message":"Cannot set headers after they are sent to the client","level":"error"}
