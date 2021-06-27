@@ -14,6 +14,8 @@ import { CustomError } from './resources/utils/customError';
 
 import { checkToken } from './resources/middlewares/check.token';
 
+
+
 const app = express();
 const swaggerDocument = YAML.load(path.join(__dirname, '../doc/api.yaml'));
 
@@ -29,6 +31,7 @@ app.use('/', (req, res, next) => {
   }
   next();
 });
+
 app.use('/login', loginRouter);
 app.use(checkToken);
 app.use('/users', userRouter);
