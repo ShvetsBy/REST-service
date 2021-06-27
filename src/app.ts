@@ -30,7 +30,6 @@ app.use('/', (req, res, next) => {
   next();
 });
 app.use('/login', loginRouter);
-
 app.use(checkToken);
 app.use('/users', userRouter);
 app.use('/boards', [boardRouter, taskRouter]);

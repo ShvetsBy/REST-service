@@ -1,4 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn, BeforeInsert } from 'typeorm';
+import {
+  Entity, Column, PrimaryGeneratedColumn, BeforeInsert,
+} from 'typeorm';
 import * as uuid from 'uuid';
 import bcrypt from 'bcrypt';
 
