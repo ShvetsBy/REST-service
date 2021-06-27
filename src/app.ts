@@ -30,9 +30,11 @@ app.use('/', (req, res, next) => {
   next();
 });
 app.use('/login', loginRouter);
-app.use('/users', userRouter);
+
 app.use(checkToken);
+app.use('/users', userRouter);
 app.use('/boards', [boardRouter, taskRouter]);
+
 app.use('*', () => {
   throw new CustomError(404, 'Page not found!');
 });

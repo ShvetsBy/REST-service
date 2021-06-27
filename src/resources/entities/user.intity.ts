@@ -1,5 +1,6 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, BeforeInsert } from 'typeorm';
 import * as uuid from 'uuid';
+import bcrypt from 'bcrypt';
 
 @Entity('<User>')
 export class User {
@@ -14,6 +15,11 @@ export class User {
 
     @Column('varchar')
     password: string;
+
+    @BeforeInsert()
+    async hashPassword() {
+      this.password = await bcrypt.hash(this.password, 10);
+    }
 
     constructor({
       id = uuid.v4(),
