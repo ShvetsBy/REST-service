@@ -1,37 +1,29 @@
-
-import { User } from './user.model.js';
+import { getRepository } from 'typeorm';
+import { User } from '../entities/user.intity';
 import { IUser } from './user.interface';
-import { ITask } from '../tasks/task.interface'
-import * as taskRepo from '../tasks/task.service.js';
-import { CustomError } from '../utils/customError.js';
+import { IUserDTO } from './user.dto';
+import { Task } from '../entities/task.entity';
 
-const users: IUser[] = [];
+const getAll = async (): Promise<User[]> => {
+  const userRepo = getRepository(User);
+  return userRepo.find({ where: {} });
+};
 
-/**
- * Returns the list of app users.
- * no params required
- * @async
- * @throws {string} error message
- * @returns {Promise<Array>} List of users. Every user is an object, which contains 3 strings: id, name and login
- */
- const getAll = async () => {
+const createUser = async (dto: IUserDTO) => {
   try {
-    return users;
+    const userRepo = getRepository(User);
+    const newUser = userRepo.create(dto);
+    const savedUser = userRepo.save(newUser);
+    return savedUser;
   } catch (e) {
-    throw new CustomError(e.statusCode, e.message);
+    throw new Error(e);
   }
 };
 
-/**
- * Returns one user according his uniq id.
- * @async
- * @throws {string} error message
- * @param {string} id – user uniq id.
- * @returns {Promise<Object>} List of user's properties: id, name and login.
- */
 const getUserById = async (id: string) => {
   try {
-    const user = users.find((object) => object.id === id);
+    const userRepo = getRepository(User);
+    const user = userRepo.findOne(id);
     if (!user) {
       throw new Error("Can't find such user");
     }
@@ -41,81 +33,34 @@ const getUserById = async (id: string) => {
   }
 };
 
-/**
- * Creates new user.
- * @async
- * @throws {string} error message
- * @param {Object} user – object consists of 3 items: id, name, login and password.
- * @returns {Promise<Object>} new user with id, name, login and password.
- */
-const createUser = async (user: IUser) => {
-  try {
-    const newUser = await new User(user);
-    users.push(newUser);
-    return newUser;
-  } catch (e) {
-    throw new Error(e);
-  }
+const editUser = async (dto:Omit<IUser, 'id'>, id: string): Promise<User | 'NOT_FOUND'> => {
+  const userRepo = getRepository(User);
+  const user = await userRepo.findOne(id);
+  if (user === undefined) return 'NOT_FOUND';
+  const updatedUser = await userRepo.update(id, dto);
+  return updatedUser.raw;
 };
 
-/**
- * Edit existing user.
- * @async
- * @param {string} id – user uniq id.
- * @param {Object} user – object consists of 3 items: id, name, login and password.
- * @throws {string} error message
- * @returns {Promise<Object>} update user's id, name or login.
- */
-const editUser = async (user: IUser, id: string) => {
-  try {
-    const userToEdit = users.find((object) => object.id === id);
-    if (userToEdit) {
-      userToEdit.name = user.name;
-      userToEdit.login = user.login;
-      userToEdit.password = user.password;
-      return userToEdit;
-    } throw new Error('Failed to edit this user.')
-   
-  } catch (e) {
-    throw new Error(e);
-  }
-};
-
-/**
- * delete existing user and removes his id from tasks.
- * @async
- * @param {string} id – user uniq id.
- * @return {undefined}
- */
 const deleteUser = async (id: string) => {
-  try {
-    const index = users.findIndex((item) => item.id === id);
-    users.splice(index, 1);
-  }
-  catch (e) {
-    throw new Error(e);
-  }  
-  
+  const userRepo = getRepository(User);
+  await userRepo.delete(id);
+  // if (userDeleted.affected) return 'DELETED';
+  // return 'NOT_FOUND';
 };
 
 const clearTasks = async (id: string | null) => {
   try {
-    let tasks: ITask[] = await taskRepo.getAll();
-    tasks.forEach((item) => {
-      
-      if (item.userId === id) {
-        item.userId = null;
-    
-      }
-    
+    const taskRepository = getRepository(Task);
+    await taskRepository.createQueryBuilder()
+      .update(Task)
+      .set({ userId: null })
+      .where('userId = :id', { id })
+      .execute()
+      .catch(() => {});
+  } catch (e) {
+    throw new Error(e);
   }
-  )  
-}
-  
-catch(e) {
-  throw new Error(e);
-}
- }
+};
 
 export {
   getAll,
@@ -123,5 +68,5 @@ export {
   createUser,
   editUser,
   deleteUser,
-  clearTasks
+  clearTasks,
 };

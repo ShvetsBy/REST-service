@@ -1,5 +1,4 @@
-export interface IUser {
-    id: string | null;
+export interface IUserDTO {
     name: string;
     login: string;
     password: string;

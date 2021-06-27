@@ -6,4 +6,4 @@ export interface ITask {
     userId: string | null;
     columnId: string;
     boardId: string;
-  };
+  }

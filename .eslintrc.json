@@ -16,17 +16,21 @@
     }
   },
   "settings": {
+    // "import/resolver": {
+    //   "node": {
+    //     "paths": ["src"]
+    //   }
+    // },
     "import/resolver": {
-      "node": {
-        "paths": ["src"]
-      }
-    },
+      "typescript": {}
+      },
     "noInlineConfig": true
   },
   "extends": [
     "eslint:recommended",
     "plugin:import/typescript",
-    "prettier"
+    "prettier",
+    "airbnb-base"
   ],
   "rules": {
     "import/extensions": "off",
@@ -34,7 +38,11 @@
     "node/no-unsupported-features/es-syntax": "off",
     "no-underscore-dangle": "off",
     "import/prefer-default-export": "off",
-    "dot-notation": [0]
+    "dot-notation": [0],
+    "import/no-unresolved": [
+      2, 
+      { "caseSensitive": false }
+   ]
   }
   
 }
