@@ -1,6 +1,7 @@
 import { createConnection } from 'typeorm';
 import { User } from '../src/users/entities/user.entity'
 import { Board } from '../src/boards/entities/board.entity'
+import { Task } from '../src/tasks/entities/task.entity'
 export const databaseProviders = [
   {
     provide: 'DATABASE_CONNECTION',
@@ -11,7 +12,7 @@ export const databaseProviders = [
       username: 'postgres',
       password: 'postgres',
       database: 'postgres',
-      entities: [ User, Board ],
+      entities: [ User, Board, Task ],
       synchronize: true,
     }),
   },

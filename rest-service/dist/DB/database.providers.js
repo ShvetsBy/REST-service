@@ -4,6 +4,7 @@ exports.databaseProviders = void 0;
 const typeorm_1 = require("typeorm");
 const user_entity_1 = require("../src/users/entities/user.entity");
 const board_entity_1 = require("../src/boards/entities/board.entity");
+const task_entity_1 = require("../src/tasks/entities/task.entity");
 exports.databaseProviders = [
     {
         provide: 'DATABASE_CONNECTION',
@@ -14,7 +15,7 @@ exports.databaseProviders = [
             username: 'postgres',
             password: 'postgres',
             database: 'postgres',
-            entities: [user_entity_1.User, board_entity_1.Board],
+            entities: [user_entity_1.User, board_entity_1.Board, task_entity_1.Task],
             synchronize: true,
         }),
     },

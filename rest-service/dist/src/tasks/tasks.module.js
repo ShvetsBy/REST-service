@@ -6,21 +6,24 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
     return c > 3 && r && Object.defineProperty(target, key, r), r;
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.AppModule = void 0;
+exports.TasksModule = void 0;
 const common_1 = require("@nestjs/common");
-const app_controller_1 = require("./app.controller");
-const app_service_1 = require("./app.service");
-const users_module_1 = require("./users/users.module");
-const boards_module_1 = require("./boards/boards.module");
-const tasks_module_1 = require("./tasks/tasks.module");
-let AppModule = class AppModule {
+const tasks_service_1 = require("./tasks.service");
+const database_module_1 = require("../../DB/database.module");
+const tasks_controller_1 = require("./tasks.controller");
+const tasks_providers_1 = require("./tasks.providers");
+let TasksModule = class TasksModule {
 };
-AppModule = __decorate([
+TasksModule = __decorate([
     common_1.Module({
-        imports: [users_module_1.UserModule, boards_module_1.BoardsModule, tasks_module_1.TasksModule],
-        controllers: [app_controller_1.AppController],
-        providers: [app_service_1.AppService],
+        imports: [database_module_1.DatabaseModule],
+        controllers: [tasks_controller_1.TasksController],
+        providers: [
+            ...tasks_providers_1.taskProviders,
+            tasks_service_1.TasksService
+        ],
+        exports: [tasks_service_1.TasksService]
     })
-], AppModule);
-exports.AppModule = AppModule;
-//# sourceMappingURL=app.module.js.map
+], TasksModule);
+exports.TasksModule = TasksModule;
+//# sourceMappingURL=tasks.module.js.map
