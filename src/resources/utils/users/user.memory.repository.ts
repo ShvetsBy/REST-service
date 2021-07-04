@@ -1,8 +1,8 @@
 import { getRepository } from 'typeorm';
-import { User } from '../entities/user.intity';
+import { User } from '../../entities/user.intity';
 import { IUser } from './user.interface';
 import { IUserDTO } from './user.dto';
-import { Task } from '../entities/task.entity';
+import { Task } from '../../entities/task.entity';
 
 const getAll = async (): Promise<User[]> => {
   const userRepo = getRepository(User);

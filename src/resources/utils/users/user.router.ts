@@ -1,6 +1,6 @@
 import express from 'express';
 import { StatusCodes } from 'http-status-codes';
-import { User } from '../entities/user.intity';
+import { User } from '../../entities/user.intity';
 import * as usersService from './user.service';
 
 const router = express.Router();
