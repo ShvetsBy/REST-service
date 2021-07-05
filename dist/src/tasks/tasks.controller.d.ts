@@ -8,5 +8,5 @@ export declare class TasksController {
     findAll(boardId: string): Promise<import("./entities/task.entity").Task[]>;
     findOne(boardId: string, id: string): Promise<import("./entities/task.entity").Task>;
     update(id: string, updateTaskDto: UpdateTaskDto): Promise<UpdateTaskDto>;
-    remove(id: string): Promise<import("typeorm").DeleteResult>;
+    remove(id: string): Promise<void>;
 }

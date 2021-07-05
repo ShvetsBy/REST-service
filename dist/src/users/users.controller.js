@@ -17,9 +17,12 @@ const common_1 = require("@nestjs/common");
 const users_service_1 = require("./users.service");
 const create_user_dto_1 = require("./dto/create-user.dto");
 const update_user_dto_1 = require("./dto/update-user.dto");
+const not_found_error_1 = require("../errors/not-found.error");
+const tasks_service_1 = require("../tasks/tasks.service");
 let UsersController = class UsersController {
-    constructor(userService) {
+    constructor(userService, tasksService) {
         this.userService = userService;
+        this.tasksService = tasksService;
     }
     async create(createUserDto) {
         const newUser = this.userService.create(createUserDto);
@@ -28,13 +31,20 @@ let UsersController = class UsersController {
     findAll() {
         return this.userService.findAll();
     }
-    findOne(id) {
-        return this.userService.findOne(id);
+    async findOne(id) {
+        const user = await this.userService.findOne(id);
+        if (user) {
+            return user;
+        }
+        else {
+            throw new not_found_error_1.NotFound('User');
+        }
     }
     update(id, updateUserDto) {
         return this.userService.update(id, updateUserDto);
     }
     remove(id) {
+        this.tasksService.clearTasks(id);
         return this.userService.remove(id);
     }
 };
@@ -56,7 +66,7 @@ __decorate([
     __param(0, common_1.Param('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], UsersController.prototype, "findOne", null);
 __decorate([
     common_1.Put(':id'),
@@ -75,7 +85,8 @@ __decorate([
 ], UsersController.prototype, "remove", null);
 UsersController = __decorate([
     common_1.Controller('users'),
-    __metadata("design:paramtypes", [users_service_1.UserService])
+    __metadata("design:paramtypes", [users_service_1.UserService,
+        tasks_service_1.TasksService])
 ], UsersController);
 exports.UsersController = UsersController;
 //# sourceMappingURL=users.controller.js.map

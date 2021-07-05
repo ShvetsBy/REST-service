@@ -17,6 +17,7 @@ const common_1 = require("@nestjs/common");
 const tasks_service_1 = require("./tasks.service");
 const create_task_dto_1 = require("./dto/create-task.dto");
 const update_task_dto_1 = require("./dto/update-task.dto");
+const not_found_error_1 = require("../errors/not-found.error");
 let TasksController = class TasksController {
     constructor(tasksService) {
         this.tasksService = tasksService;
@@ -27,8 +28,14 @@ let TasksController = class TasksController {
     findAll(boardId) {
         return this.tasksService.findAll(boardId);
     }
-    findOne(boardId, id) {
-        return this.tasksService.findOne(boardId, id);
+    async findOne(boardId, id) {
+        const task = await this.tasksService.findOne(boardId, id);
+        if (task) {
+            return task;
+        }
+        else {
+            throw new not_found_error_1.NotFound('Task');
+        }
     }
     update(id, updateTaskDto) {
         return this.tasksService.update(id, updateTaskDto);
@@ -58,7 +65,7 @@ __decorate([
     __param(1, common_1.Param('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, String]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], TasksController.prototype, "findOne", null);
 __decorate([
     common_1.Put(':id'),

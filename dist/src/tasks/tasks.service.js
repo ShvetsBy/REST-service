@@ -15,6 +15,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.TasksService = void 0;
 const common_1 = require("@nestjs/common");
 const typeorm_1 = require("typeorm");
+const task_entity_1 = require("./entities/task.entity");
 let TasksService = class TasksService {
     constructor(taskRepository) {
         this.taskRepository = taskRepository;
@@ -36,7 +37,32 @@ let TasksService = class TasksService {
         return updatedTask.raw;
     }
     async remove(id) {
-        return await this.taskRepository.delete(id);
+        await this.taskRepository.delete(id);
+    }
+    async deleteBoardTasks(boardId) {
+        try {
+            const tasks = this.findAll(boardId);
+            if (tasks) {
+                (await tasks).map((task) => {
+                    if (task.boardId === boardId) {
+                        this.remove(task.id);
+                        return true;
+                    }
+                    return false;
+                });
+            }
+        }
+        catch (e) {
+            throw new Error(e);
+        }
+    }
+    async clearTasks(id) {
+        await this.taskRepository
+            .createQueryBuilder()
+            .update(task_entity_1.Task)
+            .set({ userId: null })
+            .where('userId = :id', { id })
+            .execute();
     }
 };
 TasksService = __decorate([

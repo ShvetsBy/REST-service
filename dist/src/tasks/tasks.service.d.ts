@@ -9,5 +9,7 @@ export declare class TasksService {
     findAll(boardId: string): Promise<Task[]>;
     findOne(boardId: string, id: string): Promise<Task>;
     update(id: string, updateTaskDto: UpdateTaskDto): Promise<UpdateTaskDto>;
-    remove(id: string): Promise<import("typeorm").DeleteResult>;
+    remove(id: string): Promise<void>;
+    deleteBoardTasks(boardId: string): Promise<void>;
+    clearTasks(id: string | null): Promise<void>;
 }

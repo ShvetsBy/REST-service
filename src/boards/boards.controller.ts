@@ -1,36 +1,53 @@
-import { Controller, Body, Param, Delete, Get, Post, Put } from '@nestjs/common';
+import {
+  Controller,
+  Body,
+  Param,
+  Delete,
+  Get,
+  Post,
+  Put,
+} from '@nestjs/common';
+import { NotFound } from 'src/errors/not-found.error';
 import { BoardsService } from './boards.service';
 import { CreateBoardDto } from './dto/createboard.dto';
-import { UpdateBoardDto } from './dto/updateboard.dto'
+import { UpdateBoardDto } from './dto/updateboard.dto';
+import { TasksService } from '../tasks/tasks.service';
 
 @Controller('boards')
 export class BoardsController {
+  constructor(
+    private readonly boardService: BoardsService,
+    private readonly tasksService: TasksService
+  ) {}
 
-    constructor(private readonly boardService: BoardsService) {}
+  @Post()
+  create(@Body() createBoardDto: CreateBoardDto) {
+    return this.boardService.create(createBoardDto);
+  }
 
-    @Post()
-    create(@Body() createBoardDto: CreateBoardDto) {
-      return this.boardService.create(createBoardDto);
+  @Get()
+  findAll() {
+    return this.boardService.findAll();
+  }
+
+  @Get(':id')
+  async findOne(@Param('id') id: string) {
+    const board = await this.boardService.findOne(id);
+    if (board) {
+      return board;
+    } else {
+      throw new NotFound('Board');
     }
-    
-    @Get()
-    findAll() {
-     return this.boardService.findAll();
-    }
-  
-    @Get(':id')
-    findOne(@Param('id') id: string) {
-      return this.boardService.findOne(id);
-    }
-  
-    @Put(':id')
-    update(@Param('id') id: string, @Body() updateBoardDto: UpdateBoardDto) {
+  }
+
+  @Put(':id')
+  update(@Param('id') id: string, @Body() updateBoardDto: UpdateBoardDto) {
     return this.boardService.update(id, updateBoardDto);
-    }
-  
-    @Delete(':id')
-    remove(@Param('id') id: string) {
-    return this.boardService.remove(id);
-    }
+  }
 
+  @Delete(':id')
+  remove(@Param('id') id: string) {
+    this.tasksService.deleteBoardTasks(id);
+    return this.boardService.remove(id);
+  }
 }

@@ -14,12 +14,15 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.BoardsController = void 0;
 const common_1 = require("@nestjs/common");
+const not_found_error_1 = require("../errors/not-found.error");
 const boards_service_1 = require("./boards.service");
 const createboard_dto_1 = require("./dto/createboard.dto");
 const updateboard_dto_1 = require("./dto/updateboard.dto");
+const tasks_service_1 = require("../tasks/tasks.service");
 let BoardsController = class BoardsController {
-    constructor(boardService) {
+    constructor(boardService, tasksService) {
         this.boardService = boardService;
+        this.tasksService = tasksService;
     }
     create(createBoardDto) {
         return this.boardService.create(createBoardDto);
@@ -27,13 +30,20 @@ let BoardsController = class BoardsController {
     findAll() {
         return this.boardService.findAll();
     }
-    findOne(id) {
-        return this.boardService.findOne(id);
+    async findOne(id) {
+        const board = await this.boardService.findOne(id);
+        if (board) {
+            return board;
+        }
+        else {
+            throw new not_found_error_1.NotFound('Board');
+        }
     }
     update(id, updateBoardDto) {
         return this.boardService.update(id, updateBoardDto);
     }
     remove(id) {
+        this.tasksService.deleteBoardTasks(id);
         return this.boardService.remove(id);
     }
 };
@@ -55,7 +65,7 @@ __decorate([
     __param(0, common_1.Param('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], BoardsController.prototype, "findOne", null);
 __decorate([
     common_1.Put(':id'),
@@ -74,7 +84,8 @@ __decorate([
 ], BoardsController.prototype, "remove", null);
 BoardsController = __decorate([
     common_1.Controller('boards'),
-    __metadata("design:paramtypes", [boards_service_1.BoardsService])
+    __metadata("design:paramtypes", [boards_service_1.BoardsService,
+        tasks_service_1.TasksService])
 ], BoardsController);
 exports.BoardsController = BoardsController;
 //# sourceMappingURL=boards.controller.js.map
