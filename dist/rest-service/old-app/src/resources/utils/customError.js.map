@@ -1,0 +1,1 @@
+{"version":3,"file":"customError.js","sourceRoot":"","sources":["../../../../../../rest-service/old-app/src/resources/utils/customError.ts"],"names":[],"mappings":";;;AAAA,MAAM,WAAY,SAAQ,KAAK;IAK7B,YAAY,UAAkB,EAAE,OAAe;QAC7C,KAAK,EAAE,CAAC;QACR,IAAI,CAAC,UAAU,GAAG,UAAU,CAAC;QAC7B,IAAI,CAAC,OAAO,GAAG,OAAO,CAAC;IACzB,CAAC;CACF;AAEQ,kCAAW"}

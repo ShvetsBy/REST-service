@@ -1,0 +1,10 @@
+import { User } from '../../entities/user.intity';
+import { IUser } from './user.interface';
+import { IUserDTO } from './user.dto';
+declare const getAll: () => Promise<User[]>;
+declare const createUser: (dto: IUserDTO) => Promise<User>;
+declare const getUserById: (id: string) => Promise<User>;
+declare const editUser: (dto: Omit<IUser, 'id'>, id: string) => Promise<User | 'NOT_FOUND'>;
+declare const deleteUser: (id: string) => Promise<void>;
+declare const clearTasks: (id: string | null) => Promise<void>;
+export { getAll, getUserById, createUser, editUser, deleteUser, clearTasks, };
