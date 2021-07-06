@@ -27,7 +27,7 @@ router.route('/').post(async (req, res, next) => {
   try {
     const newUser = await usersService.createUser(req.body);
     res.status(StatusCodes.CREATED).json(User.toResponce(newUser));
-    // res.status(StatusCodes.CREATED).send();
+    // res.status(StatusCodes.CREATED).send(newUser);
   } catch (e) {
     next(e);
   }

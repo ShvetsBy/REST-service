@@ -4,7 +4,9 @@ import { logger } from '../utils/logger';
 
 const errorHandler: ErrorRequestHandler = ((err, _req, res, _next) => {
   logger.error(err.message);
-
+  if (err.message === 'invalid token' || 'invalid signature') {
+    res.status(StatusCodes.UNAUTHORIZED).send(ReasonPhrases.UNAUTHORIZED);
+  }
   if (err.status) {
     res.status(err.status).send(err.message);
   } else {
