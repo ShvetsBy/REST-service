@@ -18,6 +18,7 @@ const tasks_service_1 = require("./tasks.service");
 const create_task_dto_1 = require("./dto/create-task.dto");
 const update_task_dto_1 = require("./dto/update-task.dto");
 const not_found_error_1 = require("../errors/not-found.error");
+const auth_guard_1 = require("../auth/auth.guard");
 let TasksController = class TasksController {
     constructor(tasksService) {
         this.tasksService = tasksService;
@@ -84,6 +85,7 @@ __decorate([
 ], TasksController.prototype, "remove", null);
 TasksController = __decorate([
     common_1.Controller('boards/:boardId/tasks'),
+    common_1.UseGuards(auth_guard_1.AuthGuard),
     __metadata("design:paramtypes", [tasks_service_1.TasksService])
 ], TasksController);
 exports.TasksController = TasksController;
