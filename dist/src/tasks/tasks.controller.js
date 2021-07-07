@@ -26,8 +26,14 @@ let TasksController = class TasksController {
     create(boardId, createTaskDto) {
         return this.tasksService.create(boardId, createTaskDto);
     }
-    findAll(boardId) {
-        return this.tasksService.findAll(boardId);
+    async findAll(boardId) {
+        const tasks = await this.tasksService.findAll(boardId);
+        if (tasks) {
+            return tasks;
+        }
+        else {
+            throw new not_found_error_1.NotFound('Tasks');
+        }
     }
     async findOne(boardId, id) {
         const task = await this.tasksService.findOne(boardId, id);
@@ -58,7 +64,7 @@ __decorate([
     __param(0, common_1.Param('boardId')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], TasksController.prototype, "findAll", null);
 __decorate([
     common_1.Get(':id'),

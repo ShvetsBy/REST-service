@@ -27,8 +27,13 @@ export class TasksController {
   }
 
   @Get()
-  findAll(@Param('boardId') boardId: string) {
-    return this.tasksService.findAll(boardId);
+  async findAll(@Param('boardId') boardId: string) {
+    const tasks = await this.tasksService.findAll(boardId);
+    if (tasks) {
+      return tasks;
+    } else {
+      throw new NotFound('Tasks');
+    }
   }
 
   @Get(':id')
