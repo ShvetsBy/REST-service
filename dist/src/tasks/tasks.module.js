@@ -18,11 +18,8 @@ TasksModule = __decorate([
     common_1.Module({
         imports: [database_module_1.DatabaseModule],
         controllers: [tasks_controller_1.TasksController],
-        providers: [
-            ...tasks_providers_1.taskProviders,
-            tasks_service_1.TasksService
-        ],
-        exports: [tasks_service_1.TasksService]
+        providers: [...tasks_providers_1.taskProviders, tasks_service_1.TasksService],
+        exports: [tasks_service_1.TasksService],
     })
 ], TasksModule);
 exports.TasksModule = TasksModule;

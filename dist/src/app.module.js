@@ -14,11 +14,12 @@ const users_module_1 = require("./users/users.module");
 const boards_module_1 = require("./boards/boards.module");
 const tasks_module_1 = require("./tasks/tasks.module");
 const auth_module_1 = require("./auth/auth.module");
+const logger_module_1 = require("./utils/logger/logger.module");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     common_1.Module({
-        imports: [users_module_1.UserModule, boards_module_1.BoardsModule, tasks_module_1.TasksModule, auth_module_1.AuthModule],
+        imports: [users_module_1.UserModule, boards_module_1.BoardsModule, tasks_module_1.TasksModule, auth_module_1.AuthModule, logger_module_1.LoggerModule],
         controllers: [app_controller_1.AppController],
         providers: [app_service_1.AppService],
     })

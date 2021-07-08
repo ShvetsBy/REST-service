@@ -28,8 +28,14 @@ let BoardsController = class BoardsController {
     create(createBoardDto) {
         return this.boardService.create(createBoardDto);
     }
-    findAll() {
-        return this.boardService.findAll();
+    async findAll() {
+        const boards = await this.boardService.findAll();
+        if (boards) {
+            return boards;
+        }
+        else {
+            throw new not_found_error_1.NotFound('Boards');
+        }
     }
     async findOne(id) {
         const board = await this.boardService.findOne(id);
@@ -59,7 +65,7 @@ __decorate([
     common_1.Get(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], BoardsController.prototype, "findAll", null);
 __decorate([
     common_1.Get(':id'),
