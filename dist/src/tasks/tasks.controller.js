@@ -18,6 +18,7 @@ const tasks_service_1 = require("./tasks.service");
 const create_task_dto_1 = require("./dto/create-task.dto");
 const update_task_dto_1 = require("./dto/update-task.dto");
 const not_found_error_1 = require("../errors/not-found.error");
+const auth_guard_1 = require("../auth/auth.guard");
 let TasksController = class TasksController {
     constructor(tasksService) {
         this.tasksService = tasksService;
@@ -25,8 +26,14 @@ let TasksController = class TasksController {
     create(boardId, createTaskDto) {
         return this.tasksService.create(boardId, createTaskDto);
     }
-    findAll(boardId) {
-        return this.tasksService.findAll(boardId);
+    async findAll(boardId) {
+        const tasks = await this.tasksService.findAll(boardId);
+        if (tasks) {
+            return tasks;
+        }
+        else {
+            throw new not_found_error_1.NotFound('Tasks');
+        }
     }
     async findOne(boardId, id) {
         const task = await this.tasksService.findOne(boardId, id);
@@ -57,7 +64,7 @@ __decorate([
     __param(0, common_1.Param('boardId')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], TasksController.prototype, "findAll", null);
 __decorate([
     common_1.Get(':id'),
@@ -84,6 +91,7 @@ __decorate([
 ], TasksController.prototype, "remove", null);
 TasksController = __decorate([
     common_1.Controller('boards/:boardId/tasks'),
+    common_1.UseGuards(auth_guard_1.AuthGuard),
     __metadata("design:paramtypes", [tasks_service_1.TasksService])
 ], TasksController);
 exports.TasksController = TasksController;

@@ -19,6 +19,7 @@ const create_user_dto_1 = require("./dto/create-user.dto");
 const update_user_dto_1 = require("./dto/update-user.dto");
 const not_found_error_1 = require("../errors/not-found.error");
 const tasks_service_1 = require("../tasks/tasks.service");
+const auth_guard_1 = require("../auth/auth.guard");
 let UsersController = class UsersController {
     constructor(userService, tasksService) {
         this.userService = userService;
@@ -50,6 +51,7 @@ let UsersController = class UsersController {
 };
 __decorate([
     common_1.Post(),
+    common_1.HttpCode(201),
     __param(0, common_1.Body()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_user_dto_1.CreateUserDto]),
@@ -78,6 +80,7 @@ __decorate([
 ], UsersController.prototype, "update", null);
 __decorate([
     common_1.Delete(':id'),
+    common_1.HttpCode(204),
     __param(0, common_1.Param('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
@@ -85,6 +88,7 @@ __decorate([
 ], UsersController.prototype, "remove", null);
 UsersController = __decorate([
     common_1.Controller('users'),
+    common_1.UseGuards(auth_guard_1.AuthGuard),
     __metadata("design:paramtypes", [users_service_1.UserService,
         tasks_service_1.TasksService])
 ], UsersController);

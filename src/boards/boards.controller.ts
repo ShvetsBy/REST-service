@@ -6,14 +6,16 @@ import {
   Get,
   Post,
   Put,
+  UseGuards,
 } from '@nestjs/common';
 import { NotFound } from 'src/errors/not-found.error';
 import { BoardsService } from './boards.service';
 import { CreateBoardDto } from './dto/createboard.dto';
 import { UpdateBoardDto } from './dto/updateboard.dto';
 import { TasksService } from '../tasks/tasks.service';
-
+import { AuthGuard } from '../auth/auth.guard';
 @Controller('boards')
+@UseGuards(AuthGuard)
 export class BoardsController {
   constructor(
     private readonly boardService: BoardsService,

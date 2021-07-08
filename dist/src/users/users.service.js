@@ -30,6 +30,9 @@ let UserService = class UserService {
     async findOne(id) {
         return this.userRepository.findOne(id);
     }
+    async findbyLogin(login) {
+        return this.userRepository.findOne({ where: { login } });
+    }
     async update(id, updateUserDto) {
         const updatedUser = await this.userRepository.update(id, updateUserDto);
         return updatedUser.raw;

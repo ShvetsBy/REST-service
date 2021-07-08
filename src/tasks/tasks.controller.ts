@@ -6,12 +6,15 @@ import {
   Put,
   Param,
   Delete,
+  UseGuards,
 } from '@nestjs/common';
 import { TasksService } from './tasks.service';
 import { CreateTaskDto } from './dto/create-task.dto';
 import { UpdateTaskDto } from './dto/update-task.dto';
 import { NotFound } from '../errors/not-found.error';
+import { AuthGuard } from 'src/auth/auth.guard';
 @Controller('boards/:boardId/tasks')
+@UseGuards(AuthGuard)
 export class TasksController {
   constructor(private readonly tasksService: TasksService) {}
 
@@ -24,8 +27,13 @@ export class TasksController {
   }
 
   @Get()
-  findAll(@Param('boardId') boardId: string) {
-    return this.tasksService.findAll(boardId);
+  async findAll(@Param('boardId') boardId: string) {
+    const tasks = await this.tasksService.findAll(boardId);
+    if (tasks) {
+      return tasks;
+    } else {
+      throw new NotFound('Tasks');
+    }
   }
 
   @Get(':id')
