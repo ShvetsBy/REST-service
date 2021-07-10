@@ -1,6 +1,0 @@
-[31m{"service":"UsersController","level":"error","message":"invalid input syntax for type uuid: \"391e9e8b-be55-4d12-a90d-e67fa10e1f2\"","timestamp":"2021-07-09T23:13:25+03:00"}[39m
-[31m{"service":"UsersController","level":"error","message":"invalid input syntax for type uuid: \"391e9e8b-be55-4d12-a90d-e67fa10e1f2\"","timestamp":"2021-07-09T23:13:51+03:00"}[39m
-[31m{"service":"UsersController","level":"error","message":"invalid input syntax for type uuid: \"391e9e8b-be55-4d12-a90d-e67fa10e1f2\"","timestamp":"2021-07-09T23:14:13+03:00"}[39m
-[31m{"service":"UsersController","level":"error","message":"invalid input syntax for type uuid: \"391e9e8b-be55-4d12-a90d-e67fa10e1f2\"","timestamp":"2021-07-09T23:14:50+03:00"}[39m
-[31m{"level":"error","message":"app.use() requires a middleware function","timestamp":"2021-07-10T12:48:14+03:00"}[39m
-[31m{"level":"error","message":"app.use() requires a middleware function","timestamp":"2021-07-10T12:48:51+03:00"}[39m

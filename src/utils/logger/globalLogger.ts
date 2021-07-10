@@ -8,8 +8,8 @@ export const globalLogger = new NestjsWinstonLoggerService({
     format.colorize({ all: true })
   ),
   transports: [
-    new transports.File({ filename: 'logs/error.log', level: 'error' }),
-    new transports.File({ filename: 'logs/combined.log' }),
+    new transports.File({ filename: process.env.ERROR_OUTPUT, level: 'error' }),
+    new transports.File({ filename: process.env.LOG_OUTPUT }),
     new transports.Console(),
   ],
 });
