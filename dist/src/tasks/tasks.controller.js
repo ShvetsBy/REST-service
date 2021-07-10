@@ -19,11 +19,12 @@ const create_task_dto_1 = require("./dto/create-task.dto");
 const update_task_dto_1 = require("./dto/update-task.dto");
 const not_found_error_1 = require("../errors/not-found.error");
 const auth_guard_1 = require("../auth/auth.guard");
+const http_status_codes_1 = require("http-status-codes");
 let TasksController = class TasksController {
     constructor(tasksService) {
         this.tasksService = tasksService;
     }
-    create(boardId, createTaskDto) {
+    async create(boardId, createTaskDto) {
         return this.tasksService.create(boardId, createTaskDto);
     }
     async findAll(boardId) {
@@ -44,23 +45,25 @@ let TasksController = class TasksController {
             throw new not_found_error_1.NotFound('Task');
         }
     }
-    update(id, updateTaskDto) {
+    async update(id, updateTaskDto) {
         return this.tasksService.update(id, updateTaskDto);
     }
-    remove(id) {
+    async remove(id) {
         return this.tasksService.remove(id);
     }
 };
 __decorate([
     common_1.Post(),
+    common_1.HttpCode(http_status_codes_1.StatusCodes.CREATED),
     __param(0, common_1.Param('boardId')),
     __param(1, common_1.Body()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, create_task_dto_1.CreateTaskDto]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], TasksController.prototype, "create", null);
 __decorate([
     common_1.Get(),
+    common_1.HttpCode(http_status_codes_1.StatusCodes.OK),
     __param(0, common_1.Param('boardId')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
@@ -68,6 +71,7 @@ __decorate([
 ], TasksController.prototype, "findAll", null);
 __decorate([
     common_1.Get(':id'),
+    common_1.HttpCode(http_status_codes_1.StatusCodes.OK),
     __param(0, common_1.Param('boardId')),
     __param(1, common_1.Param('id')),
     __metadata("design:type", Function),
@@ -76,18 +80,20 @@ __decorate([
 ], TasksController.prototype, "findOne", null);
 __decorate([
     common_1.Put(':id'),
+    common_1.HttpCode(http_status_codes_1.StatusCodes.OK),
     __param(0, common_1.Param('id')),
     __param(1, common_1.Body()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, update_task_dto_1.UpdateTaskDto]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], TasksController.prototype, "update", null);
 __decorate([
     common_1.Delete(':id'),
+    common_1.HttpCode(http_status_codes_1.StatusCodes.NO_CONTENT),
     __param(0, common_1.Param('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], TasksController.prototype, "remove", null);
 TasksController = __decorate([
     common_1.Controller('boards/:boardId/tasks'),

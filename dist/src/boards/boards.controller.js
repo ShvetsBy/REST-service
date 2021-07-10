@@ -20,12 +20,13 @@ const createboard_dto_1 = require("./dto/createboard.dto");
 const updateboard_dto_1 = require("./dto/updateboard.dto");
 const tasks_service_1 = require("../tasks/tasks.service");
 const auth_guard_1 = require("../auth/auth.guard");
+const http_status_codes_1 = require("http-status-codes");
 let BoardsController = class BoardsController {
     constructor(boardService, tasksService) {
         this.boardService = boardService;
         this.tasksService = tasksService;
     }
-    create(createBoardDto) {
+    async create(createBoardDto) {
         return this.boardService.create(createBoardDto);
     }
     async findAll() {
@@ -46,29 +47,32 @@ let BoardsController = class BoardsController {
             throw new not_found_error_1.NotFound('Board');
         }
     }
-    update(id, updateBoardDto) {
+    async update(id, updateBoardDto) {
         return this.boardService.update(id, updateBoardDto);
     }
-    remove(id) {
+    async remove(id) {
         this.tasksService.deleteBoardTasks(id);
         return this.boardService.remove(id);
     }
 };
 __decorate([
     common_1.Post(),
+    common_1.HttpCode(http_status_codes_1.StatusCodes.CREATED),
     __param(0, common_1.Body()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [createboard_dto_1.CreateBoardDto]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], BoardsController.prototype, "create", null);
 __decorate([
     common_1.Get(),
+    common_1.HttpCode(http_status_codes_1.StatusCodes.OK),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
     __metadata("design:returntype", Promise)
 ], BoardsController.prototype, "findAll", null);
 __decorate([
     common_1.Get(':id'),
+    common_1.HttpCode(http_status_codes_1.StatusCodes.OK),
     __param(0, common_1.Param('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
@@ -76,18 +80,20 @@ __decorate([
 ], BoardsController.prototype, "findOne", null);
 __decorate([
     common_1.Put(':id'),
+    common_1.HttpCode(http_status_codes_1.StatusCodes.OK),
     __param(0, common_1.Param('id')),
     __param(1, common_1.Body()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, updateboard_dto_1.UpdateBoardDto]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], BoardsController.prototype, "update", null);
 __decorate([
     common_1.Delete(':id'),
+    common_1.HttpCode(http_status_codes_1.StatusCodes.NO_CONTENT),
     __param(0, common_1.Param('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], BoardsController.prototype, "remove", null);
 BoardsController = __decorate([
     common_1.Controller('boards'),

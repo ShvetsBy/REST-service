@@ -7,6 +7,7 @@ import {
   Post,
   Put,
   UseGuards,
+  HttpCode,
 } from '@nestjs/common';
 import { NotFound } from 'src/errors/not-found.error';
 import { BoardsService } from './boards.service';
@@ -14,6 +15,7 @@ import { CreateBoardDto } from './dto/createboard.dto';
 import { UpdateBoardDto } from './dto/updateboard.dto';
 import { TasksService } from '../tasks/tasks.service';
 import { AuthGuard } from '../auth/auth.guard';
+import { StatusCodes } from 'http-status-codes';
 @Controller('boards')
 @UseGuards(AuthGuard)
 export class BoardsController {
@@ -23,11 +25,13 @@ export class BoardsController {
   ) {}
 
   @Post()
-  create(@Body() createBoardDto: CreateBoardDto) {
+  @HttpCode(StatusCodes.CREATED)
+  async create(@Body() createBoardDto: CreateBoardDto) {
     return this.boardService.create(createBoardDto);
   }
 
   @Get()
+  @HttpCode(StatusCodes.OK)
   async findAll() {
     const boards = await this.boardService.findAll();
     if (boards) {
@@ -38,6 +42,7 @@ export class BoardsController {
   }
 
   @Get(':id')
+  @HttpCode(StatusCodes.OK)
   async findOne(@Param('id') id: string) {
     const board = await this.boardService.findOne(id);
     if (board) {
@@ -48,12 +53,14 @@ export class BoardsController {
   }
 
   @Put(':id')
-  update(@Param('id') id: string, @Body() updateBoardDto: UpdateBoardDto) {
+  @HttpCode(StatusCodes.OK)
+  async update(@Param('id') id: string, @Body() updateBoardDto: UpdateBoardDto) {
     return this.boardService.update(id, updateBoardDto);
   }
 
   @Delete(':id')
-  remove(@Param('id') id: string) {
+  @HttpCode(StatusCodes.NO_CONTENT)
+  async remove(@Param('id') id: string) {
     this.tasksService.deleteBoardTasks(id);
     return this.boardService.remove(id);
   }

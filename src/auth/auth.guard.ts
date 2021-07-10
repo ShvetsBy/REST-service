@@ -17,9 +17,10 @@ export class AuthGuard implements CanActivate {
       const [type, token] = authHeader.split(' ');
       if (type !== 'Bearer' || !token) {
         throw new Unauthorized();
+      } else if (jwt.verify(token, String(JWT_SECRET_KEY))) {
+        return true;
       }
-      jwt.verify(token, String(JWT_SECRET_KEY));
-      return true;
+      throw new Unauthorized();
     }
     throw new Unauthorized();
   }
