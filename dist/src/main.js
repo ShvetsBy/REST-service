@@ -5,9 +5,11 @@ const app_module_1 = require("./app.module");
 const nestjs_winston_logger_1 = require("nestjs-winston-logger");
 const helmet = require("helmet");
 const globalLogger_1 = require("../src/utils/logger/globalLogger");
+const http_exception_filter_1 = require("./errors/http-exception.filter");
 async function bootstrap() {
     const app = await core_1.NestFactory.create(app_module_1.AppModule);
     app.use(helmet());
+    app.useGlobalFilters(new http_exception_filter_1.HttpExceptionFilter());
     app.useLogger(globalLogger_1.globalLogger);
     nestjs_winston_logger_1.configMorgan.appendMorganToken('reqId', nestjs_winston_logger_1.TOKEN_TYPE.Request, 'reqId');
     app.use(nestjs_winston_logger_1.morganRequestLogger(globalLogger_1.globalLogger));

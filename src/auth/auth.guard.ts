@@ -1,5 +1,11 @@
-import { CanActivate, ExecutionContext, HttpCode, HttpException, HttpStatus } from '@nestjs/common';
+import {
+  CanActivate,
+  ExecutionContext,
+  HttpException,
+  HttpStatus,
+} from '@nestjs/common';
 import * as jwt from 'jsonwebtoken';
+import { Unauthorized } from '../errors/unauthorized.error';
 
 export class AuthGuard implements CanActivate {
   canActivate(context: ExecutionContext): boolean {
@@ -10,11 +16,11 @@ export class AuthGuard implements CanActivate {
     if (authHeader !== undefined) {
       const [type, token] = authHeader.split(' ');
       if (type !== 'Bearer' || !token) {
-        throw new HttpException('Forbidden', HttpStatus.UNAUTHORIZED);
+        throw new Unauthorized();
       }
       jwt.verify(token, String(JWT_SECRET_KEY));
       return true;
     }
-    throw new HttpException('Forbidden', HttpStatus.UNAUTHORIZED);
+    throw new Unauthorized();
   }
 }

@@ -20,6 +20,7 @@ const update_user_dto_1 = require("./dto/update-user.dto");
 const not_found_error_1 = require("../errors/not-found.error");
 const tasks_service_1 = require("../tasks/tasks.service");
 const auth_guard_1 = require("../auth/auth.guard");
+const http_status_codes_1 = require("http-status-codes");
 let UsersController = class UsersController {
     constructor(userService, tasksService) {
         this.userService = userService;
@@ -29,7 +30,7 @@ let UsersController = class UsersController {
         const newUser = this.userService.create(createUserDto);
         return create_user_dto_1.CreateUserDto.toResponce(await newUser);
     }
-    findAll() {
+    async findAll() {
         return this.userService.findAll();
     }
     async findOne(id) {
@@ -41,17 +42,17 @@ let UsersController = class UsersController {
             throw new not_found_error_1.NotFound('User');
         }
     }
-    update(id, updateUserDto) {
+    async update(id, updateUserDto) {
         return this.userService.update(id, updateUserDto);
     }
-    remove(id) {
+    async remove(id) {
         this.tasksService.clearTasks(id);
         return this.userService.remove(id);
     }
 };
 __decorate([
     common_1.Post(),
-    common_1.HttpCode(201),
+    common_1.HttpCode(http_status_codes_1.StatusCodes.CREATED),
     __param(0, common_1.Body()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [create_user_dto_1.CreateUserDto]),
@@ -59,12 +60,14 @@ __decorate([
 ], UsersController.prototype, "create", null);
 __decorate([
     common_1.Get(),
+    common_1.HttpCode(http_status_codes_1.StatusCodes.OK),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], UsersController.prototype, "findAll", null);
 __decorate([
     common_1.Get(':id'),
+    common_1.HttpCode(http_status_codes_1.StatusCodes.OK),
     __param(0, common_1.Param('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
@@ -72,19 +75,20 @@ __decorate([
 ], UsersController.prototype, "findOne", null);
 __decorate([
     common_1.Put(':id'),
+    common_1.HttpCode(http_status_codes_1.StatusCodes.OK),
     __param(0, common_1.Param('id')),
     __param(1, common_1.Body()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String, update_user_dto_1.UpdateUserDto]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], UsersController.prototype, "update", null);
 __decorate([
     common_1.Delete(':id'),
-    common_1.HttpCode(204),
+    common_1.HttpCode(http_status_codes_1.StatusCodes.NO_CONTENT),
     __param(0, common_1.Param('id')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", void 0)
+    __metadata("design:returntype", Promise)
 ], UsersController.prototype, "remove", null);
 UsersController = __decorate([
     common_1.Controller('users'),
