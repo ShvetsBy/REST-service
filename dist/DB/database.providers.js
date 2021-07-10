@@ -18,7 +18,11 @@ exports.databaseProviders = [
             password: configService.get('POSTGRES_PASS'),
             database: configService.get('POSTGRES_NAME'),
             entities: [user_entity_1.User, board_entity_1.Board, task_entity_1.Task],
-            synchronize: true,
+            migrationsTableName: 'REST-service',
+            migrations: ['../migrations/**/*{.ts,.js}'],
+            cli: {
+                migrationsDir: '/src/migrations',
+            },
         }),
         inject: [config_1.ConfigService],
     },

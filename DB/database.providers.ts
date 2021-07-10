@@ -3,6 +3,7 @@ import { User } from '../src/users/entities/user.entity';
 import { Board } from '../src/boards/entities/board.entity';
 import { Task } from '../src/tasks/entities/task.entity';
 import { ConfigModule, ConfigService } from '@nestjs/config';
+
 export const databaseProviders = [
   {
     provide: 'DATABASE_CONNECTION',
@@ -16,7 +17,12 @@ export const databaseProviders = [
         password: configService.get<string>('POSTGRES_PASS'),
         database: configService.get<string>('POSTGRES_NAME'),
         entities: [User, Board, Task],
-        synchronize: true,
+        migrationsTableName: 'REST-service',
+        migrations: ['../migrations/**/*{.ts,.js}'],
+        cli: {
+          migrationsDir: '/src/migrations',
+        },
+        // synchronize: true,
       }),
     inject: [ConfigService],
   },
