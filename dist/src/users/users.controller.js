@@ -36,7 +36,7 @@ let UsersController = class UsersController {
     async findOne(id) {
         const user = await this.userService.findOne(id);
         if (user) {
-            return user;
+            return create_user_dto_1.CreateUserDto.toResponce(await user);
         }
         else {
             throw new not_found_error_1.NotFound('User');

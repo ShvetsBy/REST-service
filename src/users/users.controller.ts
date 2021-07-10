@@ -8,6 +8,7 @@ import {
   Put,
   HttpCode,
   UseGuards,
+  Patch,
 } from '@nestjs/common';
 import { UserService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -43,7 +44,7 @@ export class UsersController {
   async findOne(@Param('id') id: string) {
     const user = await this.userService.findOne(id);
     if (user) {
-      return user;
+      return CreateUserDto.toResponce(await user);
     } else {
       throw new NotFound('User');
     }

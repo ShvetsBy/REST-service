@@ -8,7 +8,7 @@ import {
   TOKEN_TYPE,
 } from 'nestjs-winston-logger';
 import * as helmet from 'helmet';
-import { globalLogger } from '../src/utils/logger/globalLogger'
+import { globalLogger } from '../src/utils/logger/globalLogger';
 import { HttpExceptionFilter } from './errors/http-exception.filter';
 
 async function bootstrap() {
@@ -20,7 +20,6 @@ async function bootstrap() {
   app.use(morganRequestLogger(globalLogger));
   app.use(morganResponseLogger(globalLogger));
   app.useGlobalInterceptors(new LoggingInterceptor(globalLogger));
-
   await app.listen(4000);
 }
 bootstrap();

@@ -1,13 +1,4 @@
-import {
-  NestjsWinstonLoggerService,
-  appendRequestIdToLogger,
-  LoggingInterceptor,
-  configMorgan,
-  morganRequestLogger,
-  morganResponseLogger,
-  appendIdToRequest,
-  TOKEN_TYPE,
-} from 'nestjs-winston-logger';
+import { NestjsWinstonLoggerService } from 'nestjs-winston-logger';
 import { format, transports } from 'winston';
 
 export const globalLogger = new NestjsWinstonLoggerService({
