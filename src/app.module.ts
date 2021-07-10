@@ -7,9 +7,17 @@ import { TasksModule } from './tasks/tasks.module';
 import { AuthModule } from './auth/auth.module';
 import { APP_FILTER } from '@nestjs/core';
 import { HttpExceptionFilter } from './errors/http-exception.filter';
-
+import { ConfigModule } from '@nestjs/config';
 @Module({
-  imports: [UserModule, BoardsModule, TasksModule, AuthModule],
+  imports: [
+    UserModule,
+    BoardsModule,
+    TasksModule,
+    AuthModule,
+    ConfigModule.forRoot({
+      isGlobal: true,
+    }),
+  ],
   controllers: [AppController],
   providers: [
     AppService,

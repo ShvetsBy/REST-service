@@ -7,14 +7,13 @@ import * as jwt from 'jsonwebtoken';
 export class AuthService {
   constructor(private userService: UserService) {}
   async generateToken(login: string, password: string) {
-    const JWT_SECRET_KEY = 'secret-key';
     const user = await this.userService.findbyLogin(login);
     if (
       user &&
       (await bcrypt.compare(String(password), String(user.password)))
     ) {
       const payload = { userId: user.id, login: user.login };
-      const token = jwt.sign(payload, String(JWT_SECRET_KEY));
+      const token = jwt.sign(payload, String(process.env.JWT_SECRET_KEY));
       return token;
     }
     return false;

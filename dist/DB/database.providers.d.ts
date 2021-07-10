@@ -1,4 +1,7 @@
+import { ConfigModule, ConfigService } from '@nestjs/config';
 export declare const databaseProviders: {
     provide: string;
-    useFactory: () => Promise<import("typeorm").Connection>;
+    imports: (typeof ConfigModule)[];
+    useFactory: (configService: ConfigService) => Promise<import("typeorm").Connection>;
+    inject: (typeof ConfigService)[];
 }[];

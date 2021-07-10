@@ -15,7 +15,7 @@ async function bootstrap() {
     app.use(nestjs_winston_logger_1.morganRequestLogger(globalLogger_1.globalLogger));
     app.use(nestjs_winston_logger_1.morganResponseLogger(globalLogger_1.globalLogger));
     app.useGlobalInterceptors(new nestjs_winston_logger_1.LoggingInterceptor(globalLogger_1.globalLogger));
-    await app.listen(4000);
+    await app.listen(process.env.PORT);
 }
 bootstrap();
 //# sourceMappingURL=main.js.map

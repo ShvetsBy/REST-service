@@ -20,6 +20,6 @@ async function bootstrap() {
   app.use(morganRequestLogger(globalLogger));
   app.use(morganResponseLogger(globalLogger));
   app.useGlobalInterceptors(new LoggingInterceptor(globalLogger));
-  await app.listen(4000);
+  await app.listen(process.env.PORT);
 }
 bootstrap();

@@ -16,11 +16,20 @@ const tasks_module_1 = require("./tasks/tasks.module");
 const auth_module_1 = require("./auth/auth.module");
 const core_1 = require("@nestjs/core");
 const http_exception_filter_1 = require("./errors/http-exception.filter");
+const config_1 = require("@nestjs/config");
 let AppModule = class AppModule {
 };
 AppModule = __decorate([
     common_1.Module({
-        imports: [users_module_1.UserModule, boards_module_1.BoardsModule, tasks_module_1.TasksModule, auth_module_1.AuthModule],
+        imports: [
+            users_module_1.UserModule,
+            boards_module_1.BoardsModule,
+            tasks_module_1.TasksModule,
+            auth_module_1.AuthModule,
+            config_1.ConfigModule.forRoot({
+                isGlobal: true,
+            }),
+        ],
         controllers: [app_controller_1.AppController],
         providers: [
             app_service_1.AppService,
