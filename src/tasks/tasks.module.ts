@@ -1,4 +1,4 @@
-import { Controller, Module } from '@nestjs/common';
+import { Module } from '@nestjs/common';
 import { TasksService } from './tasks.service';
 import { DatabaseModule } from '../../DB/database.module';
 import { TasksController } from './tasks.controller';

@@ -54,7 +54,10 @@ export class BoardsController {
 
   @Put(':id')
   @HttpCode(StatusCodes.OK)
-  async update(@Param('id') id: string, @Body() updateBoardDto: UpdateBoardDto) {
+  async update(
+    @Param('id') id: string,
+    @Body() updateBoardDto: UpdateBoardDto
+  ) {
     return this.boardService.update(id, updateBoardDto);
   }
 

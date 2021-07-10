@@ -1,5 +1,4 @@
 export class UpdateBoardDto {
-    title!: string;
-    columns!: [];
+  title!: string;
+  columns!: [];
 }
-

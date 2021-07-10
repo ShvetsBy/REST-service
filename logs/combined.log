@@ -10020,3 +10020,95 @@
 [32m{"message":"AuthController {/login}:","level":"info","timestamp":"2021-07-10T12:51:07+03:00"}[39m
 [32m{"message":"Mapped {/login, POST} route","level":"info","timestamp":"2021-07-10T12:51:07+03:00"}[39m
 [32m{"message":"Nest application successfully started","level":"info","timestamp":"2021-07-10T12:51:07+03:00"}[39m
+[32m{"message":"AppController {}:","level":"info","timestamp":"2021-07-10T12:54:29+03:00"}[39m
+[32m{"message":"Mapped {, GET} route","level":"info","timestamp":"2021-07-10T12:54:29+03:00"}[39m
+[32m{"message":"UsersController {/users}:","level":"info","timestamp":"2021-07-10T12:54:29+03:00"}[39m
+[32m{"message":"Mapped {/users, POST} route","level":"info","timestamp":"2021-07-10T12:54:29+03:00"}[39m
+[32m{"message":"Mapped {/users, GET} route","level":"info","timestamp":"2021-07-10T12:54:29+03:00"}[39m
+[32m{"message":"Mapped {/users/:id, GET} route","level":"info","timestamp":"2021-07-10T12:54:29+03:00"}[39m
+[32m{"message":"Mapped {/users/:id, PUT} route","level":"info","timestamp":"2021-07-10T12:54:29+03:00"}[39m
+[32m{"message":"Mapped {/users/:id, DELETE} route","level":"info","timestamp":"2021-07-10T12:54:29+03:00"}[39m
+[32m{"message":"BoardsController {/boards}:","level":"info","timestamp":"2021-07-10T12:54:29+03:00"}[39m
+[32m{"message":"Mapped {/boards, POST} route","level":"info","timestamp":"2021-07-10T12:54:29+03:00"}[39m
+[32m{"message":"Mapped {/boards, GET} route","level":"info","timestamp":"2021-07-10T12:54:29+03:00"}[39m
+[32m{"message":"Mapped {/boards/:id, GET} route","level":"info","timestamp":"2021-07-10T12:54:29+03:00"}[39m
+[32m{"message":"Mapped {/boards/:id, PUT} route","level":"info","timestamp":"2021-07-10T12:54:29+03:00"}[39m
+[32m{"message":"Mapped {/boards/:id, DELETE} route","level":"info","timestamp":"2021-07-10T12:54:29+03:00"}[39m
+[32m{"message":"TasksController {/boards/:boardId/tasks}:","level":"info","timestamp":"2021-07-10T12:54:29+03:00"}[39m
+[32m{"message":"Mapped {/boards/:boardId/tasks, POST} route","level":"info","timestamp":"2021-07-10T12:54:29+03:00"}[39m
+[32m{"message":"Mapped {/boards/:boardId/tasks, GET} route","level":"info","timestamp":"2021-07-10T12:54:29+03:00"}[39m
+[32m{"message":"Mapped {/boards/:boardId/tasks/:id, GET} route","level":"info","timestamp":"2021-07-10T12:54:29+03:00"}[39m
+[32m{"message":"Mapped {/boards/:boardId/tasks/:id, PUT} route","level":"info","timestamp":"2021-07-10T12:54:29+03:00"}[39m
+[32m{"message":"Mapped {/boards/:boardId/tasks/:id, DELETE} route","level":"info","timestamp":"2021-07-10T12:54:29+03:00"}[39m
+[32m{"message":"AuthController {/login}:","level":"info","timestamp":"2021-07-10T12:54:29+03:00"}[39m
+[32m{"message":"Mapped {/login, POST} route","level":"info","timestamp":"2021-07-10T12:54:29+03:00"}[39m
+[32m{"message":"Nest application successfully started","level":"info","timestamp":"2021-07-10T12:54:29+03:00"}[39m
+[32m{"message":"AppController {}:","level":"info","timestamp":"2021-07-10T14:20:47+03:00"}[39m
+[32m{"message":"Mapped {, GET} route","level":"info","timestamp":"2021-07-10T14:20:47+03:00"}[39m
+[32m{"message":"UsersController {/users}:","level":"info","timestamp":"2021-07-10T14:20:47+03:00"}[39m
+[32m{"message":"Mapped {/users, POST} route","level":"info","timestamp":"2021-07-10T14:20:47+03:00"}[39m
+[32m{"message":"Mapped {/users, GET} route","level":"info","timestamp":"2021-07-10T14:20:47+03:00"}[39m
+[32m{"message":"Mapped {/users/:id, GET} route","level":"info","timestamp":"2021-07-10T14:20:47+03:00"}[39m
+[32m{"message":"Mapped {/users/:id, PUT} route","level":"info","timestamp":"2021-07-10T14:20:47+03:00"}[39m
+[32m{"message":"Mapped {/users/:id, DELETE} route","level":"info","timestamp":"2021-07-10T14:20:47+03:00"}[39m
+[32m{"message":"BoardsController {/boards}:","level":"info","timestamp":"2021-07-10T14:20:47+03:00"}[39m
+[32m{"message":"Mapped {/boards, POST} route","level":"info","timestamp":"2021-07-10T14:20:47+03:00"}[39m
+[32m{"message":"Mapped {/boards, GET} route","level":"info","timestamp":"2021-07-10T14:20:47+03:00"}[39m
+[32m{"message":"Mapped {/boards/:id, GET} route","level":"info","timestamp":"2021-07-10T14:20:47+03:00"}[39m
+[32m{"message":"Mapped {/boards/:id, PUT} route","level":"info","timestamp":"2021-07-10T14:20:47+03:00"}[39m
+[32m{"message":"Mapped {/boards/:id, DELETE} route","level":"info","timestamp":"2021-07-10T14:20:47+03:00"}[39m
+[32m{"message":"TasksController {/boards/:boardId/tasks}:","level":"info","timestamp":"2021-07-10T14:20:47+03:00"}[39m
+[32m{"message":"Mapped {/boards/:boardId/tasks, POST} route","level":"info","timestamp":"2021-07-10T14:20:47+03:00"}[39m
+[32m{"message":"Mapped {/boards/:boardId/tasks, GET} route","level":"info","timestamp":"2021-07-10T14:20:47+03:00"}[39m
+[32m{"message":"Mapped {/boards/:boardId/tasks/:id, GET} route","level":"info","timestamp":"2021-07-10T14:20:47+03:00"}[39m
+[32m{"message":"Mapped {/boards/:boardId/tasks/:id, PUT} route","level":"info","timestamp":"2021-07-10T14:20:47+03:00"}[39m
+[32m{"message":"Mapped {/boards/:boardId/tasks/:id, DELETE} route","level":"info","timestamp":"2021-07-10T14:20:47+03:00"}[39m
+[32m{"message":"AuthController {/login}:","level":"info","timestamp":"2021-07-10T14:20:47+03:00"}[39m
+[32m{"message":"Mapped {/login, POST} route","level":"info","timestamp":"2021-07-10T14:20:47+03:00"}[39m
+[32m{"message":"Nest application successfully started","level":"info","timestamp":"2021-07-10T14:20:47+03:00"}[39m
+[32m{"message":"AppController {}:","level":"info","timestamp":"2021-07-10T14:20:52+03:00"}[39m
+[32m{"message":"Mapped {, GET} route","level":"info","timestamp":"2021-07-10T14:20:52+03:00"}[39m
+[32m{"message":"UsersController {/users}:","level":"info","timestamp":"2021-07-10T14:20:52+03:00"}[39m
+[32m{"message":"Mapped {/users, POST} route","level":"info","timestamp":"2021-07-10T14:20:52+03:00"}[39m
+[32m{"message":"Mapped {/users, GET} route","level":"info","timestamp":"2021-07-10T14:20:52+03:00"}[39m
+[32m{"message":"Mapped {/users/:id, GET} route","level":"info","timestamp":"2021-07-10T14:20:52+03:00"}[39m
+[32m{"message":"Mapped {/users/:id, PUT} route","level":"info","timestamp":"2021-07-10T14:20:52+03:00"}[39m
+[32m{"message":"Mapped {/users/:id, DELETE} route","level":"info","timestamp":"2021-07-10T14:20:52+03:00"}[39m
+[32m{"message":"BoardsController {/boards}:","level":"info","timestamp":"2021-07-10T14:20:52+03:00"}[39m
+[32m{"message":"Mapped {/boards, POST} route","level":"info","timestamp":"2021-07-10T14:20:52+03:00"}[39m
+[32m{"message":"Mapped {/boards, GET} route","level":"info","timestamp":"2021-07-10T14:20:52+03:00"}[39m
+[32m{"message":"Mapped {/boards/:id, GET} route","level":"info","timestamp":"2021-07-10T14:20:52+03:00"}[39m
+[32m{"message":"Mapped {/boards/:id, PUT} route","level":"info","timestamp":"2021-07-10T14:20:52+03:00"}[39m
+[32m{"message":"Mapped {/boards/:id, DELETE} route","level":"info","timestamp":"2021-07-10T14:20:52+03:00"}[39m
+[32m{"message":"TasksController {/boards/:boardId/tasks}:","level":"info","timestamp":"2021-07-10T14:20:52+03:00"}[39m
+[32m{"message":"Mapped {/boards/:boardId/tasks, POST} route","level":"info","timestamp":"2021-07-10T14:20:52+03:00"}[39m
+[32m{"message":"Mapped {/boards/:boardId/tasks, GET} route","level":"info","timestamp":"2021-07-10T14:20:52+03:00"}[39m
+[32m{"message":"Mapped {/boards/:boardId/tasks/:id, GET} route","level":"info","timestamp":"2021-07-10T14:20:52+03:00"}[39m
+[32m{"message":"Mapped {/boards/:boardId/tasks/:id, PUT} route","level":"info","timestamp":"2021-07-10T14:20:52+03:00"}[39m
+[32m{"message":"Mapped {/boards/:boardId/tasks/:id, DELETE} route","level":"info","timestamp":"2021-07-10T14:20:52+03:00"}[39m
+[32m{"message":"AuthController {/login}:","level":"info","timestamp":"2021-07-10T14:20:52+03:00"}[39m
+[32m{"message":"Mapped {/login, POST} route","level":"info","timestamp":"2021-07-10T14:20:52+03:00"}[39m
+[32m{"message":"Nest application successfully started","level":"info","timestamp":"2021-07-10T14:20:52+03:00"}[39m
+[32m{"message":"AppController {}:","level":"info","timestamp":"2021-07-10T14:21:20+03:00"}[39m
+[32m{"message":"Mapped {, GET} route","level":"info","timestamp":"2021-07-10T14:21:20+03:00"}[39m
+[32m{"message":"UsersController {/users}:","level":"info","timestamp":"2021-07-10T14:21:20+03:00"}[39m
+[32m{"message":"Mapped {/users, POST} route","level":"info","timestamp":"2021-07-10T14:21:20+03:00"}[39m
+[32m{"message":"Mapped {/users, GET} route","level":"info","timestamp":"2021-07-10T14:21:20+03:00"}[39m
+[32m{"message":"Mapped {/users/:id, GET} route","level":"info","timestamp":"2021-07-10T14:21:20+03:00"}[39m
+[32m{"message":"Mapped {/users/:id, PUT} route","level":"info","timestamp":"2021-07-10T14:21:20+03:00"}[39m
+[32m{"message":"Mapped {/users/:id, DELETE} route","level":"info","timestamp":"2021-07-10T14:21:20+03:00"}[39m
+[32m{"message":"BoardsController {/boards}:","level":"info","timestamp":"2021-07-10T14:21:20+03:00"}[39m
+[32m{"message":"Mapped {/boards, POST} route","level":"info","timestamp":"2021-07-10T14:21:20+03:00"}[39m
+[32m{"message":"Mapped {/boards, GET} route","level":"info","timestamp":"2021-07-10T14:21:20+03:00"}[39m
+[32m{"message":"Mapped {/boards/:id, GET} route","level":"info","timestamp":"2021-07-10T14:21:20+03:00"}[39m
+[32m{"message":"Mapped {/boards/:id, PUT} route","level":"info","timestamp":"2021-07-10T14:21:20+03:00"}[39m
+[32m{"message":"Mapped {/boards/:id, DELETE} route","level":"info","timestamp":"2021-07-10T14:21:20+03:00"}[39m
+[32m{"message":"TasksController {/boards/:boardId/tasks}:","level":"info","timestamp":"2021-07-10T14:21:20+03:00"}[39m
+[32m{"message":"Mapped {/boards/:boardId/tasks, POST} route","level":"info","timestamp":"2021-07-10T14:21:20+03:00"}[39m
+[32m{"message":"Mapped {/boards/:boardId/tasks, GET} route","level":"info","timestamp":"2021-07-10T14:21:20+03:00"}[39m
+[32m{"message":"Mapped {/boards/:boardId/tasks/:id, GET} route","level":"info","timestamp":"2021-07-10T14:21:20+03:00"}[39m
+[32m{"message":"Mapped {/boards/:boardId/tasks/:id, PUT} route","level":"info","timestamp":"2021-07-10T14:21:20+03:00"}[39m
+[32m{"message":"Mapped {/boards/:boardId/tasks/:id, DELETE} route","level":"info","timestamp":"2021-07-10T14:21:20+03:00"}[39m
+[32m{"message":"AuthController {/login}:","level":"info","timestamp":"2021-07-10T14:21:20+03:00"}[39m
+[32m{"message":"Mapped {/login, POST} route","level":"info","timestamp":"2021-07-10T14:21:20+03:00"}[39m
+[32m{"message":"Nest application successfully started","level":"info","timestamp":"2021-07-10T14:21:20+03:00"}[39m
