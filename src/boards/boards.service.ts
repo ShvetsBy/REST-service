@@ -12,17 +12,17 @@ export class BoardsService {
   ) {}
 
   async create(CreateBoardDto: CreateBoardDto): Promise<CreateBoardDto> {
-    const newBoard = this.boardRepository.create(CreateBoardDto);
-    const savedBoard = this.boardRepository.save(newBoard);
+    const newBoard = await this.boardRepository.create(CreateBoardDto);
+    const savedBoard = await this.boardRepository.save(newBoard);
     return savedBoard;
   }
 
   async findAll(): Promise<Board[]> {
-    return this.boardRepository.find();
+    return await this.boardRepository.find();
   }
 
   async findOne(id: string) {
-    return this.boardRepository.findOne(id);
+    return await this.boardRepository.findOne(id);
   }
 
   async update(

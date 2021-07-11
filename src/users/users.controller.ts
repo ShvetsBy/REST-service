@@ -56,7 +56,7 @@ export class UsersController {
     @Res() res
   ) {
     const updatedUser = await this.userService.update(id, updateUserDto);
-    return res.status(StatusCodes.OK).send(updatedUser);
+    res.status(StatusCodes.OK).send(updatedUser);
   }
 
   @Delete(':id')

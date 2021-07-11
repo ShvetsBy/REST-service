@@ -15,18 +15,18 @@ export class TasksService {
     boardId: string,
     createTaskDto: CreateTaskDto
   ): Promise<CreateTaskDto> {
-    const newTask = this.taskRepository.create(createTaskDto);
-    const savedTask = this.taskRepository.save(newTask);
+    const newTask = await this.taskRepository.create(createTaskDto);
     newTask.boardId = boardId;
+    const savedTask = await this.taskRepository.save(newTask);
     return savedTask;
   }
 
   async findAll(boardId: string): Promise<Task[]> {
-    return this.taskRepository.find({ where: { boardId } });
+    return await this.taskRepository.find({ where: { boardId } });
   }
 
   async findOne(boardId: string, id: string) {
-    return this.taskRepository.findOne(id, { where: { boardId } });
+    return await this.taskRepository.findOne(id, { where: { boardId } });
   }
 
   async update(
@@ -43,7 +43,7 @@ export class TasksService {
 
   async deleteBoardTasks(boardId: string) {
     try {
-      const tasks = this.findAll(boardId);
+      const tasks = await this.findAll(boardId);
       if (tasks) {
         (await tasks).map((task) => {
           if (task.boardId === boardId) {

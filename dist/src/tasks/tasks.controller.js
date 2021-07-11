@@ -24,75 +24,78 @@ let TasksController = class TasksController {
     constructor(tasksService) {
         this.tasksService = tasksService;
     }
-    async create(boardId, createTaskDto) {
-        return this.tasksService.create(boardId, createTaskDto);
+    async create(boardId, createTaskDto, res) {
+        const newTask = await this.tasksService.create(boardId, createTaskDto);
+        res.status(http_status_codes_1.StatusCodes.CREATED).send(newTask);
     }
-    async findAll(boardId) {
+    async findAll(boardId, res) {
         const tasks = await this.tasksService.findAll(boardId);
         if (tasks) {
-            return tasks;
+            res.status(http_status_codes_1.StatusCodes.OK).send(tasks);
         }
         else {
             throw new not_found_error_1.NotFound('Tasks');
         }
     }
-    async findOne(boardId, id) {
+    async findOne(boardId, id, res) {
         const task = await this.tasksService.findOne(boardId, id);
         if (task) {
-            return task;
+            res.status(http_status_codes_1.StatusCodes.OK).send(task);
         }
         else {
             throw new not_found_error_1.NotFound('Task');
         }
     }
-    async update(id, updateTaskDto) {
-        return this.tasksService.update(id, updateTaskDto);
+    async update(id, updateTaskDto, res) {
+        const updatedTask = await this.tasksService.update(id, updateTaskDto);
+        res.status(http_status_codes_1.StatusCodes.OK).send(updatedTask);
     }
-    async remove(id) {
-        return this.tasksService.remove(id);
+    async remove(id, res) {
+        await this.tasksService.remove(id);
+        res.status(http_status_codes_1.StatusCodes.NO_CONTENT).send();
     }
 };
 __decorate([
     common_1.Post(),
-    common_1.HttpCode(http_status_codes_1.StatusCodes.CREATED),
     __param(0, common_1.Param('boardId')),
     __param(1, common_1.Body()),
+    __param(2, common_1.Res()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, create_task_dto_1.CreateTaskDto]),
+    __metadata("design:paramtypes", [String, create_task_dto_1.CreateTaskDto, Object]),
     __metadata("design:returntype", Promise)
 ], TasksController.prototype, "create", null);
 __decorate([
     common_1.Get(),
-    common_1.HttpCode(http_status_codes_1.StatusCodes.OK),
     __param(0, common_1.Param('boardId')),
+    __param(1, common_1.Res()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [String, Object]),
     __metadata("design:returntype", Promise)
 ], TasksController.prototype, "findAll", null);
 __decorate([
     common_1.Get(':id'),
-    common_1.HttpCode(http_status_codes_1.StatusCodes.OK),
     __param(0, common_1.Param('boardId')),
     __param(1, common_1.Param('id')),
+    __param(2, common_1.Res()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, String]),
+    __metadata("design:paramtypes", [String, String, Object]),
     __metadata("design:returntype", Promise)
 ], TasksController.prototype, "findOne", null);
 __decorate([
     common_1.Put(':id'),
-    common_1.HttpCode(http_status_codes_1.StatusCodes.OK),
     __param(0, common_1.Param('id')),
     __param(1, common_1.Body()),
+    __param(2, common_1.Res()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, update_task_dto_1.UpdateTaskDto]),
+    __metadata("design:paramtypes", [String, update_task_dto_1.UpdateTaskDto, Object]),
     __metadata("design:returntype", Promise)
 ], TasksController.prototype, "update", null);
 __decorate([
     common_1.Delete(':id'),
-    common_1.HttpCode(http_status_codes_1.StatusCodes.NO_CONTENT),
     __param(0, common_1.Param('id')),
+    __param(1, common_1.Res()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String]),
+    __metadata("design:paramtypes", [String, Object]),
     __metadata("design:returntype", Promise)
 ], TasksController.prototype, "remove", null);
 TasksController = __decorate([

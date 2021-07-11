@@ -6,6 +6,7 @@ import {
   Get,
   Post,
   Put,
+  Res,
   UseGuards,
   HttpCode,
 } from '@nestjs/common';
@@ -25,46 +26,45 @@ export class BoardsController {
   ) {}
 
   @Post()
-  @HttpCode(StatusCodes.CREATED)
-  async create(@Body() createBoardDto: CreateBoardDto) {
-    return this.boardService.create(createBoardDto);
+  async create(@Body() createBoardDto: CreateBoardDto, @Res() res) {
+    const newBoard = await this.boardService.create(createBoardDto);
+    res.status(StatusCodes.CREATED).send(newBoard);
   }
 
   @Get()
-  @HttpCode(StatusCodes.OK)
-  async findAll() {
+  async findAll(@Res() res) {
     const boards = await this.boardService.findAll();
     if (boards) {
-      return boards;
+      res.status(StatusCodes.OK).send(boards);
     } else {
       throw new NotFound('Boards');
     }
   }
 
   @Get(':id')
-  @HttpCode(StatusCodes.OK)
-  async findOne(@Param('id') id: string) {
+  async findOne(@Param('id') id: string, @Res() res) {
     const board = await this.boardService.findOne(id);
     if (board) {
-      return board;
+      return res.status(StatusCodes.OK).send(board);
     } else {
       throw new NotFound('Board');
     }
   }
 
   @Put(':id')
-  @HttpCode(StatusCodes.OK)
   async update(
     @Param('id') id: string,
-    @Body() updateBoardDto: UpdateBoardDto
+    @Body() updateBoardDto: UpdateBoardDto,
+    @Res() res
   ) {
-    return this.boardService.update(id, updateBoardDto);
+    const updatedBoard = await this.boardService.update(id, updateBoardDto);
+    res.status(StatusCodes.OK).send(updatedBoard);
   }
 
   @Delete(':id')
-  @HttpCode(StatusCodes.NO_CONTENT)
-  async remove(@Param('id') id: string) {
-    this.tasksService.deleteBoardTasks(id);
-    return this.boardService.remove(id);
+  async remove(@Param('id') id: string, @Res() res) {
+    await this.boardService.remove(id);
+    await this.tasksService.deleteBoardTasks(id);
+    res.status(StatusCodes.NO_CONTENT).send();
   }
 }

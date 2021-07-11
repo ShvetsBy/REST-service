@@ -20,15 +20,15 @@ let BoardsService = class BoardsService {
         this.boardRepository = boardRepository;
     }
     async create(CreateBoardDto) {
-        const newBoard = this.boardRepository.create(CreateBoardDto);
-        const savedBoard = this.boardRepository.save(newBoard);
+        const newBoard = await this.boardRepository.create(CreateBoardDto);
+        const savedBoard = await this.boardRepository.save(newBoard);
         return savedBoard;
     }
     async findAll() {
-        return this.boardRepository.find();
+        return await this.boardRepository.find();
     }
     async findOne(id) {
-        return this.boardRepository.findOne(id);
+        return await this.boardRepository.findOne(id);
     }
     async update(id, updateBoardDto) {
         const updatedboard = await this.boardRepository.update(id, updateBoardDto);

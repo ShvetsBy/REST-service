@@ -45,7 +45,7 @@ let UsersController = class UsersController {
     }
     async update(id, updateUserDto, res) {
         const updatedUser = await this.userService.update(id, updateUserDto);
-        return res.status(http_status_codes_1.StatusCodes.OK).send(updatedUser);
+        res.status(http_status_codes_1.StatusCodes.OK).send(updatedUser);
     }
     async remove(id, res) {
         this.tasksService.clearTasks(id);

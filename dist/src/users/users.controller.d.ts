@@ -9,6 +9,6 @@ export declare class UsersController {
     create(createUserDto: CreateUserDto, res: any): Promise<void>;
     findAll(res: any): Promise<void>;
     findOne(id: string, res: any): Promise<any>;
-    update(id: string, updateUserDto: UpdateUserDto, res: any): Promise<any>;
+    update(id: string, updateUserDto: UpdateUserDto, res: any): Promise<void>;
     remove(id: string, res: any): Promise<void>;
 }

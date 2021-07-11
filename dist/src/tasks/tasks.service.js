@@ -21,16 +21,16 @@ let TasksService = class TasksService {
         this.taskRepository = taskRepository;
     }
     async create(boardId, createTaskDto) {
-        const newTask = this.taskRepository.create(createTaskDto);
-        const savedTask = this.taskRepository.save(newTask);
+        const newTask = await this.taskRepository.create(createTaskDto);
         newTask.boardId = boardId;
+        const savedTask = await this.taskRepository.save(newTask);
         return savedTask;
     }
     async findAll(boardId) {
-        return this.taskRepository.find({ where: { boardId } });
+        return await this.taskRepository.find({ where: { boardId } });
     }
     async findOne(boardId, id) {
-        return this.taskRepository.findOne(id, { where: { boardId } });
+        return await this.taskRepository.findOne(id, { where: { boardId } });
     }
     async update(id, updateTaskDto) {
         const updatedTask = await this.taskRepository.update(id, updateTaskDto);
@@ -41,7 +41,7 @@ let TasksService = class TasksService {
     }
     async deleteBoardTasks(boardId) {
         try {
-            const tasks = this.findAll(boardId);
+            const tasks = await this.findAll(boardId);
             if (tasks) {
                 (await tasks).map((task) => {
                     if (task.boardId === boardId) {

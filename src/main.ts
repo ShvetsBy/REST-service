@@ -18,12 +18,12 @@ import {
 async function bootstrap() {
   // if (process.env.USE_FASTIFY === 'true') {
   // } else console.log('express');
-  //const app = await NestFactory.create(AppModule);
+  const app = await NestFactory.create(AppModule);
 
-  const app = await NestFactory.create<NestFastifyApplication>(
-    AppModule,
-    new FastifyAdapter()
-  );
+  // const app = await NestFactory.create<NestFastifyApplication>(
+  //   AppModule,
+  //   new FastifyAdapter()
+  // );
 
   app.use(helmet());
   app.useGlobalFilters(new HttpExceptionFilter());

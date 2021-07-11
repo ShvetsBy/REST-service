@@ -6,9 +6,8 @@ const nestjs_winston_logger_1 = require("nestjs-winston-logger");
 const helmet = require("helmet");
 const globalLogger_1 = require("../src/utils/logger/globalLogger");
 const http_exception_filter_1 = require("./errors/http-exception.filter");
-const platform_fastify_1 = require("@nestjs/platform-fastify");
 async function bootstrap() {
-    const app = await core_1.NestFactory.create(app_module_1.AppModule, new platform_fastify_1.FastifyAdapter());
+    const app = await core_1.NestFactory.create(app_module_1.AppModule);
     app.use(helmet());
     app.useGlobalFilters(new http_exception_filter_1.HttpExceptionFilter());
     app.useLogger(globalLogger_1.globalLogger);

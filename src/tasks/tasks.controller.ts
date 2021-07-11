@@ -8,6 +8,7 @@ import {
   Delete,
   UseGuards,
   HttpCode,
+  Res,
 } from '@nestjs/common';
 import { TasksService } from './tasks.service';
 import { CreateTaskDto } from './dto/create-task.dto';
@@ -21,45 +22,52 @@ export class TasksController {
   constructor(private readonly tasksService: TasksService) {}
 
   @Post()
-  @HttpCode(StatusCodes.CREATED)
   async create(
     @Param('boardId') boardId: string,
-    @Body() createTaskDto: CreateTaskDto
+    @Body() createTaskDto: CreateTaskDto,
+    @Res() res
   ) {
-    return this.tasksService.create(boardId, createTaskDto);
+    const newTask = await this.tasksService.create(boardId, createTaskDto);
+    res.status(StatusCodes.CREATED).send(newTask);
   }
 
   @Get()
-  @HttpCode(StatusCodes.OK)
-  async findAll(@Param('boardId') boardId: string) {
+  async findAll(@Param('boardId') boardId: string, @Res() res) {
     const tasks = await this.tasksService.findAll(boardId);
     if (tasks) {
-      return tasks;
+      res.status(StatusCodes.OK).send(tasks);
     } else {
       throw new NotFound('Tasks');
     }
   }
 
   @Get(':id')
-  @HttpCode(StatusCodes.OK)
-  async findOne(@Param('boardId') boardId: string, @Param('id') id: string) {
+  async findOne(
+    @Param('boardId') boardId: string,
+    @Param('id') id: string,
+    @Res() res
+  ) {
     const task = await this.tasksService.findOne(boardId, id);
     if (task) {
-      return task;
+      res.status(StatusCodes.OK).send(task);
     } else {
       throw new NotFound('Task');
     }
   }
 
   @Put(':id')
-  @HttpCode(StatusCodes.OK)
-  async update(@Param('id') id: string, @Body() updateTaskDto: UpdateTaskDto) {
-    return this.tasksService.update(id, updateTaskDto);
+  async update(
+    @Param('id') id: string,
+    @Body() updateTaskDto: UpdateTaskDto,
+    @Res() res
+  ) {
+    const updatedTask = await this.tasksService.update(id, updateTaskDto);
+    res.status(StatusCodes.OK).send(updatedTask);
   }
 
   @Delete(':id')
-  @HttpCode(StatusCodes.NO_CONTENT)
-  async remove(@Param('id') id: string) {
-    return this.tasksService.remove(id);
+  async remove(@Param('id') id: string, @Res() res) {
+    await this.tasksService.remove(id);
+    res.status(StatusCodes.NO_CONTENT).send();
   }
 }
