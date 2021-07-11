@@ -8,7 +8,6 @@ import {
   Put,
   Res,
   UseGuards,
-  HttpCode,
 } from '@nestjs/common';
 import { NotFound } from 'src/errors/not-found.error';
 import { BoardsService } from './boards.service';

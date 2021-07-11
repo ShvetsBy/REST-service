@@ -28,7 +28,7 @@ async function bootstrap() {
     app.use(morganRequestLogger(globalLogger));
     app.use(morganResponseLogger(globalLogger));
     app.useGlobalInterceptors(new LoggingInterceptor(globalLogger));
-    console.log('fast')
+    console.log('fast');
     await app.listen(process.env.PORT);
   } else {
     const app = await NestFactory.create(AppModule);

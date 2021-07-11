@@ -6,7 +6,6 @@ import {
   Param,
   Delete,
   Put,
-  HttpCode,
   UseGuards,
   Res,
 } from '@nestjs/common';
@@ -17,7 +16,7 @@ import { NotFound } from 'src/errors/not-found.error';
 import { TasksService } from '../tasks/tasks.service';
 import { AuthGuard } from '../auth/auth.guard';
 import { StatusCodes } from 'http-status-codes';
-import { User } from '../users/entities/user.entity'
+import { User } from '../users/entities/user.entity';
 
 @Controller('users')
 @UseGuards(AuthGuard)
@@ -43,7 +42,7 @@ export class UsersController {
   async findOne(@Param('id') id: string, @Res() res) {
     const user = await this.userService.findOne(id);
     if (user) {
-      return res.status(StatusCodes.OK).send(user);
+      return res.status(StatusCodes.OK).send(User.toResponce(user));
     } else {
       throw new NotFound('User');
     }

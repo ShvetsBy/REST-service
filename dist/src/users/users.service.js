@@ -24,8 +24,8 @@ let UserService = class UserService {
         const savedUser = await this.userRepository.save(newUser);
         return savedUser;
     }
-    findAll() {
-        return this.userRepository.find();
+    async findAll() {
+        return await this.userRepository.find();
     }
     async findOne(id) {
         return await this.userRepository.findOne(id);

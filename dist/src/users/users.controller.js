@@ -38,7 +38,7 @@ let UsersController = class UsersController {
     async findOne(id, res) {
         const user = await this.userService.findOne(id);
         if (user) {
-            return res.status(http_status_codes_1.StatusCodes.OK).send(user);
+            return res.status(http_status_codes_1.StatusCodes.OK).send(user_entity_1.User.toResponce(user));
         }
         else {
             throw new not_found_error_1.NotFound('User');

@@ -7,7 +7,6 @@ import {
   Param,
   Delete,
   UseGuards,
-  HttpCode,
   Res,
 } from '@nestjs/common';
 import { TasksService } from './tasks.service';
