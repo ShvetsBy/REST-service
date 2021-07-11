@@ -100,6 +100,7 @@ __decorate([
 ], TasksController.prototype, "remove", null);
 TasksController = __decorate([
     common_1.Controller('boards/:boardId/tasks'),
+    common_1.UseGuards(auth_guard_1.AuthGuard),
     __metadata("design:paramtypes", [tasks_service_1.TasksService])
 ], TasksController);
 exports.TasksController = TasksController;

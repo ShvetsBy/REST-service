@@ -20,7 +20,7 @@ import { StatusCodes } from 'http-status-codes';
 import { User } from '../users/entities/user.entity'
 
 @Controller('users')
-// @UseGuards(AuthGuard)
+@UseGuards(AuthGuard)
 export class UsersController {
   constructor(
     private readonly userService: UserService,

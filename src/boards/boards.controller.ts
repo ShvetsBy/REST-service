@@ -18,7 +18,7 @@ import { TasksService } from '../tasks/tasks.service';
 import { AuthGuard } from '../auth/auth.guard';
 import { StatusCodes } from 'http-status-codes';
 @Controller('boards')
-// @UseGuards(AuthGuard)
+@UseGuards(AuthGuard)
 export class BoardsController {
   constructor(
     private readonly boardService: BoardsService,
