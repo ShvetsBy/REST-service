@@ -12,12 +12,13 @@ exports.databaseProviders = [
         imports: [config_1.ConfigModule],
         useFactory: async (configService) => await typeorm_1.createConnection({
             type: 'postgres',
-            host: configService.get('POSTGRES_HOST'),
-            port: configService.get('POSTGRES_PORT'),
-            username: configService.get('POSTGRES_USER'),
-            password: configService.get('POSTGRES_PASS'),
-            database: configService.get('POSTGRES_NAME'),
+            host: 'localhost',
+            port: 5432,
+            username: 'postgres',
+            password: 'postgres',
+            database: 'postgres',
             entities: [user_entity_1.User, board_entity_1.Board, task_entity_1.Task],
+            synchronize: false,
             migrationsTableName: 'REST-service',
             migrations: ['../migrations/**/*{.ts,.js}'],
             cli: {

@@ -19,7 +19,6 @@ const boards_service_1 = require("./boards.service");
 const createboard_dto_1 = require("./dto/createboard.dto");
 const updateboard_dto_1 = require("./dto/updateboard.dto");
 const tasks_service_1 = require("../tasks/tasks.service");
-const auth_guard_1 = require("../auth/auth.guard");
 const http_status_codes_1 = require("http-status-codes");
 let BoardsController = class BoardsController {
     constructor(boardService, tasksService) {
@@ -97,7 +96,6 @@ __decorate([
 ], BoardsController.prototype, "remove", null);
 BoardsController = __decorate([
     common_1.Controller('boards'),
-    common_1.UseGuards(auth_guard_1.AuthGuard),
     __metadata("design:paramtypes", [boards_service_1.BoardsService,
         tasks_service_1.TasksService])
 ], BoardsController);

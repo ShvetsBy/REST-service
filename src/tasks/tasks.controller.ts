@@ -16,7 +16,7 @@ import { NotFound } from '../errors/not-found.error';
 import { AuthGuard } from 'src/auth/auth.guard';
 import { StatusCodes } from 'http-status-codes';
 @Controller('boards/:boardId/tasks')
-@UseGuards(AuthGuard)
+// @UseGuards(AuthGuard)
 export class TasksController {
   constructor(private readonly tasksService: TasksService) {}
 

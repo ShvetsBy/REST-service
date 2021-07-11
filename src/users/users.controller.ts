@@ -8,6 +8,7 @@ import {
   Put,
   HttpCode,
   UseGuards,
+  Res,
 } from '@nestjs/common';
 import { UserService } from './users.service';
 import { CreateUserDto } from './dto/create-user.dto';
@@ -16,9 +17,10 @@ import { NotFound } from 'src/errors/not-found.error';
 import { TasksService } from '../tasks/tasks.service';
 import { AuthGuard } from '../auth/auth.guard';
 import { StatusCodes } from 'http-status-codes';
+import { User } from '../users/entities/user.entity'
 
 @Controller('users')
-@UseGuards(AuthGuard)
+// @UseGuards(AuthGuard)
 export class UsersController {
   constructor(
     private readonly userService: UserService,
@@ -26,39 +28,41 @@ export class UsersController {
   ) {}
 
   @Post()
-  @HttpCode(StatusCodes.CREATED)
-  async create(@Body() createUserDto: CreateUserDto) {
-    const newUser = this.userService.create(createUserDto);
-    return CreateUserDto.toResponce(await newUser);
+  async create(@Body() createUserDto: CreateUserDto, @Res() res) {
+    const newUser = await this.userService.create(createUserDto);
+    res.status(StatusCodes.CREATED).send(User.toResponce(newUser));
   }
 
   @Get()
-  @HttpCode(StatusCodes.OK)
-  async findAll() {
-    return this.userService.findAll();
+  async findAll(@Res() res) {
+    const users = await this.userService.findAll();
+    res.status(StatusCodes.OK).send(users);
   }
 
   @Get(':id')
-  @HttpCode(StatusCodes.OK)
-  async findOne(@Param('id') id: string) {
+  async findOne(@Param('id') id: string, @Res() res) {
     const user = await this.userService.findOne(id);
     if (user) {
-      return CreateUserDto.toResponce(await user);
+      return res.status(StatusCodes.OK).send(user);
     } else {
       throw new NotFound('User');
     }
   }
 
   @Put(':id')
-  @HttpCode(StatusCodes.OK)
-  async update(@Param('id') id: string, @Body() updateUserDto: UpdateUserDto) {
-    return this.userService.update(id, updateUserDto);
+  async update(
+    @Param('id') id: string,
+    @Body() updateUserDto: UpdateUserDto,
+    @Res() res
+  ) {
+    const updatedUser = await this.userService.update(id, updateUserDto);
+    return res.status(StatusCodes.OK).send(updatedUser);
   }
 
   @Delete(':id')
-  @HttpCode(StatusCodes.NO_CONTENT)
-  async remove(@Param('id') id: string) {
+  async remove(@Param('id') id: string, @Res() res) {
     this.tasksService.clearTasks(id);
-    return this.userService.remove(id);
+    this.userService.remove(id);
+    res.status(StatusCodes.NO_CONTENT).send();
   }
 }

@@ -16,8 +16,8 @@ export class AuthController {
       loginDto.password
     );
     if (!newToken) {
-      res.status(StatusCodes.FORBIDDEN).json(ReasonPhrases.FORBIDDEN);
+      res.status(StatusCodes.FORBIDDEN).send(ReasonPhrases.FORBIDDEN);
     }
-    return res.json({ token: newToken });
+    return res.send({ token: newToken });
   }
 }

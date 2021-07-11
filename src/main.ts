@@ -10,9 +10,21 @@ import {
 import * as helmet from 'helmet';
 import { globalLogger } from '../src/utils/logger/globalLogger';
 import { HttpExceptionFilter } from './errors/http-exception.filter';
+import {
+  FastifyAdapter,
+  NestFastifyApplication,
+} from '@nestjs/platform-fastify';
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule);
+  // if (process.env.USE_FASTIFY === 'true') {
+  // } else console.log('express');
+  //const app = await NestFactory.create(AppModule);
+
+  const app = await NestFactory.create<NestFastifyApplication>(
+    AppModule,
+    new FastifyAdapter()
+  );
+
   app.use(helmet());
   app.useGlobalFilters(new HttpExceptionFilter());
   app.useLogger(globalLogger);
@@ -22,4 +34,5 @@ async function bootstrap() {
   app.useGlobalInterceptors(new LoggingInterceptor(globalLogger));
   await app.listen(process.env.PORT);
 }
+
 bootstrap();

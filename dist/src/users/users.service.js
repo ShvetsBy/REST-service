@@ -20,25 +20,25 @@ let UserService = class UserService {
         this.userRepository = userRepository;
     }
     async create(CreateUserDto) {
-        const newUser = this.userRepository.create(CreateUserDto);
-        const savedUser = this.userRepository.save(newUser);
+        const newUser = await this.userRepository.create(CreateUserDto);
+        const savedUser = await this.userRepository.save(newUser);
         return savedUser;
     }
-    async findAll() {
+    findAll() {
         return this.userRepository.find();
     }
     async findOne(id) {
-        return this.userRepository.findOne(id);
+        return await this.userRepository.findOne(id);
     }
-    async findbyLogin(login) {
+    findbyLogin(login) {
         return this.userRepository.findOne({ where: { login } });
     }
     async update(id, updateUserDto) {
         const updatedUser = await this.userRepository.update(id, updateUserDto);
         return updatedUser.raw;
     }
-    async remove(id) {
-        await this.userRepository.delete(id);
+    remove(id) {
+        this.userRepository.delete(id);
     }
 };
 UserService = __decorate([

@@ -10,5 +10,5 @@ export declare class UserService {
     findOne(id: string): Promise<User>;
     findbyLogin(login: string): Promise<User>;
     update(id: string, updateUserDto: UpdateUserDto): Promise<UpdateUserDto>;
-    remove(id: string): Promise<void>;
+    remove(id: string): void;
 }

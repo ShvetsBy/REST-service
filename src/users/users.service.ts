@@ -11,20 +11,20 @@ export class UserService {
   ) {}
 
   async create(CreateUserDto: CreateUserDto): Promise<CreateUserDto> {
-    const newUser = this.userRepository.create(CreateUserDto);
-    const savedUser = this.userRepository.save(newUser);
+    const newUser = await this.userRepository.create(CreateUserDto);
+    const savedUser = await this.userRepository.save(newUser);
     return savedUser;
   }
 
-  async findAll(): Promise<User[]> {
+  findAll(): Promise<User[]> {
     return this.userRepository.find();
   }
 
   async findOne(id: string) {
-    return this.userRepository.findOne(id);
+    return await this.userRepository.findOne(id);
   }
 
-  async findbyLogin(login: string) {
+  findbyLogin(login: string) {
     return this.userRepository.findOne({ where: { login } });
   }
 
@@ -36,7 +36,7 @@ export class UserService {
     return updatedUser.raw;
   }
 
-  async remove(id: string) {
-    await this.userRepository.delete(id);
+  remove(id: string) {
+    this.userRepository.delete(id);
   }
 }
