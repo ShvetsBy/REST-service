@@ -35,7 +35,7 @@ export class UsersController {
   @Get()
   async findAll(@Res() res) {
     const users = await this.userService.findAll();
-    res.status(StatusCodes.OK).send(users);
+    res.status(StatusCodes.OK).send(users.map(User.toResponce));
   }
 
   @Get(':id')

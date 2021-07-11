@@ -33,7 +33,7 @@ let UsersController = class UsersController {
     }
     async findAll(res) {
         const users = await this.userService.findAll();
-        res.status(http_status_codes_1.StatusCodes.OK).send(users);
+        res.status(http_status_codes_1.StatusCodes.OK).send(users.map(user_entity_1.User.toResponce));
     }
     async findOne(id, res) {
         const user = await this.userService.findOne(id);
