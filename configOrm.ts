@@ -10,11 +10,12 @@ const config = {
   username: process.env.POSTGRES_USER || 'postgres',
   password: process.env.POSTGRES_PASS || 'postgres',
   database: process.env.POSTGRES_NAME || 'postgres',
+  synchronize: false,
+  migrationsRun: true,
   entities: [User, Board, Task],
-  migrationsTableName: 'REST-service',
-  migrations: [__dirname + '../migrations/**/*{.ts,.js}'],
+  migrations: ['dist/src/migrations/*.js'],
   cli: {
-    migrationsDir: 'src/migrations',
+    migrationsDir: './src/migrations',
   },
 } as ConnectionOptions;
 
