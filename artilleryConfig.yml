@@ -1,0 +1,41 @@
+config:
+  target: 'http://localhost:4000'
+
+  phases:
+    - duration: 30
+      arrivalRate: 1
+      rampTo: 20
+      name: test1
+
+  plugins:
+    expect: {}
+
+scenarios:
+  - name: 'Users testing'
+    flow:
+      - post:
+          url: '/users'
+          headers:
+            Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0MDA1MmUwYS02NDRlLTRmMzUtYmY2ZS00OWU2N2Q4N2RhZDgiLCJsb2dpbiI6ImFkbWluIiwiaWF0IjoxNjI1OTkxMjM2fQ.nrSA4p2_IuO2tGW3j7k2xCZvib9tCw_mioyiaebnXHA
+          json:
+            name: mockName
+            login: mockLogin
+            password: 123
+          expect:
+            - statusCode: 201
+
+      - get:
+          url: '/users'
+          headers:
+            Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0MDA1MmUwYS02NDRlLTRmMzUtYmY2ZS00OWU2N2Q4N2RhZDgiLCJsb2dpbiI6ImFkbWluIiwiaWF0IjoxNjI1OTkxMjM2fQ.nrSA4p2_IuO2tGW3j7k2xCZvib9tCw_mioyiaebnXHA
+          expect:
+            - statusCode: 200
+
+      - put:
+          url: '/users'
+          headers:
+            Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI0MDA1MmUwYS02NDRlLTRmMzUtYmY2ZS00OWU2N2Q4N2RhZDgiLCJsb2dpbiI6ImFkbWluIiwiaWF0IjoxNjI1OTkxMjM2fQ.nrSA4p2_IuO2tGW3j7k2xCZvib9tCw_mioyiaebnXHA
+          json:
+            id: value
+          expect:
+            - statusCode: 200

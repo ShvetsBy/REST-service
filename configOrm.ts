@@ -1,29 +1,22 @@
+import { Task } from './src/tasks/entities/task.entity';
+import { Board } from './src/boards/entities/board.entity';
+import { User } from './src/users/entities/user.entity';
 import { ConnectionOptions } from 'typeorm';
-import dotenv from 'dotenv';
-import path from 'path';
-import { User } from './src/resources/entities/user.intity';
-import { Board } from './src/resources/entities/board.entity';
-import { Task } from './src/resources/entities/task.entity';
-
-dotenv.config({
-  path: path.join(__dirname, '../../.env'),
-});
 
 const config = {
   type: 'postgres',
-  host: process.env['POSTGRES_HOST'],
-  port: process.env['POSTGRES_PORT'],
-  username: process.env['POSTGRES_USER'],
-  password: process.env['POSTGRES_PASS'],
-  database: process.env['POSTGRES_NAME'],
+  host: process.env.POSTGRES_HOST || 'localhost',
+  port: parseInt(process.env.POSTGRES_PORT) || 5432,
+  username: process.env.POSTGRES_USER || 'postgres',
+  password: process.env.POSTGRES_PASS || 'postgres',
+  database: process.env.POSTGRES_NAME || 'postgres',
   synchronize: false,
+  migrationsRun: true,
   entities: [User, Board, Task],
-  migrationsTableName: 'REST-service',
-  migrations: [path.join(__dirname, '../migrations/**/*{.ts,.js}')],
+  migrations: ['dist/src/migrations/*.js'],
   cli: {
-    migrationsDir: '/src/migrations',
+    migrationsDir: './src/migrations',
   },
-
 } as ConnectionOptions;
 
 export default config;
